@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+@theme {
+  --color-magenta: #B71E6C;
+  --color-magenta-light: #D4448A;
+  --color-teal: #00BBBE;
+  --color-teal-light: #33CACB;
+  --color-carbon: #242424;
+  --color-cream: #F7F3F0;
+  --font-sans: var(--font-montserrat), Montserrat, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
