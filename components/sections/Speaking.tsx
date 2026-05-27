@@ -25,9 +25,9 @@ const events = [
 ];
 
 const videos = [
-  { src: "/videos/rehda-sharing.mp4", title: "Rehda Institute Sharing", subtitle: "Digital Marketing Transformation, Nov 2025" },
-  { src: "/videos/resource-conference.mp4", title: "Re:source APAC Panel", subtitle: "Malaysia to ASEAN: Replicating What Works" },
-  { src: "/videos/galaxy-exchange.mp4", title: "Galaxy Exchange Event", subtitle: "Brand Launch for Galaxy Avenue" },
+  { src: "https://pub-4a51606b717f484cb62b009072283a76.r2.dev/CL%20Shortlisted%20videos/Rehda%20Sharing%20Nov%202025.mp4", title: "Rehda Institute Sharing", subtitle: "Digital Marketing Transformation, Nov 2025" },
+  { src: "https://pub-4a51606b717f484cb62b009072283a76.r2.dev/CL%20Shortlisted%20videos/Resource%20Conference%20Panel.mp4", title: "Re:source APAC Panel", subtitle: "Malaysia to ASEAN: Replicating What Works" },
+  { src: "https://pub-4a51606b717f484cb62b009072283a76.r2.dev/CL%20Shortlisted%20videos/Galaxy%20Exchange%20Event.mp4", title: "Galaxy Exchange Event", subtitle: "Brand Launch for Galaxy Avenue" },
 ];
 
 function VideoCard({ src, title, subtitle }: { src: string; title: string; subtitle: string }) {
