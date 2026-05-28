@@ -115,8 +115,8 @@ export default function Speaking() {
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-carbon/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                <div className="absolute inset-0 bg-gradient-to-t from-carbon/80 to-transparent md:opacity-0 md:group-hover:opacity-100 transition-opacity" />
+                <div className="absolute bottom-0 left-0 right-0 p-4 md:translate-y-2 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 transition-all duration-300">
                   <p className="text-white font-semibold text-sm leading-tight">{e.event}</p>
                   <p className="text-white/60 text-xs">{e.location}</p>
                 </div>
@@ -129,7 +129,7 @@ export default function Speaking() {
         <FadeIn delay={0.1}>
           <h3 className="text-carbon text-2xl font-black mb-6">Watch CL in Action</h3>
         </FadeIn>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 items-start">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 items-start">
           {videos.map((v, i) => (
             <FadeIn key={v.title} delay={i * 0.1}>
               <VideoCard {...v} />

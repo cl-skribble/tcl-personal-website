@@ -120,10 +120,14 @@ export default function Awards() {
           </div>
         </FadeIn>
 
-        <div className="flex gap-5 overflow-x-auto pb-4 lg:grid lg:grid-cols-5 lg:overflow-visible snap-x snap-mandatory lg:snap-none -mx-6 px-6 lg:mx-0 lg:px-0">
-          {awards.map((a, i) => (
-            <AwardCard key={a.title} a={a} delay={i * 0.08} />
-          ))}
+        <div className="relative">
+          <div className="flex gap-5 overflow-x-auto pb-4 lg:grid lg:grid-cols-5 lg:overflow-visible snap-x snap-mandatory lg:snap-none -mx-6 px-6 lg:mx-0 lg:px-0">
+            {awards.map((a, i) => (
+              <AwardCard key={a.title} a={a} delay={i * 0.08} />
+            ))}
+          </div>
+          {/* Right-fade scroll hint — mobile only */}
+          <div className="absolute top-0 right-0 bottom-4 w-16 bg-gradient-to-l from-carbon to-transparent pointer-events-none lg:hidden" />
         </div>
 
         <FadeIn delay={0.4}>

@@ -188,7 +188,7 @@ export default function Press() {
         {/* Logo grid */}
         <FadeIn delay={0.1}>
           <div className="mb-16 border-y border-carbon/8 py-8">
-            <div className="grid grid-cols-4 md:grid-cols-6 gap-2">
+            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2">
               {outlets.map((o) =>
                 o.image !== undefined ? (
                   <ImageOutletLogo key={o.name} outlet={o as ImageOutlet} />

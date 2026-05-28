@@ -67,7 +67,7 @@ export default function About() {
               </div>
 
               {/* Credential list */}
-              <div className="grid grid-cols-2 gap-3 mb-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
                 {credentials.map((c) => (
                   <div key={c.label} className="bg-white rounded-xl p-4">
                     <p className="text-[10px] font-semibold uppercase tracking-wider text-carbon/40 mb-1">{c.label}</p>

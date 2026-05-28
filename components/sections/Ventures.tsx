@@ -49,8 +49,8 @@ export default function Ventures() {
               className="rounded-3xl p-8 lg:p-10 h-full flex flex-col relative overflow-hidden"
               style={{
                 background: "rgba(183, 30, 108, 0.12)",
-                backdropFilter: "blur(24px)",
-                WebkitBackdropFilter: "blur(24px)",
+                backdropFilter: "blur(12px)",
+                WebkitBackdropFilter: "blur(12px)",
                 border: "1px solid rgba(183, 30, 108, 0.35)",
                 boxShadow: "0 8px 40px rgba(183,30,108,0.25), inset 0 1px 0 rgba(255,255,255,0.12)",
               }}

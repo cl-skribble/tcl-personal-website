@@ -30,7 +30,7 @@ export default function Hero() {
         muted
         loop
         playsInline
-        preload="auto"
+        preload="metadata"
         src="/videos/hero-cinematic.mp4"
         className="absolute inset-0 w-full h-full object-cover object-[70%_center]"
       />
