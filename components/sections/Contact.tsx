@@ -136,7 +136,7 @@ export default function Contact() {
 
               <div className="relative flex items-center gap-4 mb-6">
                 <div className="w-24 h-24 rounded-2xl bg-white/10 flex items-center justify-center border border-white/20">
-                  <Image src="/images/cl-mark.png" alt="CL" width={80} height={80}
+                  <Image src="/images/cl-mark.png" alt="CL" width={56} height={56}
                     className="object-contain opacity-90"/>
                 </div>
                 <div>

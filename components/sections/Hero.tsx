@@ -149,8 +149,8 @@ export default function Hero() {
               <Image
                 src="/images/cl-mark.png"
                 alt="CL"
-                width={88}
-                height={88}
+                width={62}
+                height={62}
                 className="object-contain opacity-90"
               />
               <span className="text-blueprint-cyan text-xs font-semibold uppercase tracking-[0.25em]">
