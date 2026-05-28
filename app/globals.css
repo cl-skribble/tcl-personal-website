@@ -1,15 +1,74 @@
 @import "tailwindcss";
 
 @theme {
-  --color-magenta: #B71E6C;
-  --color-magenta-light: #D4448A;
-  --color-teal: #00BBBE;
-  --color-teal-light: #33CACB;
-  --color-carbon: #242424;
-  --color-cream: #F7F3F0;
-  --font-sans: var(--font-montserrat), Montserrat, sans-serif;
+  /* ── New canonical names ── */
+  --color-catalyst-blue:    #0052cc;
+  --color-catalyst-blue-l:  #1a68e0;
+  --color-catalyst-blue-d:  #003d99;
+  --color-catalyst-navy:    #0b192c;
+  --color-catalyst-navy-l:  #0f2340;
+  --color-slate-gray:       #4a5568;
+  --color-slate-gray-l:     #64748b;
+  --color-warm-white:       #faf8f5;
+  --color-blueprint-cyan:   #0ea5e9;
+
+  /* ── Legacy name remaps (existing class names auto-update) ──
+     magenta → Catalyst Blue  |  teal → Blueprint Cyan
+     carbon  → Catalyst Navy  |  cream → Warm White            */
+  --color-magenta:       #0052cc;
+  --color-magenta-light: #1a68e0;
+  --color-teal:          #0ea5e9;
+  --color-teal-light:    #38bdf8;
+  --color-carbon:        #0b192c;
+  --color-cream:         #faf8f5;
+
+  --font-sans: var(--font-inter), Inter, -apple-system, sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+/* ── Blueprint grid utility (applied via className) ── */
+.blueprint-grid {
+  background-image:
+    linear-gradient(rgba(74, 85, 104, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(74, 85, 104, 0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.blueprint-grid-fine {
+  background-image:
+    linear-gradient(rgba(74, 85, 104, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(74, 85, 104, 0.07) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* ── Kinetic light sweep ── */
+@keyframes kinetic-sweep {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.18; }
+  50%       { opacity: 0.30; }
+}
+
+@keyframes float-node {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+
+@keyframes scroll-bounce {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(6px); }
+}
+
+.kinetic-sweep {
+  animation: kinetic-sweep 8s linear infinite;
+}
+
+.glow-pulse {
+  animation: glow-pulse 4s ease-in-out infinite;
 }
