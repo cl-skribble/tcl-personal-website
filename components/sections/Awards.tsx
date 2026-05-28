@@ -5,7 +5,7 @@ import FadeIn from "@/components/FadeIn";
 
 const awards = [
   { year: "2024", medal: "Gold",      medalColor: "#F59E0B", title: "Best Agency Culture",         org: "Agency of the Year Awards 2024", orgShort: "AOTY",    image: "/images/awards/aoty-2024.png",       imgBg: "#1a0203" },
-  { year: "2024", medal: "40 Under 40", medalColor: "#0052cc", title: "Prestige 40 Under 40",       org: "Prestige Malaysia",             orgShort: "PRESTIGE", image: "/images/awards/prestige-40u40.png", imgBg: "#000000" },
+  { year: "2024", medal: "40 Under 40", medalColor: "#0052cc", title: "Prestige 40 Under 40",       org: "Prestige Malaysia",             orgShort: "PRESTIGE", image: "/images/awards/prestige-award.jpg", imgBg: "#1a1a2e" },
   { year: "2024", medal: "Silver",    medalColor: "#9CA3AF", title: "Best Employer",               org: "Star Outstanding Business Awards", orgShort: "SOBA",  image: "/images/awards/soba.png",           imgBg: "#A01525" },
   { year: "2023", medal: "Bronze",    medalColor: "#B45309", title: "Agency Leader of the Year",   org: "Agency of the Year Awards 2023", orgShort: "AOTY",    image: "/images/awards/aoty-2023.png",       imgBg: "#1a0203" },
   { year: "2022", medal: "Bronze",    medalColor: "#B45309", title: "Best in Marketing Innovation", org: "The Appies Awards",             orgShort: "APPIES",   image: "/images/awards/appies.png",          imgBg: "#f0f0f0" },
@@ -66,7 +66,7 @@ function AwardCard({ a, delay }: { a: typeof awards[0]; delay: number }) {
         >
           {!imgError ? (
             <img src={a.image} alt={a.org} onError={() => setImgError(true)}
-              className="w-full h-full object-cover"/>
+              className={`w-full h-full object-cover ${a.image.includes("prestige-award") ? "object-top" : "object-center"}`}/>
           ) : (
             <p className="font-black text-xl tracking-widest opacity-30" style={{ color: a.medalColor }}>
               {a.orgShort}

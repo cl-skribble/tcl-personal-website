@@ -149,9 +149,9 @@ export default function Hero() {
               <Image
                 src="/images/cl-mark.png"
                 alt="CL"
-                width={44}
-                height={44}
-                className="object-contain brightness-0 invert opacity-90"
+                width={88}
+                height={88}
+                className="object-contain opacity-90"
               />
               <span className="text-blueprint-cyan text-xs font-semibold uppercase tracking-[0.25em]">
                 CEO · Skribble Group &nbsp;·&nbsp; Founder · SAMA

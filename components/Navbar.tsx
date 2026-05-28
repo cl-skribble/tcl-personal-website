@@ -43,26 +43,17 @@ export default function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-16">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-20">
 
         {/* CL logomark */}
-        <a href="#" className="flex items-center gap-2.5 group">
+        <a href="#" className="flex items-center group transition-opacity duration-300 opacity-90 hover:opacity-100">
           <Image
             src="/images/cl-mark.png"
             alt="CL — Teng Chan Leong"
-            width={36}
-            height={36}
-            className={`object-contain transition-all duration-300 ${
-              scrolled ? "brightness-0 invert opacity-90" : "brightness-0 invert opacity-95"
-            }`}
+            width={108}
+            height={108}
+            className="object-contain"
           />
-          <span
-            className={`text-xs font-semibold tracking-[0.18em] uppercase transition-colors duration-300 ${
-              scrolled ? "text-warm-white/60" : "text-white/50"
-            }`}
-          >
-            TCL
-          </span>
         </a>
 
         {/* Desktop nav */}

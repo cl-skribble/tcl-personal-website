@@ -135,9 +135,9 @@ export default function Contact() {
                 style={{ background: "linear-gradient(135deg, rgba(255,255,255,0.08) 0%, transparent 55%)" }}/>
 
               <div className="relative flex items-center gap-4 mb-6">
-                <div className="w-16 h-16 rounded-2xl overflow-hidden bg-white/15 flex items-center justify-center border border-white/20">
-                  <Image src="/images/cl-mark.png" alt="CL" width={40} height={40}
-                    className="object-contain brightness-0 invert opacity-85"/>
+                <div className="w-24 h-24 rounded-2xl bg-white/10 flex items-center justify-center border border-white/20">
+                  <Image src="/images/cl-mark.png" alt="CL" width={80} height={80}
+                    className="object-contain opacity-90"/>
                 </div>
                 <div>
                   <p className="text-white font-bold text-base">Teng Chan Leong</p>
