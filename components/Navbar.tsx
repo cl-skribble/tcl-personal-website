@@ -46,12 +46,12 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-16">
 
         {/* CL logomark */}
-        <a href="#" className="flex items-center group transition-opacity duration-300 opacity-90 hover:opacity-100">
+        <a href="#" className="flex items-center group transition-opacity duration-300 opacity-90 hover:opacity-100 outline-none focus-visible:outline-none">
           <Image
             src="/images/cl-mark.png"
             alt="CL — Teng Chan Leong"
-            width={76}
-            height={76}
+            width={46}
+            height={46}
             className="object-contain"
           />
         </a>

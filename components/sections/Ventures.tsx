@@ -66,6 +66,7 @@ export default function Ventures() {
   return (
     <section id="ventures" className="py-24 lg:py-32 relative overflow-hidden" style={{ background: "#08111e" }}>
 
+
       {/* Background ambient orbs */}
       <div className="absolute top-[-80px] left-[5%]  w-96 h-96 rounded-full opacity-35 blur-[80px] glow-pulse pointer-events-none" style={{ background: "#0052cc" }}/>
       <div className="absolute bottom-[-60px] left-[15%] w-80 h-80 rounded-full opacity-25 blur-[70px] glow-pulse pointer-events-none" style={{ animationDelay: "2s", background: "#0ea5e9" }}/>

@@ -126,7 +126,8 @@ export default function Press() {
   const categories = ["2023", "2024", "2025"];
 
   return (
-    <section id="press" className="py-24 lg:py-32 bg-warm-white blueprint-grid-fine">
+    <section id="press" className="py-24 lg:py-32 bg-warm-white blueprint-grid-fine relative overflow-hidden">
+
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
 
         <FadeIn>
@@ -178,21 +179,6 @@ export default function Press() {
             </FadeIn>
           ))}
         </div>
-
-        {/* Coverage timeline */}
-        <FadeIn delay={0.3}>
-          <div className="bg-white border border-slate-gray/12 rounded-2xl p-7 mb-10">
-            <p className="text-slate-gray/45 text-xs font-semibold uppercase tracking-wider mb-4">Media Coverage Timeline</p>
-            <div className="grid grid-cols-3 gap-6 text-center">
-              {["2022–2023", "2024", "2025–2026"].map((period, i) => (
-                <div key={period}>
-                  <p className="text-catalyst-navy font-black text-2xl">{["5+", "10+", "8+"][i]}</p>
-                  <p className="text-slate-gray/50 text-xs mt-1">{period}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </FadeIn>
 
         {/* Expandable full list */}
         <FadeIn delay={0.35}>
