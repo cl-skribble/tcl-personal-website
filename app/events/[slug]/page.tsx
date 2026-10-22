@@ -3,6 +3,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import PageShell from "@/components/events/PageShell";
 import RsvpForm from "@/components/events/RsvpForm";
+import PromoCode from "@/components/events/PromoCode";
 import {
   calendarUrl, events, fmtDate, fmtTime, getEvent, isPast, rsvpOpen,
 } from "@/lib/events";
@@ -53,7 +54,8 @@ export default async function EventPage({ params }: { params: Promise<{ slug: st
             </div>
             {e.poster && (
               <a href={e.poster} target="_blank" rel="noopener noreferrer"
-                className="group relative block mt-10 w-full max-w-[420px] aspect-[4/5] overflow-hidden rounded-2xl border border-white/10"
+                style={{ aspectRatio: e.posterRatio ?? 0.8 }}
+                className="group relative block mt-10 w-full max-w-[420px] overflow-hidden rounded-2xl border border-white/10"
                 aria-label={`Open ${e.title} poster full size`}>
                 <Image
                   src={e.poster}
@@ -75,7 +77,7 @@ export default async function EventPage({ params }: { params: Promise<{ slug: st
           <aside className="space-y-6">
             <dl className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 space-y-5">
               <Fact k="Date">{fmtDate(e.start)}</Fact>
-              <Fact k="Time">{e.timeTbc ? "To be announced" : `${fmtTime(e.start)} – ${fmtTime(e.end)} (MYT)`}</Fact>
+              <Fact k="Time">{e.timeLabel ?? (e.timeTbc ? "To be announced" : `${fmtTime(e.start)} – ${fmtTime(e.end)} (MYT)`)}</Fact>
               <Fact k="Venue">
                 {e.venueUrl ? (
                   <a href={e.venueUrl} target="_blank" rel="noopener noreferrer" className="underline decoration-white/30 underline-offset-4 hover:decoration-white">
@@ -93,6 +95,7 @@ export default async function EventPage({ params }: { params: Promise<{ slug: st
               )}
             </dl>
 
+            {e.promoCode && !past && <PromoCode code={e.promoCode} note={e.promoNote} />}
             {e.externalUrl && (
               <a href={e.externalUrl} target="_blank" rel="noopener noreferrer"
                 className="block text-center bg-catalyst-blue text-white font-semibold text-[15px] px-6 py-3.5 rounded-full hover:bg-catalyst-blue-l transition-colors">

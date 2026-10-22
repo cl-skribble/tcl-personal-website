@@ -26,11 +26,19 @@ export type SiteEvent = {
   /** Event hosted elsewhere: detail page gets a button linking out. */
   externalUrl?: string;
   externalLabel?: string;
+  /** Promo code shown on the card and detail page. */
+  promoCode?: string;
+  /** What the code gives, e.g. "15% off your pass". */
+  promoNote?: string;
   /** e.g. "Members", "Open to all", "Invite only" */
   audience: string;
   rsvp: EventRsvp;
-  /** Optional poster (4:5 portrait, in /public). Cards and detail page adapt when absent. */
+  /** Optional poster in /public. Cards and detail page adapt when absent. */
   poster?: string;
+  /** Poster width / height. Default 0.8 (4:5 portrait); use 1 for square. */
+  posterRatio?: number;
+  /** Replaces the "start – end" clock text when the exact range isn't known. */
+  timeLabel?: string;
   /** Past events: optional recap link (LinkedIn post, album, slides). */
   recapUrl?: string;
   /** Dummy entries, delete when real events replace them. */
@@ -79,48 +87,32 @@ export const events: SiteEvent[] = [
     rsvp: { required: false },
     externalUrl: "https://www.thebeyondfest.com",
     externalLabel: "Get passes on thebeyondfest.com",
+    promoCode: "BF26SAMA15",
+    promoNote: "15% off your pass",
+    poster: "/images/events/beyondfest-2026-poster.jpg",
   },
 
-  /* ── Placeholders below: structure demo only. Replace or delete. ── */
+  /* Past events */
   {
-    slug: "sample-upcoming-founders-roundtable",
-    title: "Sample: Founders Roundtable",
-    tagline: "Placeholder for a future invite-only discussion.",
+    slug: "sme-ceo-forum-2026",
+    title: "SME CEO Forum 2026",
+    tagline: "Panellist: Future-Proofing Your Business with AI and Tech.",
     description: [
-      "This is a placeholder event used to demonstrate the layout of an upcoming event with a capped guest list.",
-      "Replace this entry in lib/events.ts with a real event.",
+      "The SME CEO Forum 2026, organised by SAMENTA (Small and Medium Enterprises Association), ran under the theme \"The SME Structural Pivot: From Survival to Greatness\".",
+      "Teng Chan Leong joined as a panellist on Panel II, Future-Proofing Your Business with AI and Tech, alongside sessions on ESG and global market access, a policy makers vs SMEs dialogue, and real lessons in scaling to greatness.",
     ],
-    start: "2026-12-04T19:30:00+08:00",
-    end: "2026-12-04T22:00:00+08:00",
-    venueName: "Kuala Lumpur (venue TBC)",
-    audience: "Invite only",
-    rsvp: { required: true, capacity: 20, deadline: "2026-11-27T23:59:00+08:00" },
-    placeholder: true,
-  },
-  {
-    slug: "sample-past-keynote",
-    title: "Sample: Industry Keynote",
-    tagline: "Placeholder for a past talk with a recap link.",
-    description: ["Placeholder past event with a recap link."],
-    start: "2026-08-12T10:00:00+08:00",
-    end: "2026-08-12T11:00:00+08:00",
-    venueName: "Kuala Lumpur Convention Centre",
-    audience: "Open to all",
+    start: "2026-10-21T09:00:00+08:00",
+    end: "2026-10-21T17:00:00+08:00",
+    timeLabel: "9:00 AM onwards · Panel II at 12:15 PM",
+    venueName: "PJPAC",
+    venueAddress: "Petaling Jaya Performing Arts Center, Petaling Jaya",
+    venueUrl: "https://www.google.com/maps/search/?api=1&query=Petaling+Jaya+Performing+Arts+Centre",
+    audience: "SME owners & CEOs",
     rsvp: { required: false },
-    recapUrl: "https://linkedin.com/in/tengchanleong",
-    placeholder: true,
-  },
-  {
-    slug: "sample-past-workshop",
-    title: "Sample: Team Workshop",
-    tagline: "Placeholder for a past workshop.",
-    description: ["Placeholder past event."],
-    start: "2026-05-27T14:00:00+08:00",
-    end: "2026-05-27T17:00:00+08:00",
-    venueName: "Skribble HQ, Kuala Lumpur",
-    audience: "Members",
-    rsvp: { required: true },
-    placeholder: true,
+    externalUrl: "https://ceoforum.asia",
+    externalLabel: "Event website",
+    poster: "/images/events/sme-ceo-forum-2026-poster.jpg",
+    posterRatio: 1,
   },
 ];
 

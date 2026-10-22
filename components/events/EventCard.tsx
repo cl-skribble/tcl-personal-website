@@ -37,6 +37,11 @@ export default function EventCard({ event, past = false }: { event: SiteEvent; p
               RSVP open
             </span>
           )}
+          {event.promoCode && !past && (
+            <span className="text-[11px] font-semibold uppercase tracking-widest text-catalyst-navy bg-blueprint-cyan rounded-full px-3 py-1">
+              Code: {event.promoCode}{event.promoNote ? ` · ${event.promoNote.replace(" your pass", "")}` : ""}
+            </span>
+          )}
           {event.placeholder && (
             <span className="text-[11px] font-semibold uppercase tracking-widest text-amber-300/80 border border-amber-300/30 rounded-full px-3 py-1">
               Sample
@@ -50,7 +55,7 @@ export default function EventCard({ event, past = false }: { event: SiteEvent; p
         <p className="mt-3 text-white/60 text-[15px] leading-relaxed max-w-xl">{event.tagline}</p>
 
         <p className="mt-4 text-sm text-white/45">
-          {event.timeTbc ? "Time TBC" : `${fmtTime(event.start)} – ${fmtTime(event.end)}`} · {event.venueName}
+          {event.timeLabel ?? (event.timeTbc ? "Time TBC" : `${fmtTime(event.start)} – ${fmtTime(event.end)}`)} · {event.venueName}
         </p>
 
         <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-blueprint-cyan group-hover:gap-3 transition-all">
@@ -62,7 +67,7 @@ export default function EventCard({ event, past = false }: { event: SiteEvent; p
 
       {/* Poster: only when the event has one. Full-width on mobile, 4:5 thumbnail on desktop. */}
       {event.poster && (
-        <div className={`relative shrink-0 w-full max-w-[300px] sm:w-[200px] sm:max-w-none aspect-[4/5] self-center sm:self-start overflow-hidden rounded-xl border border-white/10 ${past ? "opacity-70 group-hover:opacity-100" : ""} transition-opacity`}>
+        <div style={{ aspectRatio: event.posterRatio ?? 0.8 }} className={`relative shrink-0 w-full max-w-[300px] sm:w-[200px] sm:max-w-none self-center sm:self-start overflow-hidden rounded-xl border border-white/10 ${past ? "opacity-70 group-hover:opacity-100" : ""} transition-opacity`}>
           <Image
             src={event.poster}
             alt={`${event.title} poster`}
