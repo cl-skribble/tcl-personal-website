@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import PageShell from "@/components/events/PageShell";
 import RsvpForm from "@/components/events/RsvpForm";
@@ -50,6 +51,19 @@ export default async function EventPage({ params }: { params: Promise<{ slug: st
             <div className="space-y-5 text-white/75 text-[17px] leading-relaxed">
               {e.description.map((p, i) => <p key={i}>{p}</p>)}
             </div>
+            {e.poster && (
+              <a href={e.poster} target="_blank" rel="noopener noreferrer"
+                className="group relative block mt-10 w-full max-w-[420px] aspect-[4/5] overflow-hidden rounded-2xl border border-white/10"
+                aria-label={`Open ${e.title} poster full size`}>
+                <Image
+                  src={e.poster}
+                  alt={`${e.title} poster`}
+                  fill
+                  sizes="420px"
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                />
+              </a>
+            )}
             {past && e.recapUrl && (
               <a href={e.recapUrl} target="_blank" rel="noopener noreferrer"
                 className="inline-block mt-8 bg-catalyst-blue text-white font-semibold text-sm px-6 py-3 rounded-full hover:bg-catalyst-blue-l transition-colors">

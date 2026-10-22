@@ -29,6 +29,8 @@ export type SiteEvent = {
   /** e.g. "Members", "Open to all", "Invite only" */
   audience: string;
   rsvp: EventRsvp;
+  /** Optional poster (4:5 portrait, in /public). Cards and detail page adapt when absent. */
+  poster?: string;
   /** Past events: optional recap link (LinkedIn post, album, slides). */
   recapUrl?: string;
   /** Dummy entries, delete when real events replace them. */
@@ -55,6 +57,7 @@ export const events: SiteEvent[] = [
     venueUrl: "https://www.google.com/maps/search/?api=1&query=Plaza+Mont+Kiara+No.+2+Jalan+Kiara+50480+Kuala+Lumpur",
     audience: "Marketers, agencies & business owners",
     rsvp: { required: true },
+    poster: "/images/events/ai-in-marketing-poster.jpg",
   },
 
   {

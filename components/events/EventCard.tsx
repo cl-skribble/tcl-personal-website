@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { dateParts, fmtTime, rsvpOpen, type SiteEvent } from "@/lib/events";
 
@@ -8,12 +9,13 @@ export default function EventCard({ event, past = false }: { event: SiteEvent; p
   return (
     <Link
       href={`/events/${event.slug}`}
-      className={`group relative flex gap-6 sm:gap-8 rounded-2xl border p-6 sm:p-8 transition-colors ${
+      className={`group relative flex flex-col sm:flex-row gap-6 sm:gap-8 rounded-2xl border p-6 sm:p-8 transition-colors ${
         past
           ? "border-white/10 bg-white/[0.02] hover:border-white/25"
           : "border-catalyst-blue/40 bg-catalyst-navy-l hover:border-blueprint-cyan"
       }`}
     >
+      <div className="flex gap-6 sm:gap-8 min-w-0 flex-1">
       {/* Date block */}
       <div className="shrink-0 w-20 sm:w-24 text-center border-r border-white/10 pr-6 sm:pr-8">
         <div className={`font-display font-extrabold text-5xl sm:text-6xl leading-none ${past ? "text-white/50" : "text-white"}`}>
@@ -56,6 +58,20 @@ export default function EventCard({ event, past = false }: { event: SiteEvent; p
           <span aria-hidden="true">→</span>
         </span>
       </div>
+      </div>
+
+      {/* Poster: only when the event has one. Full-width on mobile, 4:5 thumbnail on desktop. */}
+      {event.poster && (
+        <div className={`relative shrink-0 w-full max-w-[300px] sm:w-[200px] sm:max-w-none aspect-[4/5] self-center sm:self-start overflow-hidden rounded-xl border border-white/10 ${past ? "opacity-70 group-hover:opacity-100" : ""} transition-opacity`}>
+          <Image
+            src={event.poster}
+            alt={`${event.title} poster`}
+            fill
+            sizes="(min-width: 640px) 200px, 300px"
+            className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+          />
+        </div>
+      )}
     </Link>
   );
 }
