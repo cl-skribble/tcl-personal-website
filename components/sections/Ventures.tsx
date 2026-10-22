@@ -13,7 +13,6 @@ const skribbleEntities = [
 
 const samaStats  = [
   { value: "50+", label: "Agencies in SAMA" },
-  { value: "200+", label: "Clients Served" },
   { value: "8",   label: "Markets" },
 ];
 
@@ -137,6 +136,9 @@ export default function Ventures() {
                   </div>
                 ))}
               </div>
+              <p className="relative mt-5 text-warm-white/55 text-xs">
+                <span className="text-warm-white text-lg font-black mr-2">200+</span>clients served by Skribble
+              </p>
             </div>
           </FadeIn>
 
@@ -169,7 +171,7 @@ export default function Ventures() {
               </p>
 
               {/* Stats */}
-              <div className="relative grid grid-cols-3 gap-4 mb-8">
+              <div className="relative grid grid-cols-2 gap-4 mb-8">
                 {samaStats.map((s) => (
                   <div key={s.label} className="text-center">
                     <p className="text-white text-3xl font-black">{s.value}</p>

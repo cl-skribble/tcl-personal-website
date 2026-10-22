@@ -12,6 +12,7 @@ export const pressCategories = [
   "2023",
   "2024",
   "2025",
+  "2026",
   "More coverage",
   "Industry & institutional",
 ];
@@ -44,16 +45,16 @@ export const allCoverage: PressItem[] = [
   { category: "2025", outlet: "Marketing Magazine", title: "SAMA's Game-Changing Marketing Alliance Reshaping Southeast Asia's Advertising Landscape", url: "https://marketingmagazine.com.my/samas-game-changing-marketing-alliance-is-reshaping-southeast-asias-advertising-landscape/" },
   { category: "2025", outlet: "Nation Thailand", title: "SAMA Alliance Expanding Regional Marketing Network", url: "https://www.nationthailand.com/business/economy/40047895" },
   { category: "2025", outlet: "Martech Asia", title: "Transforming the Agency Culture?", url: "https://martechasia.net/features/transforming-the-agency-culture/" },
-  /* ── More coverage (publication year to be confirmed) ── */
-  { category: "More coverage", outlet: "Marketing Interactive", title: "Why Hyperlocal Marketing Matters More Than Ever in Malaysia", url: "https://www.marketing-interactive.com/why-hyperlocal-marketing-matters-more-than-ever-in-my" },
-  { category: "More coverage", outlet: "Marketing Interactive", title: "What Creative Agencies in Malaysia Really Need from Marketers Before the Work Begins", url: "https://www.marketing-interactive.com/what-creative-agencies-in-malaysia-really-need-from-marketers-before-the-work-begins" },
-  { category: "More coverage", outlet: "Marketing Interactive", title: "What Made IKEA and Punch the Monkey the Perfect Viral Moment?", url: "https://www.marketing-interactive.com/what-made-ikea-and-punch-the-monkey-the-perfect-viral-moment" },
-  { category: "More coverage", outlet: "The Sun Malaysia", title: "New Marketing Landscape Emerging in Southeast Asia as Agencies Step Up Collaboration", url: "https://thesun.my/business/local-business/new-marketing-landscape-emerging-in-southeast-asia-as-agencies-step-up-collaboration/" },
+  /* ── Dated from each publisher's page; Malaysia SME shows no date ── */
+  { category: "2025", outlet: "Marketing Interactive", title: "Why Hyperlocal Marketing Matters More Than Ever in Malaysia", url: "https://www.marketing-interactive.com/why-hyperlocal-marketing-matters-more-than-ever-in-my" },
+  { category: "2026", outlet: "Marketing Interactive", title: "What Creative Agencies in Malaysia Really Need from Marketers Before the Work Begins", url: "https://www.marketing-interactive.com/what-creative-agencies-in-malaysia-really-need-from-marketers-before-the-work-begins" },
+  { category: "2026", outlet: "Marketing Interactive", title: "What Made IKEA and Punch the Monkey the Perfect Viral Moment?", url: "https://www.marketing-interactive.com/what-made-ikea-and-punch-the-monkey-the-perfect-viral-moment" },
+  { category: "2026", outlet: "The Sun Malaysia", title: "New Marketing Landscape Emerging in Southeast Asia as Agencies Step Up Collaboration", url: "https://thesun.my/business/local-business/new-marketing-landscape-emerging-in-southeast-asia-as-agencies-step-up-collaboration/" },
   { category: "More coverage", outlet: "Malaysia SME", title: "Building a Regional Force: How SAMA Is Redefining Cross-Border Marketing for Southeast Asia's Independent Agencies", url: "https://www.malaysiasme.com.my/building-a-regional-force-how-sama-is-redefining-cross-border-marketing-for-southeast-asias-independent-agencies/" },
-  { category: "More coverage", outlet: "EdgeProp", title: "Rehda Institute's RIYI 2026: Corporate Mentors Prep Gen Z for Property Careers", url: "https://www.edgeprop.my/content/1916626/rehda-institute%E2%80%99s-riyi-2026-corporate-mentors-prep-gen-z-property-careers" },
-  { category: "More coverage", outlet: "The Story Thailand", title: "Strategic Asia Marketing Alliance", url: "https://www.thestorythailand.com/strategic-asia-marketing-alliance/" },
-  { category: "More coverage", outlet: "FORTUNE Indonesia", title: "SAMA Beraliansi untuk Memajukan Industri Marketing di Asia", url: "https://www.fortuneidn.com/business/sama-beraliansi-untuk-memajukan-industri-marketing-di-asia-00-xkln4-pn0jb0/" },
-  { category: "More coverage", outlet: "The Asia Connects", title: "Interview on the Launch of SAMA", url: "https://theasiaconnects.com/skribble-malaysia-launches-strategic-asia-marketing-alliance-sama/" },
+  { category: "2026", outlet: "EdgeProp", title: "Rehda Institute's RIYI 2026: Corporate Mentors Prep Gen Z for Property Careers", url: "https://www.edgeprop.my/content/1916626/rehda-institute%E2%80%99s-riyi-2026-corporate-mentors-prep-gen-z-property-careers" },
+  { category: "2025", outlet: "The Story Thailand", title: "Strategic Asia Marketing Alliance", url: "https://www.thestorythailand.com/strategic-asia-marketing-alliance/" },
+  { category: "2024", outlet: "FORTUNE Indonesia", title: "SAMA Beraliansi untuk Memajukan Industri Marketing di Asia", url: "https://www.fortuneidn.com/business/sama-beraliansi-untuk-memajukan-industri-marketing-di-asia-00-xkln4-pn0jb0/" },
+  { category: "2024", outlet: "The Asia Connects", title: "Skribble Malaysia Launches SAMA (interview with Teng Chan Leong)", url: "https://theasiaconnects.com/skribble-malaysia-launches-strategic-asia-marketing-alliance-sama/" },
   /* ── Industry & institutional ── */
   { category: "Industry & institutional", outlet: "Andersen Consulting", title: "Andersen Consulting Adds Collaborating Firm Skribble", url: "https://global.andersen.com/resources/andersen-consulting-adds-collaborating-firm-skribble", note: "Andersen names Skribble as a collaborating firm." },
   { category: "Industry & institutional", outlet: "REHDA Institute", title: "Summary Report: Digital Marketing Insight for Malaysia Real Estate", url: "https://rehdainstitute.com/wp-content/uploads/2023/10/F_DMTI-Summary-Report_v2.pdf", note: "Industry report naming Teng Chan Leong and Skribble." },
