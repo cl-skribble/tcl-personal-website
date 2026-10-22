@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Barlow, Barlow_Condensed } from "next/font/google";
 import "./globals.css";
 import { SITE_URL, jsonLdString } from "@/lib/site";
@@ -45,6 +46,8 @@ export const metadata: Metadata = {
   },
   twitter: { card: "summary_large_image" },
 };
+
+const GA_ID = "G-VSZENVQX5C";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -111,6 +114,13 @@ export default function RootLayout({
     <html lang="en" className={`${barlow.variable} ${barlowCondensed.variable} h-full antialiased`}>
       <body className="min-h-full bg-catalyst-navy text-warm-white font-sans">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdString(jsonLd) }} />
+        <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
+        <Script id="ga4-init" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${GA_ID}');`}
+        </Script>
         {children}
       </body>
     </html>
