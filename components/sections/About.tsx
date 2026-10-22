@@ -34,7 +34,7 @@ const credentials = [
   },
   {
     label: "Current Role",
-    value: "Founder & CEO, Skribble Group",
+    value: "Chief Executive Officer, Skribble Group",
     logo: (
       <div className="w-20 h-20 rounded-xl bg-white flex items-center justify-center p-3 border border-slate-gray/10 shrink-0">
         <SkribbleMark />

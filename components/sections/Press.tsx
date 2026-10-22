@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import FadeIn from "@/components/FadeIn";
+import { allCoverage, pressCategories } from "@/lib/press";
 
 type TextOutlet = { name: string; abbr: string; color: string; style: "serif" | "condensed" | "bold" | "italic"; sub?: string; image?: undefined };
 type ImageOutlet = { name: string; image: string; imgSize?: string; abbr?: undefined; color?: undefined; style?: undefined; sub?: undefined };
@@ -58,37 +59,6 @@ const featured = [
   },
 ];
 
-/* ── Full press coverage list (from slide deck) ── */
-const allCoverage = [
-  /* ── 2023 ── */
-  { category: "2023", outlet: "Business Times Malaysia", title: "Consider Critical Aspects in Budget 2024 to Drive 4IR Adoption", url: "https://www.nst.com.my/business/economy/2023/10/966379/consider-critical-aspects-budget-2024-drive-4ir-adoption" },
-  { category: "2023", outlet: "BFM 89.9", title: "Dos & Don'ts When Planning Business Strategies for the New Year", url: "https://www.bfm.my/content/podcast/dos-and-donts-when-planning-business-strategies-for-the-new-year" },
-  { category: "2023", outlet: "Focus Malaysia", title: "4IR Adoption: A Toss-up Between a Baseline and Transformational Agenda", url: "https://focusmalaysia.my/4ir-adoption-a-toss-up-between-a-baseline-and-transformational-agenda/" },
-  /* ── 2024 ── */
-  { category: "2024", outlet: "The Edge Malaysia", title: "Gen AI Setting New Job Standards for Creative Industry", url: "https://theedgemalaysia.com/node/727331" },
-  { category: "2024", outlet: "Prestige Online", title: "Prestige 40 Under 40 — Teng Chan Leong", url: "https://www.prestigeonline.com/my/people/40-under-40/teng-chan-leong/" },
-  { category: "2024", outlet: "Berita Harian", title: "Guna Pakai Digital Penting untuk Pertumbuhan Perniagaan", url: "https://www.bharian.com.my/bisnes/lain-lain/2024/03/1228000/guna-pakai-digital-penting-untuk-pertumbuhan-perniagaan" },
-  { category: "2024", outlet: "Astro Awani", title: "Pantau Belanjawan: SMEs & Industry 4.0 Transformative Journey", url: "https://www.astroawani.com/videos/video-terkini-x7sio1/pantau-belanjawan-smes-local-businesses-industry-40-transformative-journey-x8vz86s" },
-  { category: "2024", outlet: "BFM 89.9", title: "Skribbling Ideas to Stay Ahead of Competition", url: "https://www.bfm.my/content/podcast/skribbling-ideas-to-stay-ahead-of-competition" },
-  { category: "2024", outlet: "BFM 89.9", title: "Trust Me, This is Good Content", url: "https://www.bfm.my/content/podcast/trust-me-this-is-good-content" },
-  { category: "2024", outlet: "BFM 89.9", title: "The Strategic Asia Marketing Alliance — Where Rivals and Partners Unite", url: "https://www.bfm.my/podcast/enterprise/marketing-mojo/the-strategic-asia-marketing-alliance-where-rivals-and-partners-unite" },
-  { category: "2024", outlet: "Malaysia SME", title: "Minimum Wage Increase Could Fuel Cross-Regional Growth for SMEs in SEA", url: "https://www.malaysiasme.com.my/minimum-wage-increase-could-fuel-cross-regional-growth-for-smes-in-southeast-asia/" },
-  { category: "2024", outlet: "Marketech APAC", title: "Cutting Through the Noise: Why SAMA Aims to Elevate Industry Standards", url: "https://marketech-apac.com/cutting-through-the-noise-why-sama-aims-to-elevate-industry-standards-in-the-region/" },
-  { category: "2024", outlet: "Free Malaysia Today", title: "Agencies Get Creative to Boost Marketing Industry", url: "https://www.freemalaysiatoday.com/category/nation/2024/08/29/agencies-get-creative-to-boost-marketing-industry/" },
-  { category: "2024", outlet: "Marketing Interactive", title: "New Coalition of Agencies Form Across SG, MY, ID and TH", url: "https://www.marketing-interactive.com/new-coalition-of-agencies-form-across-sg-my-id-and-th" },
-  { category: "2024", outlet: "The Sun Malaysia", title: "Strategic Asia Marketing Alliance Sets Up Malaysia-Singapore Chapters", url: "https://thesun.my/business-news/strategic-asia-marketing-alliance-sets-up-malaysia-singapore-chapters-OI13287999" },
-  { category: "2024", outlet: "Marketing Magazine", title: "Skribble Malaysia Launches SAMA", url: "https://marketingmagazine.com.my/skribble-malaysia-launches-strategic-asia-marketing-alliance-sama/" },
-  { category: "2024", outlet: "Free Malaysia Today", title: "Ad Agencies Expected to Get a Boost from Wider Collaboration", url: "https://www.freemalaysiatoday.com/category/nation/2024/11/14/ad-agencies-expected-to-get-a-boost-from-wider-collaboration/" },
-  /* ── 2025 ── */
-  { category: "2025", outlet: "Bangkok Post", title: "The Future of Marketing Agencies Lies in Collaboration, Not Competition", url: "https://www.bangkokpost.com/thailand/pr/2989841/the-future-of-marketing-agencies-lies-in-collaboration-not-competition" },
-  { category: "2025", outlet: "Enterprise Zone", title: "Chan Leong Teng — CEO of Skribble Malaysia & Founder of SAMA", url: "https://enterprisezone.cc/chan-leong-teng-ceo-of-skribble-malaysia-founder-of-sama/" },
-  { category: "2025", outlet: "BFM 89.9", title: "3 Branding Lessons from Disney's Snow White Remake", url: "https://www.bfm.my/content/podcast/3-branding-lessons-from-disneys-snow-white-remake" },
-  { category: "2025", outlet: "The Exchange Asia", title: "Thailand Launch Propels SAMA to Forefront of Asia's Independent Marketing Network", url: "https://theexchangeasia.com/thailand-launch-propels-sama-to-the-forefront-of-asias-independent-marketing-network/" },
-  { category: "2025", outlet: "Marketing Magazine", title: "SAMA's Game-Changing Marketing Alliance Reshaping Southeast Asia's Advertising Landscape", url: "https://marketingmagazine.com.my/samas-game-changing-marketing-alliance-is-reshaping-southeast-asias-advertising-landscape/" },
-  { category: "2025", outlet: "Nation Thailand", title: "SAMA Alliance Expanding Regional Marketing Network", url: "https://www.nationthailand.com/business/economy/40047895" },
-  { category: "2025", outlet: "Martech Asia", title: "Transforming the Agency Culture?", url: "https://martechasia.net/features/transforming-the-agency-culture/" },
-];
-
 function ImageOutletLogo({ outlet }: { outlet: ImageOutlet & { imgSize?: string } }) {
   const [error, setError] = useState(false);
   if (error) return (
@@ -123,7 +93,7 @@ function TextOutletLogo({ outlet }: { outlet: TextOutlet }) {
 export default function Press() {
   const [showAll, setShowAll] = useState(false);
 
-  const categories = ["2023", "2024", "2025"];
+  const categories = pressCategories;
 
   return (
     <section id="press" className="py-24 lg:py-32 bg-warm-white blueprint-grid-fine relative overflow-hidden">
@@ -222,6 +192,7 @@ export default function Press() {
                             <p className="text-sm text-catalyst-navy leading-snug group-hover/item:text-catalyst-blue transition-colors">
                               {item.title}
                             </p>
+                            {item.note && <p className="text-xs text-slate-gray/60 mt-0.5">{item.note}</p>}
                           </div>
                           <span className="text-catalyst-blue/40 text-xs shrink-0 mt-0.5 group-hover/item:text-catalyst-blue transition-colors">↗</span>
                         </a>
@@ -232,6 +203,11 @@ export default function Press() {
               })}
             </div>
           )}
+          <p className="mt-6 text-center text-sm">
+            <a href="/press" className="text-catalyst-blue font-semibold hover:underline">
+              Open the full press library →
+            </a>
+          </p>
         </FadeIn>
 
       </div>

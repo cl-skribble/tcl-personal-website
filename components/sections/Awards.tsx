@@ -3,11 +3,16 @@
 import { useState } from "react";
 import FadeIn from "@/components/FadeIn";
 
-const awards = [
-  { year: "2024", medal: "Gold",      medalColor: "#F59E0B", title: "Best Agency Culture",         org: "Agency of the Year Awards 2024", orgShort: "AOTY",    image: "/images/awards/aoty-2024.png",       imgBg: "#1a0203" },
-  { year: "2024", medal: "40 Under 40", medalColor: "#0052cc", title: "Prestige 40 Under 40",       org: "Prestige Malaysia",             orgShort: "PRESTIGE", image: "/images/awards/prestige-award.jpg", imgBg: "#1a1a2e" },
-  { year: "2024", medal: "Silver",    medalColor: "#9CA3AF", title: "Best Employer",               org: "Star Outstanding Business Awards", orgShort: "SOBA",  image: "/images/awards/soba.png",           imgBg: "#A01525" },
-  { year: "2023", medal: "Bronze",    medalColor: "#B45309", title: "Agency Leader of the Year",   org: "Agency of the Year Awards 2023", orgShort: "AOTY",    image: "/images/awards/aoty-2023.png",       imgBg: "#1a0203" },
+type Award = {
+  year: string; medal: string; medalColor: string; title: string; org: string; orgShort: string;
+  image: string; imgBg: string; href?: string; companyAward?: boolean;
+};
+
+const awards: Award[] = [
+  { year: "2024", medal: "Gold",      medalColor: "#F59E0B", title: "Best Agency Culture",         org: "Agency of the Year Awards 2024", orgShort: "AOTY",    image: "/images/awards/aoty-2024.png",       imgBg: "#1a0203", href: "https://awards.marketing-interactive.com/agency-of-the-year-my/2024-aoty-winners/", companyAward: true },
+  { year: "2024", medal: "40 Under 40", medalColor: "#0052cc", title: "Prestige 40 Under 40",       org: "Prestige Malaysia",             orgShort: "PRESTIGE", image: "/images/awards/prestige-award.jpg", imgBg: "#1a1a2e", href: "https://www.prestigeonline.com/my/people/40-under-40/teng-chan-leong/" },
+  { year: "2024", medal: "Silver",    medalColor: "#9CA3AF", title: "Best Employer",               org: "Star Outstanding Business Awards", orgShort: "SOBA",  image: "/images/awards/soba.png",           imgBg: "#A01525", href: "https://soba.com.my/2024-winners/", companyAward: true },
+  { year: "2023", medal: "Bronze",    medalColor: "#B45309", title: "Agency Leader of the Year",   org: "Agency of the Year Awards 2023", orgShort: "AOTY",    image: "/images/awards/aoty-2023.png",       imgBg: "#1a0203", href: "https://awards.marketing-interactive.com/agency-of-the-year-my/2023-aoty-winners/" },
   { year: "2022", medal: "Bronze",    medalColor: "#B45309", title: "Best in Marketing Innovation", org: "The Appies Awards",             orgShort: "APPIES",   image: "/images/awards/appies.png",          imgBg: "#f0f0f0" },
 ];
 
@@ -51,7 +56,7 @@ function BlueprintIsometric() {
   );
 }
 
-function AwardCard({ a, delay }: { a: typeof awards[0]; delay: number }) {
+function AwardCard({ a, delay }: { a: Award; delay: number }) {
   const [imgError, setImgError] = useState(false);
 
   return (
@@ -88,7 +93,14 @@ function AwardCard({ a, delay }: { a: typeof awards[0]; delay: number }) {
           <div>
             <p className="text-warm-white font-bold text-sm leading-snug mb-1">{a.title}</p>
             <p className="text-warm-white/40 text-xs leading-snug">{a.org}</p>
+            {a.companyAward && <p className="text-warm-white/40 text-xs leading-snug mt-1">Awarded to Skribble</p>}
           </div>
+          {a.href && (
+            <a href={a.href} target="_blank" rel="noopener noreferrer"
+              className="text-blueprint-cyan text-xs font-semibold hover:underline">
+              Official result ↗
+            </a>
+          )}
           <p className="mt-auto text-warm-white/20 text-[10px] font-semibold">{a.year}</p>
         </div>
       </div>

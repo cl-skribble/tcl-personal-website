@@ -12,7 +12,7 @@ const skribbleEntities = [
 ];
 
 const samaStats  = [
-  { value: "50+", label: "Partner Agencies" },
+  { value: "50+", label: "Agencies in SAMA" },
   { value: "200+", label: "Clients Served" },
   { value: "8",   label: "Markets" },
 ];
