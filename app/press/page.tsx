@@ -46,6 +46,8 @@ export default function PressPage() {
           <p className="text-white/70 max-w-2xl mb-10 leading-relaxed">
             Original sources featuring Teng Chan Leong, Chief Executive Officer of Skribble Group and
             Founder of the Strategic Asia Marketing Alliance (SAMA). Every item links to the publisher&apos;s own page.
+            For his views on cross-border agency growth, see{" "}
+            <a href="/regional-marketing" className="text-blueprint-cyan hover:underline">Regional marketing</a>.
           </p>
           <h2 className="font-display font-extrabold uppercase text-3xl text-white mb-8">Start here</h2>
           <div className="grid md:grid-cols-2 gap-5">

@@ -91,6 +91,7 @@ export default function Home() {
                   { label: "Awards",   href: "#awards"   },
                   { label: "Press",    href: "#press"    },
                   { label: "SAMA",     href: "#ventures" },
+                  { label: "Regional marketing", href: "/regional-marketing" },
                   { label: "Contact",  href: "#contact"  },
                 ].map(({ label, href }) => (
                   <a
