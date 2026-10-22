@@ -27,6 +27,31 @@ export async function generateMetadata(
   };
 }
 
+/** Description lines: "- item" becomes a bullet list, "**text**" a bold lead-in. */
+function renderDescription(lines: string[]) {
+  const out: React.ReactNode[] = [];
+  let items: string[] = [];
+  const flush = () => {
+    if (!items.length) return;
+    out.push(
+      <ul key={`ul-${out.length}`} className="list-disc pl-6 space-y-2 marker:text-blueprint-cyan">
+        {items.map((t, i) => <li key={i}>{t}</li>)}
+      </ul>,
+    );
+    items = [];
+  };
+  lines.forEach((l, i) => {
+    if (l.startsWith("- ")) { items.push(l.slice(2)); return; }
+    flush();
+    const bold = l.match(/^\*\*(.+)\*\*$/);
+    out.push(bold
+      ? <p key={i} className="font-semibold text-white">{bold[1]}</p>
+      : <p key={i}>{l}</p>);
+  });
+  flush();
+  return out;
+}
+
 function Fact({ k, children }: { k: string; children: React.ReactNode }) {
   return (
     <div>
@@ -50,7 +75,7 @@ export default async function EventPage({ params }: { params: Promise<{ slug: st
         <div className="max-w-5xl mx-auto px-6 lg:px-8 grid lg:grid-cols-[1fr_420px] gap-12">
           <div>
             <div className="space-y-5 text-white/75 text-[17px] leading-relaxed">
-              {e.description.map((p, i) => <p key={i}>{p}</p>)}
+              {renderDescription(e.description)}
             </div>
             {e.poster && (
               <a href={e.poster} target="_blank" rel="noopener noreferrer"

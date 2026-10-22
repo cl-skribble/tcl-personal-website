@@ -47,25 +47,31 @@ export type SiteEvent = {
 
 export const events: SiteEvent[] = [
   {
-    slug: "ai-in-marketing-from-prompts-to-practice",
-    title: "AI in Marketing: From Prompts to Practice",
+    slug: "getting-started-with-ai",
+    title: "Getting Started with AI: Real Use Cases for Real Businesses",
     tagline:
-      "How to use AI in everyday marketing workflows without losing the human touch.",
+      "A practical intro to using AI across your whole business, with real examples you can copy.",
     description: [
-      "AI is changing the way we approach marketing, from content creation and campaign planning to data analysis, creative development, and day-to-day operations.",
-      "But the real question is: how do we use AI effectively in our everyday marketing workflows without losing the human touch?",
-      "Join us for an insightful session exploring how AI can be integrated into daily marketing operations, where it adds the most value, and how marketing professionals can navigate this evolving landscape to work smarter, move faster, and create greater impact.",
-      "Whether you're a marketer, agency professional, business owner, or part of a marketing team, this session is an opportunity to rethink how you work, discover practical applications of AI, and stay ahead in an increasingly AI-driven industry.",
-      "Come curious. Leave with new perspectives on putting AI to work.",
+      "Most people know AI is a big deal. Fewer know where to actually start.",
+      "This is a hands-on session on how AI can be used across a business, not just in marketing. Chan Leong shares real use cases from running Skribble and SAMA day to day, and you get to try them yourself, then pick what fits your own work.",
+      "**What we could explore hands-on:**",
+      "- Contact card syncing and building directories",
+      "- Automating repetitive workflows",
+      "- Email triage, so your inbox stops running your day",
+      "- Dashboards for finance, operations and performance",
+      "- Reports and client portals",
+      "- Social media management and content creation",
+      "Whether you run a business, lead a team or work in marketing, operations or finance, you'll leave with something you can use the next day.",
+      "Bring your laptop. And bring your messiest process.",
     ],
     start: "2026-10-29T14:00:00+08:00",
     end: "2026-10-29T16:00:00+08:00",
     venueName: "Skribble Office",
     venueAddress: "Unit E-15-02, Level 15, Plaza Mont Kiara, No. 2, Jalan Kiara, Mont Kiara, 50480 Kuala Lumpur",
     venueUrl: "https://www.google.com/maps/search/?api=1&query=Plaza+Mont+Kiara+No.+2+Jalan+Kiara+50480+Kuala+Lumpur",
-    audience: "Marketers, agencies & business owners",
+    audience: "Business owners, team leads & professionals",
     rsvp: { required: true },
-    poster: "/images/events/ai-in-marketing-poster.jpg",
+    poster: "/images/events/getting-started-with-ai-poster.jpg",
   },
 
   {
