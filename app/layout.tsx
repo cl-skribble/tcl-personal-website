@@ -50,29 +50,37 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Person",
-      "@id": `${SITE_URL}/#person`,
-      name: "Teng Chan Leong",
-      alternateName: "Chan Leong Teng",
+      "@type": "ProfilePage",
+      "@id": `${SITE_URL}/#profilepage`,
       url: SITE_URL,
-      image: `${SITE_URL}/images/profile.jpg`,
-      jobTitle: "Chief Executive Officer",
-      description:
-        "Chief Executive Officer of Skribble Group and Founder of the Strategic Asia Marketing Alliance (SAMA). Speaker on digital transformation, marketing and Southeast Asia growth.",
-      worksFor: { "@id": "https://skribble.me/#organization" },
-      founder: { "@id": "https://samaalliance.com/#organization" },
-      knowsAbout: ["Digital transformation", "Marketing", "Brand strategy", "Regional agency collaboration", "AI in creative work"],
-      sameAs: [
-        "https://linkedin.com/in/tengchanleong",
-        "https://skribble.me",
-        "https://samaalliance.com",
-      ],
+      name: "Teng Chan Leong",
+      mainEntity:
+        {
+          "@type": "Person",
+          "@id": `${SITE_URL}/#person`,
+          name: "Teng Chan Leong",
+          alternateName: "Chan Leong Teng",
+          url: SITE_URL,
+          image: `${SITE_URL}/images/profile.jpg`,
+          jobTitle: "Chief Executive Officer",
+          description:
+            "Chief Executive Officer of Skribble Group and Founder of the Strategic Asia Marketing Alliance (SAMA). Speaker on digital transformation, marketing and Southeast Asia growth.",
+          worksFor: { "@id": "https://skribble.me/#organization" },
+          founder: { "@id": "https://samaalliance.com/#organization" },
+          knowsAbout: ["Digital transformation", "Marketing", "Brand strategy", "Regional agency collaboration", "AI in creative work"],
+          sameAs: [
+            "https://linkedin.com/in/tengchanleong",
+            "https://skribble.me",
+            "https://samaalliance.com",
+          ],
+        },
     },
     {
       "@type": "Organization",
       "@id": "https://skribble.me/#organization",
       name: "Skribble Group",
       url: "https://skribble.me",
+      logo: "https://skribble.me/imgs/favicon.png",
       description: "Malaysian marketing and technology group (not affiliated with Skribble AG, Switzerland).",
       address: {
         "@type": "PostalAddress",
