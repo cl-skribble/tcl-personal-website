@@ -4,12 +4,14 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
+// Absolute paths so the links also work from inner pages like /events.
 const links = [
-  { label: "About",    href: "#about" },
-  { label: "Speaking", href: "#speaking" },
-  { label: "Awards",   href: "#awards" },
-  { label: "Press",    href: "#press" },
-  { label: "SAMA",     href: "#ventures" },
+  { label: "About",    href: "/#about" },
+  { label: "Speaking", href: "/#speaking" },
+  { label: "Events",   href: "/events" },
+  { label: "Awards",   href: "/#awards" },
+  { label: "Press",    href: "/#press" },
+  { label: "SAMA",     href: "/#ventures" },
 ];
 
 export default function Navbar() {
@@ -46,7 +48,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-16">
 
         {/* CL logomark */}
-        <a href="#" className="flex items-center group transition-opacity duration-300 opacity-90 hover:opacity-100 outline-none focus-visible:outline-none">
+        <a href="/" className="flex items-center group transition-opacity duration-300 opacity-90 hover:opacity-100 outline-none focus-visible:outline-none">
           <Image
             src="/images/cl-mark.png"
             alt="CL — Teng Chan Leong"
@@ -70,7 +72,7 @@ export default function Navbar() {
             </a>
           ))}
           <a
-            href="#contact"
+            href="/#contact"
             className="bg-catalyst-blue text-white text-sm font-semibold px-5 py-2 rounded-full hover:bg-catalyst-blue-l transition-colors"
           >
             Invite to Speak
@@ -114,7 +116,7 @@ export default function Navbar() {
                 </a>
               ))}
               <a
-                href="#contact"
+                href="/#contact"
                 className="block bg-catalyst-blue text-white text-sm font-semibold px-5 py-2.5 rounded-full text-center hover:bg-catalyst-blue-l transition-colors mt-2"
                 onClick={() => setMenuOpen(false)}
               >

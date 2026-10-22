@@ -87,6 +87,7 @@ export default function Home() {
                 {[
                   { label: "About",    href: "#about"    },
                   { label: "Speaking", href: "#speaking" },
+                  { label: "Events",   href: "/events"   },
                   { label: "Awards",   href: "#awards"   },
                   { label: "Press",    href: "#press"    },
                   { label: "SAMA",     href: "#ventures" },

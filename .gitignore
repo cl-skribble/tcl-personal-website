@@ -44,3 +44,6 @@ next-env.d.ts
 public/videos/galaxy-exchange.mp4
 public/videos/rehda-sharing.mp4
 public/videos/resource-conference.mp4
+
+# contains RSVP secret
+/rsvp/READY-TO-PASTE.gs
