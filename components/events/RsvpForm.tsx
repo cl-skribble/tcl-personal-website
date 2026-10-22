@@ -8,7 +8,7 @@ const field =
   "w-full rounded-lg bg-catalyst-navy border border-white/15 px-4 py-3 text-[15px] text-white placeholder:text-white/30 focus:outline-none focus:border-blueprint-cyan focus:ring-1 focus:ring-blueprint-cyan";
 const label = "block text-xs font-semibold uppercase tracking-widest text-white/60 mb-2";
 
-export default function RsvpForm({ eventSlug, eventTitle }: { eventSlug: string; eventTitle: string }) {
+export default function RsvpForm({ eventSlug, eventTitle, free = false }: { eventSlug: string; eventTitle: string; free?: boolean }) {
   const [status, setStatus] = useState<Status>("idle");
   const [message, setMessage] = useState("");
 
@@ -63,7 +63,7 @@ export default function RsvpForm({ eventSlug, eventTitle }: { eventSlug: string;
 
   return (
     <form onSubmit={onSubmit} className="rounded-2xl border border-catalyst-blue/40 bg-catalyst-navy-l p-6 sm:p-8 space-y-5">
-      <div className="font-display font-extrabold uppercase text-2xl text-white">Reserve your seat</div>
+      <div className="font-display font-extrabold uppercase text-2xl text-white">{free ? "Reserve your free seat" : "Reserve your seat"}</div>
 
       <div>
         <label className={label} htmlFor="name">Full name</label>
@@ -116,7 +116,7 @@ export default function RsvpForm({ eventSlug, eventTitle }: { eventSlug: string;
         disabled={status === "sending"}
         className="w-full bg-catalyst-blue text-white font-semibold text-[15px] px-6 py-3.5 rounded-full hover:bg-catalyst-blue-l transition-colors disabled:opacity-60"
       >
-        {status === "sending" ? "Sending…" : "Confirm RSVP"}
+        {status === "sending" ? "Sending…" : free ? "Confirm free RSVP" : "Confirm RSVP"}
       </button>
     </form>
   );

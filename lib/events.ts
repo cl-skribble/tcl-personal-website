@@ -30,6 +30,8 @@ export type SiteEvent = {
   promoCode?: string;
   /** What the code gives, e.g. "15% off your pass". */
   promoNote?: string;
+  /** Ticket price shown on card and detail page, e.g. "Free". Omit if not applicable. */
+  fee?: string;
   /** e.g. "Members", "Open to all", "Invite only" */
   audience: string;
   rsvp: EventRsvp;
@@ -70,6 +72,7 @@ export const events: SiteEvent[] = [
     venueAddress: "Unit E-15-02, Level 15, Plaza Mont Kiara, No. 2, Jalan Kiara, Mont Kiara, 50480 Kuala Lumpur",
     venueUrl: "https://www.google.com/maps/search/?api=1&query=Plaza+Mont+Kiara+No.+2+Jalan+Kiara+50480+Kuala+Lumpur",
     audience: "Business owners, team leads & professionals",
+    fee: "Free",
     rsvp: { required: true },
     poster: "/images/events/getting-started-with-ai-poster.jpg",
   },

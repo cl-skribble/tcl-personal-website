@@ -32,6 +32,11 @@ export default function EventCard({ event, past = false }: { event: SiteEvent; p
           <span className="text-[11px] font-semibold uppercase tracking-widest text-white/60 border border-white/15 rounded-full px-3 py-1">
             {event.audience}
           </span>
+          {event.fee && (
+            <span className="text-[11px] font-semibold uppercase tracking-widest text-catalyst-navy bg-white rounded-full px-3 py-1">
+              {event.fee}
+            </span>
+          )}
           {open && (
             <span className="text-[11px] font-semibold uppercase tracking-widest text-white bg-catalyst-blue rounded-full px-3 py-1">
               RSVP open
@@ -59,7 +64,7 @@ export default function EventCard({ event, past = false }: { event: SiteEvent; p
         </p>
 
         <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-blueprint-cyan group-hover:gap-3 transition-all">
-          {past ? (event.recapUrl ? "View recap" : "Details") : open ? "Details & RSVP" : event.externalUrl ? "Details & event site" : "Details"}
+          {past ? (event.recapUrl ? "View recap" : "Details") : open ? (event.fee?.toLowerCase() === "free" ? "Details & free RSVP" : "Details & RSVP") : event.externalUrl ? "Details & event site" : "Details"}
           <span aria-hidden="true">→</span>
         </span>
       </div>

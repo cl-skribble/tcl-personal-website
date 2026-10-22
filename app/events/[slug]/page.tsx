@@ -111,6 +111,7 @@ export default async function EventPage({ params }: { params: Promise<{ slug: st
                 ) : e.venueName}
                 {e.venueAddress && <span className="block text-white/60 text-sm mt-1">{e.venueAddress}</span>}
               </Fact>
+              {e.fee && <Fact k="Fee">{e.fee}</Fact>}
               <Fact k="Who it's for">{e.audience}</Fact>
               {!past && !e.timeTbc && (
                 <a href={calendarUrl(e)} target="_blank" rel="noopener noreferrer"
@@ -127,7 +128,7 @@ export default async function EventPage({ params }: { params: Promise<{ slug: st
                 {e.externalLabel ?? "Event website"} ↗
               </a>
             )}
-            {open && <RsvpForm eventSlug={e.slug} eventTitle={e.title} />}
+            {open && <RsvpForm eventSlug={e.slug} eventTitle={e.title} free={e.fee?.toLowerCase() === "free"} />}
             {!past && e.rsvp.required && !open && (
               <p className="text-white/60 text-[15px]">RSVP for this event has closed.</p>
             )}
