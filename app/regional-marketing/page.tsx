@@ -5,7 +5,7 @@ import { SITE_URL, jsonLdString } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Regional Marketing for Independent Agencies | Teng Chan Leong",
   description:
-    "How independent agencies go regional in Southeast Asia, and how SAMA works. Views from Teng Chan Leong, CEO of Skribble Group and founder of the Strategic Asia Marketing Alliance, with links to every source.",
+    "Why independent agencies should collaborate instead of compete to go regional in Southeast Asia, and how SAMA works. Views from Teng Chan Leong, CEO of Skribble Group and founder of the Strategic Asia Marketing Alliance, with links to every source.",
   alternates: { canonical: "/regional-marketing" },
 };
 
@@ -112,8 +112,9 @@ export default function RegionalMarketingPage() {
             Alliance (SAMA), a network of independent marketing agencies across Southeast Asia.
           </p>
           <p className="text-white/80 text-lg leading-relaxed">
-            His view: the agencies that win regional work are not the biggest in their home market but the best
-            bridge to another one, and that bridge is built through trusted relationships, not pitches.
+            His view: independent agencies grow further when they collaborate instead of compete. The agencies that
+            win regional work are not the biggest in their home market but the best bridge to another one, and that
+            bridge is built through trusted relationships, not pitches.
           </p>
           <p className="text-white/45 text-sm mt-6">For agency owners and marketing professionals. Every quote links to its original source.</p>
         </div>
