@@ -65,6 +65,7 @@ export const events: SiteEvent[] = [
       "- Social media management and content creation",
       "**Guest speaker: Thomas Au**",
       "Thomas is a creative director who helps marketing teams master AI content creation.",
+      "His teaching blends professional film industry standards, creative direction principles, and the latest AI tools to deliver productivity outcomes.",
       "Whether you run a business, lead a team or work in marketing, operations or finance, you'll leave with something you can use the next day.",
       "Bring your laptop. And bring your messiest process.",
     ],
