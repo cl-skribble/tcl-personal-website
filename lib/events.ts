@@ -63,6 +63,8 @@ export const events: SiteEvent[] = [
       "- Dashboards for finance, operations and performance",
       "- Reports and client portals",
       "- Social media management and content creation",
+      "**Guest speaker: Thomas Au**",
+      "Thomas is a creative director who helps marketing teams master AI content creation. He joins to show how AI changes the way creative work gets made.",
       "Whether you run a business, lead a team or work in marketing, operations or finance, you'll leave with something you can use the next day.",
       "Bring your laptop. And bring your messiest process.",
     ],
