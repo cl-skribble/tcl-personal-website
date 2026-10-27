@@ -27,6 +27,15 @@ export async function generateMetadata(
   };
 }
 
+/** Splits "**bold** rest" into bold and plain spans. */
+function inlineBold(text: string) {
+  return text.split(/(\*\*[^*]+\*\*)/g).map((part, i) =>
+    part.startsWith("**") && part.endsWith("**")
+      ? <strong key={i} className="font-semibold text-white">{part.slice(2, -2)}</strong>
+      : part,
+  );
+}
+
 /** Description lines: "- item" becomes a bullet list, "**text**" a bold lead-in. */
 function renderDescription(lines: string[]) {
   const out: React.ReactNode[] = [];
@@ -46,7 +55,7 @@ function renderDescription(lines: string[]) {
     const bold = l.match(/^\*\*(.+)\*\*$/);
     out.push(bold
       ? <p key={i} className="font-semibold text-white">{bold[1]}</p>
-      : <p key={i}>{l}</p>);
+      : <p key={i}>{inlineBold(l)}</p>);
   });
   flush();
   return out;
@@ -133,7 +142,7 @@ export default async function EventPage({ params }: { params: Promise<{ slug: st
               <p className="text-white/60 text-[15px]">RSVP for this event has closed.</p>
             )}
             {!past && !e.rsvp.required && (
-              <p className="text-white/60 text-[15px]">{e.externalUrl ? "No RSVP with us needed. Register on the event website." : "No RSVP needed. Just turn up."}</p>
+              <p className="text-white/60 text-[15px]">{e.externalUrl ? (e.fee ? "No RSVP with us needed. Tickets are sold on the event website." : "No RSVP with us needed. Register on the event website.") : "No RSVP needed. Just turn up."}</p>
             )}
           </aside>
         </div>
