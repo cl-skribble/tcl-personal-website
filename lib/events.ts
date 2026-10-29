@@ -76,7 +76,7 @@ export const events: SiteEvent[] = [
     venueUrl: "https://www.google.com/maps/search/?api=1&query=Plaza+Mont+Kiara+No.+2+Jalan+Kiara+50480+Kuala+Lumpur",
     audience: "Business owners, team leads & professionals",
     fee: "Free",
-    rsvp: { required: true },
+    rsvp: { required: true, deadline: "2026-10-28T23:59:59+08:00" },
     poster: "/images/events/getting-started-with-ai-poster.jpg",
   },
 
