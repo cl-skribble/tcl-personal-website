@@ -22,10 +22,19 @@ export async function POST(request: Request) {
   const name = clean(body.name, 120);
   const phone = clean(body.phone, 25);
   const email = clean(body.email, 160).toLowerCase();
-  const guests = Math.min(4, Math.max(1, parseInt(clean(body.guests, 2), 10) || 1));
+  const maxSeats = event.rsvp.maxSeats ?? 4;
+  const guests = Math.min(maxSeats, Math.max(1, parseInt(clean(body.guests, 2), 10) || 1));
+  const company = clean(body.company, 160);
+  const title = clean(body.title, 120);
+  const listed = event.rsvp.listAttendees === true;
 
   if (!name || !/^\+?[0-9 ()-]{7,20}$/.test(phone) || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
     return Response.json({ ok: false, error: "Please check your name, WhatsApp number and email." }, { status: 400 });
+  }
+
+  // Events with a public guest list need company + job title, and the guest must have ticked the notice.
+  if (listed && (!company || !title || clean(body.showOnPage, 5) !== "yes")) {
+    return Response.json({ ok: false, error: "Please add your company and job title, and tick the guest-list box." }, { status: 400 });
   }
 
   const row = {
@@ -34,7 +43,9 @@ export async function POST(request: Request) {
     eventTitle: event.title,
     capacity: event.rsvp.capacity ?? 0,
     name, phone, email,
-    company: clean(body.company, 160),
+    company,
+    title,
+    showOnSite: listed ? "Yes" : "No",
     guests,
     notes: clean(body.notes, 500),
   };

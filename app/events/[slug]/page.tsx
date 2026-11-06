@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import PageShell from "@/components/events/PageShell";
 import RsvpForm from "@/components/events/RsvpForm";
 import PromoCode from "@/components/events/PromoCode";
+import { getAttendees } from "@/lib/attendees";
 import {
   calendarUrl, events, fmtDate, fmtTime, getEvent, isPast, rsvpOpen,
 } from "@/lib/events";
@@ -77,6 +78,7 @@ export default async function EventPage({ params }: { params: Promise<{ slug: st
 
   const past = isPast(e);
   const open = rsvpOpen(e);
+  const guests = e.rsvp.listAttendees ? await getAttendees(e.slug) : null;
 
   return (
     <PageShell eyebrow={past ? "Past event" : "Upcoming event"} title={e.title}>
@@ -99,6 +101,28 @@ export default async function EventPage({ params }: { params: Promise<{ slug: st
                   className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
                 />
               </a>
+            )}
+            {guests && (
+              <div className="mt-12">
+                <div className="flex items-baseline justify-between gap-4 border-b border-white/10 pb-3 mb-5">
+                  <h2 className="font-display font-extrabold uppercase text-2xl text-white">Who&apos;s joining</h2>
+                  {e.rsvp.capacity && (
+                    <p className="text-sm text-blueprint-cyan font-semibold">{guests.length} of {e.rsvp.capacity} seats taken</p>
+                  )}
+                </div>
+                {guests.length === 0 ? (
+                  <p className="text-white/60 text-[15px]">No guests listed yet. RSVP and be the first.</p>
+                ) : (
+                  <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-4">
+                    {guests.map((g, i) => (
+                      <li key={`${g.name}-${i}`}>
+                        <span className="block text-white font-semibold">{g.name}</span>
+                        {g.company && <span className="block text-white/60 text-sm">{g.company}</span>}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
             )}
             {past && e.recapUrl && (
               <a href={e.recapUrl} target="_blank" rel="noopener noreferrer"
@@ -137,7 +161,15 @@ export default async function EventPage({ params }: { params: Promise<{ slug: st
                 {e.externalLabel ?? "Event website"} ↗
               </a>
             )}
-            {open && <RsvpForm eventSlug={e.slug} eventTitle={e.title} free={e.fee?.toLowerCase() === "free"} />}
+            {open && (
+              <RsvpForm
+                eventSlug={e.slug}
+                eventTitle={e.title}
+                free={e.fee?.toLowerCase() === "free"}
+                maxSeats={e.rsvp.maxSeats}
+                listAttendees={e.rsvp.listAttendees}
+              />
+            )}
             {!past && e.rsvp.required && !open && (
               <p className="text-white/60 text-[15px]">RSVP for this event has closed.</p>
             )}

@@ -5,6 +5,13 @@ export type EventRsvp = {
   capacity?: number;
   /** ISO date; form closes after this. Omit to stay open until the event. */
   deadline?: string;
+  /** Max seats one RSVP can take (default 4). 1 hides the seats picker: each guest RSVPs for themselves. */
+  maxSeats?: number;
+  /**
+   * Show a public "Who's joining" list (name + company) on the event page. Turns on required company and job
+   * title in the form, plus a notice that name and company are listed. Needs the Apps Script `attendees` feed.
+   */
+  listAttendees?: boolean;
 };
 
 export type SiteEvent = {
@@ -48,6 +55,42 @@ export type SiteEvent = {
 };
 
 export const events: SiteEvent[] = [
+  {
+    slug: "propel-property-roundtable-nov-2026",
+    title: "PROPEL: Property Roundtable Dinner",
+    tagline:
+      "PROPEL, the Property Roundtable Of Partners, Experts & Leaders: an early-dinner roundtable for real estate and the services around it. 30 seats.",
+    description: [
+      "PROPEL stands for Property Roundtable Of Partners, Experts & Leaders. It brings together people in real estate and the services that keep it moving: developers, real estate managers and suppliers.",
+      "This is a small, closed-circle evening for people Chan Leong knows well and trusts, not open networking. The idea is simple: put recent contacts who would benefit from each other at the same table.",
+      "**How the evening works**",
+      "- 5:00 PM start, so we get there before the evening jam",
+      "- A short sharing discussion around the table",
+      "- Proper time to network, in a small group",
+      "- Then dinner together",
+      "**Good to know**",
+      "- Limited to 30 guests, one seat per person",
+      "- RM100 per person, only to cover food and drinks",
+      "- The venue is chosen once the guest list is set, so it suits most people. Confirmed guests are told directly",
+      "RSVP below to hold your seat. We will message you on WhatsApp with the venue and payment details once your seat is confirmed.",
+    ],
+    start: "2026-11-13T17:00:00+08:00",
+    end: "2026-11-13T21:00:00+08:00",
+    timeLabel: "5:00 PM · early dinner",
+    venueName: "Venue to be confirmed",
+    venueAddress: "Kuala Lumpur. Shared with confirmed guests.",
+    audience: "Developers, real estate managers & suppliers. Close circle.",
+    fee: "RM100 per person (food & drinks)",
+    rsvp: {
+      required: true,
+      capacity: 30,
+      deadline: "2026-11-12T23:59:59+08:00",
+      maxSeats: 1,
+      listAttendees: true,
+    },
+    poster: "/images/events/propel-roundtable-poster.jpg",
+  },
+
   {
     slug: "getting-started-with-ai",
     title: "Getting Started with AI: Real Use Cases for Real Businesses",

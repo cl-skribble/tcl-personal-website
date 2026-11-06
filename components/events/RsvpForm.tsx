@@ -8,7 +8,9 @@ const field =
   "w-full rounded-lg bg-catalyst-navy border border-white/15 px-4 py-3 text-[15px] text-white placeholder:text-white/30 focus:outline-none focus:border-blueprint-cyan focus:ring-1 focus:ring-blueprint-cyan";
 const label = "block text-xs font-semibold uppercase tracking-widest text-white/60 mb-2";
 
-export default function RsvpForm({ eventSlug, eventTitle, free = false }: { eventSlug: string; eventTitle: string; free?: boolean }) {
+export default function RsvpForm({
+  eventSlug, eventTitle, free = false, maxSeats = 4, listAttendees = false,
+}: { eventSlug: string; eventTitle: string; free?: boolean; maxSeats?: number; listAttendees?: boolean }) {
   const [status, setStatus] = useState<Status>("idle");
   const [message, setMessage] = useState("");
 
@@ -84,22 +86,39 @@ export default function RsvpForm({ eventSlug, eventTitle, free = false }: { even
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
           <label className={label} htmlFor="company">Company</label>
-          <input id="company" name="company" maxLength={160} autoComplete="organization" className={field} />
+          <input id="company" name="company" required={listAttendees} maxLength={160} autoComplete="organization" className={field} />
         </div>
+        <div>
+          <label className={label} htmlFor="title">Job title</label>
+          <input id="title" name="title" required={listAttendees} maxLength={120} autoComplete="organization-title" className={field} />
+        </div>
+      </div>
+
+      {maxSeats > 1 && (
         <div>
           <label className={label} htmlFor="guests">Seats</label>
           <select id="guests" name="guests" defaultValue="1" className={field}>
-            {[1, 2, 3, 4].map((n) => (
+            {Array.from({ length: maxSeats }, (_, i) => i + 1).map((n) => (
               <option key={n} value={n}>{n}</option>
             ))}
           </select>
         </div>
-      </div>
+      )}
 
       <div>
         <label className={label} htmlFor="notes">Anything we should know? (optional)</label>
         <textarea id="notes" name="notes" rows={3} maxLength={500} className={field} />
       </div>
+
+      {listAttendees && (
+        <label className="flex items-start gap-3 text-[14px] text-white/70 leading-snug cursor-pointer">
+          <input type="checkbox" name="showOnPage" value="yes" required className="mt-1 h-4 w-4 accent-[#0ea5e9]" />
+          <span>
+            I understand my <strong className="text-white">name and company</strong> will be listed under
+            &ldquo;Who&apos;s joining&rdquo; on this page. My phone number, email and job title stay private.
+          </span>
+        </label>
+      )}
 
       {/* Honeypot: hidden from people, bots fill it in */}
       <div className="hidden" aria-hidden="true">

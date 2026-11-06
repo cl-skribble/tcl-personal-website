@@ -1,6 +1,6 @@
 # RSVP storage
 
-RSVPs from `/events/<slug>` post to `app/api/rsvp/route.ts`, which validates them and forwards each one to a **Google Sheet** through a small Apps Script web app. One tab per event; columns: Timestamp, Name, WhatsApp, Email, Company, Seats, Notes, Status.
+RSVPs from `/events/<slug>` post to `app/api/rsvp/route.ts`, which validates them and forwards each one to a **Google Sheet** through a small Apps Script web app. One tab per event; columns: Timestamp, Name, WhatsApp, Email, Company, Seats, Notes, Status, then Title and Show on website (added at the end so older tabs are untouched).
 
 Why a Sheet: no database to run, you can read and export the list on your phone, filter it, and mail-merge or WhatsApp-broadcast from it. Duplicate and capacity checks happen inside the script.
 
@@ -16,6 +16,10 @@ Why a Sheet: no database to run, you can read and export the list on your phone,
 6. Redeploy the site.
 
 Without `RSVP_WEBHOOK_URL`, production returns "RSVP temporarily unavailable" (it never pretends to save). In dev it logs the RSVP to the console only.
+
+## Public guest list ("Who's joining")
+
+For events with `rsvp.listAttendees: true` the page lists confirmed guests (name + company only) who ticked the guest-list notice. The page reads it from the Apps Script's `doGet` (`?action=attendees&slug=...`), which returns only name and company, no secret needed. **After changing `google-apps-script.gs`, paste it into the Apps Script editor and redeploy (Deploy > Manage deployments > edit > New version)**, otherwise the form still saves but the list stays hidden. Change a row's Status to anything but `Confirmed` to take a guest off the list.
 
 ## Adding an event
 
