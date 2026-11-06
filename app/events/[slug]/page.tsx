@@ -107,7 +107,7 @@ export default async function EventPage({ params }: { params: Promise<{ slug: st
                 <div className="flex items-baseline justify-between gap-4 border-b border-white/10 pb-3 mb-5">
                   <h2 className="font-display font-extrabold uppercase text-2xl text-white">Who&apos;s joining</h2>
                   {e.rsvp.capacity && (
-                    <p className="text-sm text-blueprint-cyan font-semibold">{guests.length} of {e.rsvp.capacity} seats taken</p>
+                    <p className="text-sm text-blueprint-cyan font-semibold">{guests.reduce((n, g) => n + g.seats, 0)} of {e.rsvp.capacity} seats taken</p>
                   )}
                 </div>
                 {guests.length === 0 ? (
@@ -116,7 +116,7 @@ export default async function EventPage({ params }: { params: Promise<{ slug: st
                   <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-4">
                     {guests.map((g, i) => (
                       <li key={`${g.name}-${i}`}>
-                        <span className="block text-white font-semibold">{g.name}</span>
+                        <span className="block text-white font-semibold">{g.name}{g.seats > 1 && <span className="ml-2 text-xs font-semibold text-blueprint-cyan">+{g.seats - 1}</span>}</span>
                         {g.company && <span className="block text-white/60 text-sm">{g.company}</span>}
                       </li>
                     ))}

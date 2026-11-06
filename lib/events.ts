@@ -69,7 +69,7 @@ export const events: SiteEvent[] = [
       "- Proper time to network, in a small group",
       "- Then dinner together",
       "**Good to know**",
-      "- Limited to 30 guests, one seat per person",
+      "- Limited to 30 guests, one seat per person. Everyone RSVPs for themselves",
       "- RM100 per person, only to cover food and drinks",
       "- The venue is chosen once the guest list is set, so it suits most people. Confirmed guests are told directly",
       "RSVP below to hold your seat. We will message you on WhatsApp with the venue and payment details once your seat is confirmed.",

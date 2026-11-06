@@ -12,8 +12,8 @@
  * Columns A-H are the original layout and never move. Title and "Show on website" were added at the end
  * (I, J) so older event tabs keep working untouched.
  *
- * doGet(?action=attendees&slug=...) is the PUBLIC guest list for the event page. It returns only name and
- * company, only for Confirmed rows whose "Show on website" is Yes. No secret needed: nothing private leaves.
+ * doGet(?action=attendees&slug=...) is the PUBLIC guest list for the event page. It returns only name,
+ * company and seats, only for Confirmed rows whose "Show on website" is Yes. No secret needed: nothing private leaves.
  */
 const HEADERS = ["Timestamp", "Name", "WhatsApp", "Email", "Company", "Seats", "Notes", "Status", "Title", "Show on website"];
 
@@ -69,7 +69,7 @@ function doGet(e) {
     const rows = sh.getRange(2, 1, sh.getLastRow() - 1, width).getValues();
     const attendees = rows
       .filter(r => r[7] === "Confirmed" && String(r[9]).toLowerCase() === "yes" && String(r[1]).trim())
-      .map(r => ({ name: String(r[1]).trim(), company: String(r[4]).trim() }));
+      .map(r => ({ name: String(r[1]).trim(), company: String(r[4]).trim(), seats: Math.max(1, Number(r[5]) || 1) }));
     return out_({ ok: true, attendees: attendees });
   } catch (err) {
     return out_({ ok: false, error: "unavailable" });

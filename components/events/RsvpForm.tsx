@@ -99,7 +99,7 @@ export default function RsvpForm({
           <label className={label} htmlFor="guests">Seats</label>
           <select id="guests" name="guests" defaultValue="1" className={field}>
             {Array.from({ length: maxSeats }, (_, i) => i + 1).map((n) => (
-              <option key={n} value={n}>{n}</option>
+              <option key={n} value={n}>{n === 1 ? "1 (just me)" : n === 2 ? "2 (me + 1 guest)" : n}</option>
             ))}
           </select>
         </div>
