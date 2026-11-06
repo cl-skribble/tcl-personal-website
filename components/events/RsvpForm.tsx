@@ -114,8 +114,8 @@ export default function RsvpForm({
         <label className="flex items-start gap-3 text-[14px] text-white/70 leading-snug cursor-pointer">
           <input type="checkbox" name="showOnPage" value="yes" required className="mt-1 h-4 w-4 accent-[#0ea5e9]" />
           <span>
-            I understand my <strong className="text-white">name and company</strong> will be listed under
-            &ldquo;Who&apos;s joining&rdquo; on this page. My phone number, email and job title stay private.
+            I understand my <strong className="text-white">name and company</strong>{" "}
+            will be listed under &ldquo;Who&apos;s joining&rdquo; on this page. My phone number, email and job title stay private.
           </span>
         </label>
       )}
