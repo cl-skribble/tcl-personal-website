@@ -1,34 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { useRef, useState } from "react";
 import FadeIn from "@/components/FadeIn";
-
-const topics = [
-  "Digital Transformation",
-  "PropTech & Real Estate",
-  "Regional Marketing",
-  "Agency Leadership",
-  "SME Growth",
-  "AI & Digital Economy",
-  "Brand Strategy",
-  "Southeast Asia Expansion",
-];
-
-const events = [
-  { src: "/images/speaking/rehda-dmti.jpeg",    event: "Rehda DMTI 2025",          location: "Kuala Lumpur" },
-  { src: "/images/speaking/hkftw.jpg",          event: "HK FinTech Week 2024",     location: "Hong Kong" },
-  { src: "/images/speaking/beyondfest.jpeg",    event: "BeyondFest (AWS)",         location: "Kuala Lumpur" },
-  { src: "/images/speaking/alpha-galaxy.jpeg",  event: "Alpha Galaxy × HLB",       location: "Kuala Lumpur" },
-  { src: "/images/speaking/beyondfest2.jpeg",   event: "Re:source APAC Conference", location: "Kuala Lumpur" },
-  { src: "/images/speaking/axiata.jpg",         event: "Axiata Challenge 2025",    location: "Kuala Lumpur" },
-];
-
-const videos = [
-  { src: "https://pub-4a51606b717f484cb62b009072283a76.r2.dev/CL%20Shortlisted%20videos/Rehda%20Sharing%20Nov%202025.mp4",    title: "Rehda Institute Sharing",   subtitle: "Digital Marketing Transformation, Nov 2025" },
-  { src: "https://pub-4a51606b717f484cb62b009072283a76.r2.dev/CL%20Shortlisted%20videos/Resource%20Conference%20Panel.mp4", title: "Re:source APAC Panel",      subtitle: "Malaysia to ASEAN: Replicating What Works" },
-  { src: "https://pub-4a51606b717f484cb62b009072283a76.r2.dev/CL%20Shortlisted%20videos/Galaxy%20Exchange%20Event.mp4",    title: "Galaxy Exchange Event",     subtitle: "Brand Launch for Galaxy Avenue" },
-];
+import VideoCard from "@/components/speaking/VideoCard";
+import { SPEAKING_FEE, pastEngagements, photos, topics, videos } from "@/lib/speaking";
 
 /* ── Blueprint: network constellation for upper-right background ── */
 function BlueprintNetwork() {
@@ -71,37 +46,6 @@ function BlueprintNetwork() {
   );
 }
 
-function VideoCard({ src, title, subtitle }: { src: string; title: string; subtitle: string }) {
-  const ref = useRef<HTMLVideoElement>(null);
-  const [playing, setPlaying] = useState(false);
-
-  const toggle = () => {
-    if (!ref.current) return;
-    if (playing) { ref.current.pause(); setPlaying(false); }
-    else          { ref.current.play(); setPlaying(true); }
-  };
-
-  return (
-    <div className="group relative rounded-2xl overflow-hidden bg-catalyst-navy cursor-pointer border border-catalyst-blue/15 hover:border-catalyst-blue/35 transition-colors" onClick={toggle}>
-      <video ref={ref} src={src} className="w-full aspect-[9/16] object-cover"
-        playsInline preload="metadata" onEnded={() => setPlaying(false)}/>
-      {!playing && (
-        <div className="absolute inset-0 bg-catalyst-navy/50 flex items-center justify-center group-hover:bg-catalyst-navy/35 transition-colors backdrop-blur-[2px]">
-          <div className="w-14 h-14 rounded-full bg-warm-white/90 flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform border border-catalyst-blue/20">
-            <svg className="w-5 h-5 text-catalyst-navy translate-x-0.5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M8 5v14l11-7z"/>
-            </svg>
-          </div>
-        </div>
-      )}
-      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-catalyst-navy/95 to-transparent p-4">
-        <p className="text-warm-white font-semibold text-sm leading-tight">{title}</p>
-        <p className="text-warm-white/50 text-xs mt-0.5">{subtitle}</p>
-      </div>
-    </div>
-  );
-}
-
 export default function Speaking() {
   return (
     <section id="speaking" className="py-24 lg:py-32 bg-catalyst-navy relative overflow-hidden blueprint-grid">
@@ -134,7 +78,7 @@ export default function Speaking() {
 
         {/* Photo grid — captions always visible on mobile, hover on md+ */}
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-16">
-          {events.map((e, i) => (
+          {photos.map((e, i) => (
             <FadeIn key={e.event} delay={i * 0.07}>
               <div className="relative rounded-2xl overflow-hidden group aspect-[4/3] border border-catalyst-blue/10 hover:border-catalyst-blue/30 transition-colors">
                 <Image src={e.src} alt={e.event} fill className="object-cover group-hover:scale-105 transition-transform duration-500"/>
@@ -166,26 +110,24 @@ export default function Speaking() {
           <div className="mt-14 border-t border-catalyst-blue/15 pt-10">
             <p className="text-warm-white/30 text-xs font-semibold uppercase tracking-wider mb-5">Past Engagements</p>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-3 text-sm text-warm-white/50">
-              {[
-                "HK FinTech Week 2024 — Digital Banking Panel",
-                "Rehda DMTI 2025 — Digital Marketing",
-                "BeyondFest (AWS KL) — Keynote",
-                "Astro Niaga Awani — SME Digital Transformation",
-                "BFM 89.9 — Enterprise Explores (5×)",
-                "Re:source APAC Conference — Malaysia to ASEAN",
-                "Juwai IQI — Global Connections in Malaysia",
-                "The Proptech Academy — Industry Elevation",
-                "Tenaga Nasional Berhad — Fireside (CIO)",
-                "Alpha Galaxy × Hong Leong Bank — Brand Launch",
-                "AUAM — Women Empowerment Panel",
-                "Malaysia Property Development Process 2026",
-              ].map((e) => (
+              {pastEngagements.map((e) => (
                 <div key={e} className="flex items-start gap-2">
                   <div className="w-1 h-1 rounded-full bg-catalyst-blue mt-2 shrink-0"/>
                   <p>{e}</p>
                 </div>
               ))}
             </div>
+          </div>
+        </FadeIn>
+
+        {/* Link to the full speaker profile */}
+        <FadeIn delay={0.1}>
+          <div className="mt-12 flex flex-col sm:flex-row sm:items-center gap-4">
+            <a href="/speaking"
+              className="inline-flex justify-center bg-catalyst-blue text-white text-sm font-semibold px-6 py-3 rounded-full hover:bg-catalyst-blue-l transition-colors">
+              Speaker profile, topics &amp; fees →
+            </a>
+            <p className="text-warm-white/45 text-sm">Keynotes from {SPEAKING_FEE} per engagement.</p>
           </div>
         </FadeIn>
       </div>

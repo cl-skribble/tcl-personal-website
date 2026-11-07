@@ -86,7 +86,7 @@ export default function Home() {
               <nav className="flex flex-wrap gap-x-10 gap-y-2">
                 {[
                   { label: "About",    href: "#about"    },
-                  { label: "Speaking", href: "#speaking" },
+                  { label: "Speaking", href: "/speaking" },
                   { label: "Events",   href: "/events"   },
                   { label: "Awards",   href: "#awards"   },
                   { label: "Press",    href: "#press"    },
