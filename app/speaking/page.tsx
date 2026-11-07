@@ -5,7 +5,7 @@ import VideoCard from "@/components/speaking/VideoCard";
 import { SITE_URL, jsonLdString } from "@/lib/site";
 import {
   BOOKING_EMAIL, SPEAKING_FEE, bookingHref, faqs, formats, keynotes,
-  pastEngagements, photos, topics, videos,
+  pastEngagements, photos, topics, videos, whyBook,
 } from "@/lib/speaking";
 
 export const metadata: Metadata = {
@@ -15,10 +15,20 @@ export const metadata: Metadata = {
   alternates: { canonical: "/speaking" },
 };
 
+/** In-page tabs, in the order the sections appear. */
+const sections = [
+  { id: "about",   label: "About" },
+  { id: "topics",  label: "Speech Topics" },
+  { id: "reel",    label: "Speaking Reel" },
+  { id: "why",     label: "Why Book" },
+  { id: "stages",  label: "Past Stages" },
+  { id: "faq",     label: "FAQ" },
+];
+
 const facts = [
   { label: "Speaking fee",  value: `From ${SPEAKING_FEE}`, note: "per engagement" },
   { label: "Travels from",  value: "Kuala Lumpur",          note: "Available across Asia and worldwide" },
-  { label: "Formats",       value: "Keynote · Panel · Fireside · Workshop · Virtual" },
+  { label: "Formats",       value: formats.map((f) => f.name).join(" · ") },
 ];
 
 const proof = [
@@ -37,36 +47,63 @@ function SectionHeading({ eyebrow, title }: { eyebrow: string; title: string }) 
   );
 }
 
-function BookButton({ className = "" }: { className?: string }) {
+function BookButton({ label = "Book Chan Leong", className = "" }: { label?: string; className?: string }) {
   return (
     <a href={bookingHref}
       className={`inline-flex justify-center items-center bg-catalyst-blue text-white text-sm font-semibold px-6 py-3 rounded-full hover:bg-catalyst-blue-l transition-colors ${className}`}>
-      Check availability →
+      {label} →
     </a>
   );
 }
 
 export default function SpeakingPage() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "ProfilePage",
-    name: "Book Teng Chan Leong as a Speaker",
-    url: `${SITE_URL}/speaking`,
-    mainEntity: {
-      "@id": `${SITE_URL}/#person`,
-      "@type": "Person",
-      name: "Teng Chan Leong",
-      jobTitle: "Chief Executive Officer, Skribble Group",
-      knowsAbout: topics,
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfilePage",
+      name: "Book Teng Chan Leong as a Speaker",
+      url: `${SITE_URL}/speaking`,
+      mainEntity: {
+        "@id": `${SITE_URL}/#person`,
+        "@type": "Person",
+        name: "Teng Chan Leong",
+        jobTitle: "Chief Executive Officer, Skribble Group",
+        knowsAbout: topics,
+      },
     },
-  };
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faqs.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    },
+  ];
 
   return (
-    <PageShell eyebrow="Keynote Speaker · Kuala Lumpur" title={<>Book Chan Leong<br />to Speak</>}>
+    <PageShell eyebrow="Keynote Speaker · Kuala Lumpur" title={<>Teng<br />Chan Leong</>}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdString(jsonLd) }} />
 
-      {/* ── Overview: photo, pitch, quick facts ── */}
-      <section className="bg-catalyst-navy py-16">
+      {/* ── Sticky in-page tabs ── */}
+      <nav aria-label="On this page" className="sticky top-16 z-40 bg-catalyst-navy/95 backdrop-blur-sm border-b border-white/10">
+        <div className="max-w-5xl mx-auto px-6 lg:px-8 flex items-center gap-6 h-12">
+          <div className="flex-1 min-w-0 flex gap-6 overflow-x-auto whitespace-nowrap [scrollbar-width:none]">
+            {sections.map((s) => (
+              <a key={s.id} href={`#${s.id}`} className="text-white/65 text-sm font-medium hover:text-blueprint-cyan transition-colors">
+                {s.label}
+              </a>
+            ))}
+          </div>
+          <a href="#book" className="hidden sm:inline-flex shrink-0 text-blueprint-cyan text-sm font-semibold hover:text-white transition-colors">
+            Book Now →
+          </a>
+        </div>
+      </nav>
+
+      {/* ── About: photo, bio, quick facts ── */}
+      <section id="about" className="scroll-mt-28 bg-catalyst-navy py-16">
         <div className="max-w-5xl mx-auto px-6 lg:px-8 grid md:grid-cols-[2fr_3fr] gap-10 items-start">
           <div className="relative aspect-[4/5] rounded-2xl overflow-hidden border border-white/10">
             <Image src="/images/profile.jpg" alt="Teng Chan Leong" fill priority
@@ -74,25 +111,38 @@ export default function SpeakingPage() {
           </div>
 
           <div>
-            <p className="text-white/55 text-sm mb-1">CEO, Skribble Group · Founder, Strategic Asia Marketing Alliance (SAMA)</p>
-            <h2 className="text-white text-2xl sm:text-3xl font-black leading-tight mb-5">
-              An operator&apos;s view of growth in Southeast Asia: digital, regional and built to last.
-            </h2>
+            <p className="text-blueprint-cyan text-sm font-semibold mb-5">
+              CEO of Skribble Group · Founder of the Strategic Asia Marketing Alliance (SAMA) · Prestige 40 Under 40
+            </p>
             <div className="space-y-4 text-white/70 leading-relaxed mb-8">
               <p>
-                Teng Chan Leong has spent more than a decade building businesses across Southeast Asia. As CEO of
-                Skribble Group he leads an award-winning digital agency, and as founder of SAMA he unites independent
-                agencies across the region to compete as one.
+                <span className="text-white font-semibold">Teng Chan Leong</span> is an entrepreneur and operator who has spent more
+                than a decade building businesses across Southeast Asia. He speaks on digital transformation, regional growth and the
+                business of marketing from where they meet: inside the companies doing the work.
               </p>
               <p>
-                On stage he brings what audiences rarely get: first-hand experience. His talks on digital transformation,
-                regional expansion, PropTech and AI come from running the work, not reporting on it. Every session is
-                tailored to the room and leaves audiences with moves they can act on the next morning.
+                As CEO of Skribble Group he leads an award-winning digital agency, named Gold for Best Agency Culture and Silver for
+                Best Employer in 2024. As founder of SAMA he unites independent agencies across the region so they can compete for
+                regional work as one.
               </p>
-              <p>
-                From HK FinTech Week to the REHDA Institute, AWS BeyondFest and BFM 89.9, organisers book Chan Leong when they
-                want substance with energy.
-              </p>
+              <details className="group">
+                <summary className="list-none cursor-pointer text-blueprint-cyan text-sm font-semibold hover:text-white transition-colors">
+                  <span className="group-open:hidden">Read more</span>
+                  <span className="hidden group-open:inline">Read less</span>
+                </summary>
+                <div className="space-y-4 mt-4">
+                  <p>
+                    On stage he brings what audiences rarely get: first-hand experience. His talks come from running the work, not
+                    reporting on it, and every session is tailored to the room so audiences leave with moves they can act on the next
+                    morning.
+                  </p>
+                  <p>
+                    He has spoken at HK FinTech Week, the REHDA Institute, AWS BeyondFest and the Re:source APAC Conference, and is a
+                    regular guest on BFM 89.9 and Astro Awani. A Carnegie Mellon University graduate, he also advises the INTI Industry
+                    Advisory Board and mentors students through USAPPS Education.
+                  </p>
+                </div>
+              </details>
             </div>
 
             <dl className="rounded-2xl border border-white/10 bg-catalyst-navy-l divide-y divide-white/10 mb-8">
@@ -124,25 +174,37 @@ export default function SpeakingPage() {
         </div>
       </section>
 
-      {/* ── Keynote topics ── */}
-      <section className="bg-catalyst-navy py-16">
+      {/* ── Speech topics ── */}
+      <section id="topics" className="scroll-mt-28 bg-catalyst-navy py-16">
         <div className="max-w-5xl mx-auto px-6 lg:px-8">
-          <SectionHeading eyebrow="Signature Keynotes" title="Speaking Topics" />
-          <div className="grid md:grid-cols-2 gap-5">
+          <SectionHeading eyebrow="Signature Keynotes" title="Speech Topics" />
+          <div className="space-y-4">
             {keynotes.map((k) => (
-              <article key={k.title} className="rounded-2xl border border-white/10 bg-catalyst-navy-l p-6">
-                <p className="text-blueprint-cyan text-xs font-semibold uppercase tracking-widest mb-2">{k.tag}</p>
-                <h3 className="text-white text-lg font-bold leading-snug mb-3">{k.title}</h3>
-                <p className="text-white/60 text-sm leading-relaxed mb-4">{k.summary}</p>
-                <ul className="space-y-1.5">
-                  {k.takeaways.map((t) => (
-                    <li key={t} className="flex items-start gap-2 text-sm text-white/75">
-                      <span className="w-1 h-1 rounded-full bg-blueprint-cyan mt-2 shrink-0" />
-                      {t}
-                    </li>
-                  ))}
-                </ul>
-              </article>
+              <details key={k.title} className="group rounded-2xl border border-white/10 bg-catalyst-navy-l open:border-blueprint-cyan/40 transition-colors">
+                <summary className="list-none cursor-pointer p-6 flex items-start justify-between gap-6">
+                  <div>
+                    <p className="text-blueprint-cyan text-xs font-semibold uppercase tracking-widest mb-2">{k.tag}</p>
+                    <h3 className="text-white text-xl font-bold leading-snug">{k.title}</h3>
+                    <p className="text-white/55 mt-1">{k.tagline}</p>
+                  </div>
+                  <span className="shrink-0 text-blueprint-cyan text-sm font-semibold mt-6 whitespace-nowrap">
+                    <span className="group-open:hidden">Read more +</span>
+                    <span className="hidden group-open:inline">Close −</span>
+                  </span>
+                </summary>
+                <div className="px-6 pb-6 -mt-2">
+                  <p className="text-white/65 text-sm leading-relaxed mb-4 max-w-3xl">{k.summary}</p>
+                  <p className="text-white/45 text-xs font-semibold uppercase tracking-wider mb-2">Audiences will learn</p>
+                  <ul className="space-y-1.5">
+                    {k.takeaways.map((t) => (
+                      <li key={t} className="flex items-start gap-2 text-sm text-white/75">
+                        <span className="w-1 h-1 rounded-full bg-blueprint-cyan mt-2 shrink-0" />
+                        {t}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </details>
             ))}
           </div>
           <p className="text-white/45 text-sm mt-6">
@@ -151,20 +213,37 @@ export default function SpeakingPage() {
         </div>
       </section>
 
-      {/* ── Videos ── */}
-      <section className="bg-catalyst-navy py-16 border-t border-white/10">
+      {/* ── Speaking reel ── */}
+      <section id="reel" className="scroll-mt-28 bg-catalyst-navy py-16 border-t border-white/10">
         <div className="max-w-5xl mx-auto px-6 lg:px-8">
-          <SectionHeading eyebrow="Watch" title="Chan Leong in Action" />
+          <SectionHeading eyebrow="Watch" title="Speaking Reel" />
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 items-start">
             {videos.map((v) => <VideoCard key={v.title} {...v} />)}
           </div>
         </div>
       </section>
 
-      {/* ── Photo gallery ── */}
-      <section className="bg-catalyst-navy py-16 border-t border-white/10">
+      {/* ── Why people book ── */}
+      <section id="why" className="scroll-mt-28 bg-catalyst-navy-l py-16 border-y border-white/10">
         <div className="max-w-5xl mx-auto px-6 lg:px-8">
-          <SectionHeading eyebrow="On Stage" title="Recent Stages" />
+          <SectionHeading eyebrow="Why People Book" title="Why Book Chan Leong" />
+          <div className="grid md:grid-cols-3 gap-8 mb-10">
+            {whyBook.map((w) => (
+              <div key={w.verb} className="border-t-2 border-blueprint-cyan pt-5">
+                <p className="font-display font-extrabold uppercase text-3xl text-white leading-none">{w.verb}</p>
+                <p className="text-blueprint-cyan font-semibold mt-1 mb-3">{w.line}</p>
+                <p className="text-white/65 text-sm leading-relaxed">{w.detail}</p>
+              </div>
+            ))}
+          </div>
+          <BookButton label="Book Chan Leong Now" />
+        </div>
+      </section>
+
+      {/* ── Past stages ── */}
+      <section id="stages" className="scroll-mt-28 bg-catalyst-navy py-16">
+        <div className="max-w-5xl mx-auto px-6 lg:px-8">
+          <SectionHeading eyebrow="On Stage" title="Past Stages" />
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {photos.map((p) => (
               <figure key={p.event} className="relative rounded-2xl overflow-hidden aspect-[4/3] border border-white/10">
@@ -188,14 +267,8 @@ export default function SpeakingPage() {
               ))}
             </ul>
           </div>
-        </div>
-      </section>
 
-      {/* ── Formats ── */}
-      <section className="bg-catalyst-navy py-16 border-t border-white/10">
-        <div className="max-w-5xl mx-auto px-6 lg:px-8">
-          <SectionHeading eyebrow="Engagement Formats" title="Ways to Book" />
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {formats.map((f) => (
               <div key={f.name} className="rounded-2xl border border-white/10 bg-catalyst-navy-l p-5">
                 <h3 className="text-white font-bold mb-1">{f.name}</h3>
@@ -212,9 +285,9 @@ export default function SpeakingPage() {
       </section>
 
       {/* ── FAQ ── */}
-      <section className="bg-catalyst-navy py-16 border-t border-white/10">
+      <section id="faq" className="scroll-mt-28 bg-catalyst-navy py-16 border-t border-white/10">
         <div className="max-w-3xl mx-auto px-6 lg:px-8">
-          <SectionHeading eyebrow="Planning" title="Booking FAQ" />
+          <SectionHeading eyebrow="Planning" title="Frequently Asked Questions" />
           <div className="divide-y divide-white/10 border-y border-white/10">
             {faqs.map((f) => (
               <details key={f.q} className="group py-4">
@@ -230,10 +303,10 @@ export default function SpeakingPage() {
       </section>
 
       {/* ── Booking CTA ── */}
-      <section id="book" className="bg-catalyst-blue py-16">
+      <section id="book" className="scroll-mt-28 bg-catalyst-blue py-16">
         <div className="max-w-5xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row md:items-center justify-between gap-8">
           <div>
-            <h2 className="font-display font-extrabold uppercase text-3xl sm:text-4xl text-white mb-3">Check Availability</h2>
+            <h2 className="font-display font-extrabold uppercase text-3xl sm:text-5xl text-white mb-3">Bring Chan Leong to Your Event</h2>
             <p className="text-white/80 max-w-xl leading-relaxed">
               Share your event name, date, location, format and audience. Expect a reply with availability and a quote.
             </p>

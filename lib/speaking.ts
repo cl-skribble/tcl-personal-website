@@ -74,6 +74,7 @@ export const pastEngagements = [
 export const keynotes = [
   {
     title: "Rivals to Partners: Going Regional in Southeast Asia",
+    tagline: "Why the next regional champion is an alliance, not a giant",
     tag: "Regional Marketing",
     summary:
       "Southeast Asia is not one market with several languages. Drawing on founding the Strategic Asia Marketing Alliance (SAMA), Chan Leong shows how independent businesses expand across borders by collaborating with local experts instead of competing with them.",
@@ -85,6 +86,7 @@ export const keynotes = [
   },
   {
     title: "Digital Transformation That Actually Ships",
+    tagline: "From strategy deck to real results",
     tag: "Digital Transformation",
     summary:
       "Most transformation programmes stall between the strategy deck and the shop floor. A practical view, from an operator who runs a digital agency, of where SMEs and enterprises should start, what to measure, and how to bring teams along.",
@@ -96,6 +98,7 @@ export const keynotes = [
   },
   {
     title: "Marketing Property in a Digital-First Market",
+    tagline: "How today's buyers discover, compare and commit",
     tag: "PropTech & Real Estate",
     summary:
       "Built on years of work with Malaysian developers and the REHDA Institute's digital marketing research, this talk covers how buyers now discover, compare and commit, and what developers must change to keep up.",
@@ -107,6 +110,7 @@ export const keynotes = [
   },
   {
     title: "AI and the Future of Creative Work",
+    tagline: "Preparing your people for the new standard",
     tag: "AI & Digital Economy",
     summary:
       "Generative AI is resetting the standard for creative and marketing teams. Chan Leong shares how Skribble is putting AI to work, which skills are rising in value, and how leaders should prepare their people.",
@@ -118,6 +122,7 @@ export const keynotes = [
   },
   {
     title: "Building a Culture People Choose",
+    tagline: "The talent playbook behind an award-winning agency",
     tag: "Agency Leadership",
     summary:
       "Skribble won Gold for Best Agency Culture and Silver for Best Employer in 2024. The playbook behind it covers hiring, growing and keeping talent in a competitive services business.",
@@ -139,8 +144,16 @@ export const formats = [
 
 export const faqs = [
   {
-    q: "What is the speaking fee?",
+    q: "How do I book Teng Chan Leong for my event?",
+    a: "Send a speaking inquiry with your event name, date, location, format and audience. You'll get a reply confirming availability, followed by a briefing on your event goals and the booking details.",
+  },
+  {
+    q: "How much does it cost to book Teng Chan Leong as a speaker?",
     a: `Fees start from ${SPEAKING_FEE} per engagement. The final fee depends on format, length, location, date and the amount of tailoring required. Send your event details for a firm quote.`,
+  },
+  {
+    q: "Is Chan Leong available for virtual events?",
+    a: "Yes. He is available for virtual keynotes, fireside chats and moderated conversations for remote, hybrid and regional audiences.",
   },
   {
     q: "Does Chan Leong travel for events?",
@@ -150,8 +163,23 @@ export const faqs = [
     q: "Can the talk be tailored to our event?",
     a: "Every engagement is tailored. Before the event, Chan Leong holds a briefing call with the organiser to understand the audience, theme and goals.",
   },
+];
+
+/** "Why people book" pillars. */
+export const whyBook = [
   {
-    q: "How far in advance should we book?",
-    a: "As early as possible. Availability is limited and dates are confirmed on a first-come basis, so get in touch once your date is set.",
+    verb: "To Lead",
+    line: "In a Digital-First Economy",
+    detail: "He runs the transformation work he talks about, so audiences get decisions and trade-offs, not theory.",
+  },
+  {
+    verb: "To Grow",
+    line: "Across Southeast Asia",
+    detail: "As founder of SAMA, he shows how businesses scale across borders by partnering with the best local players.",
+  },
+  {
+    verb: "To Win",
+    line: "With Brand and Talent",
+    detail: "From PropTech launches to award-winning culture, he shares the playbooks that turn marketing and people into growth.",
   },
 ];
