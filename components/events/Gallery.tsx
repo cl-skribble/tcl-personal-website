@@ -112,6 +112,7 @@ function Tile({ p, i, total, onOpen, wide = false }: {
         alt={p.alt}
         fill
         sizes={wide ? "(min-width: 1024px) 960px, 100vw" : "(min-width: 640px) 320px, 50vw"}
+        style={p.focus ? { objectPosition: p.focus } : undefined}
         className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
       />
       {p.caption && (

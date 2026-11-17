@@ -23,6 +23,8 @@ export type GalleryPhoto = {
   caption?: string;
   /** Width / height. Default 4:3. */
   ratio?: number;
+  /** Which part stays in view when the photo is cropped (CSS object-position), e.g. "50% 80%" to keep the bottom. */
+  focus?: string;
 };
 
 export type SiteEvent = {
@@ -139,6 +141,9 @@ export const events: SiteEvent[] = [
     fee: "Free",
     rsvp: { required: true, deadline: "2026-10-28T23:59:59+08:00" },
     poster: "/images/events/getting-started-with-ai-poster.jpg",
+    gallery: [
+      { src: "/images/events/getting-started-with-ai/01-class-photo.jpg", alt: "Group photo of the session attendees at the Skribble office", caption: "The 29 October class at the Skribble office" },
+    ],
   },
 
   {
@@ -253,7 +258,10 @@ export const events: SiteEvent[] = [
       { src: "/images/events/korea-2026/05-handshake.jpg", alt: "Two men shaking hands in front of the K-Startup Grand Challenge map", caption: "Shaking on it" },
       { src: "/images/events/korea-2026/06-gift-exchange.jpg", alt: "Two men exchanging gift bags in a meeting room", caption: "Exchanging gifts with our hosts", ratio: 3 / 4 },
       { src: "/images/events/korea-2026/07-working-session.jpg", alt: "Around a meeting table with laptops and coffee", caption: "Working session in Seoul" },
-      { src: "/images/events/korea-2026/08-team-photo.jpg", alt: "Nine people standing in a row outside a meeting room", caption: "After the session" },
+      { src: "/images/events/korea-2026/12-heads-down.jpg", alt: "The team working on laptops around a long meeting table", caption: "Heads down between meetings" },
+      { src: "/images/events/korea-2026/08-team-photo.jpg", alt: "Nine people making finger-heart gestures outside a meeting room", caption: "After the session" },
+      { src: "/images/events/korea-2026/10-dinner.jpg", alt: "Group selfie with Korean hosts around a dinner table", caption: "Dinner with our Korean hosts" },
+      { src: "/images/events/korea-2026/11-lunch.jpg", alt: "The team at lunch over bowls of samgyetang", caption: "Samgyetang lunch" },
       { src: "/images/events/korea-2026/09-gwanghwamun.jpg", alt: "Team selfie in front of Gwanghwamun gate", caption: "Gwanghwamun, between meetings", ratio: 3 / 4 },
     ],
   },
@@ -278,6 +286,13 @@ export const events: SiteEvent[] = [
     externalLabel: "Event website",
     poster: "/images/events/sme-ceo-forum-2026-poster.jpg",
     posterRatio: 1,
+    gallery: [
+      { src: "/images/events/sme-ceo-forum-2026/01-panel-stage.jpg", alt: "Panel II on stage under the Future-Proofing Your Business with AI and Tech screen", caption: "Panel II: Future-Proofing Your Business with AI and Tech", focus: "50% 85%" },
+      { src: "/images/events/sme-ceo-forum-2026/02-hall.jpg", alt: "View of the panel from the audience at PJPAC", caption: "The hall at PJPAC", ratio: 3 / 4 },
+      { src: "/images/events/sme-ceo-forum-2026/03-panel-speaking.jpg", alt: "Panellists on stage, one speaking into a microphone", caption: "On the panel", ratio: 3 / 4 },
+      { src: "/images/events/sme-ceo-forum-2026/05-backdrop.jpg", alt: "Three people at the SME CEO Forum 2026 backdrop", caption: "At the SME CEO Forum 2026 backdrop" },
+      { src: "/images/events/sme-ceo-forum-2026/04-panel-closeup.jpg", alt: "Close-up of the panellists on stage", caption: "Talking AI for SMEs", ratio: 3 / 4 },
+    ],
   },
 ];
 
