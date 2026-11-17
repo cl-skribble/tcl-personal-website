@@ -142,7 +142,17 @@ export const events: SiteEvent[] = [
     rsvp: { required: true, deadline: "2026-10-28T23:59:59+08:00" },
     poster: "/images/events/getting-started-with-ai-poster.jpg",
     gallery: [
-      { src: "/images/events/getting-started-with-ai/01-class-photo.jpg", alt: "Group photo of the session attendees at the Skribble office", caption: "The 29 October class at the Skribble office" },
+      { src: "/images/events/getting-started-with-ai/02-packed-room.jpg", alt: "A full room of attendees facing the screen at the Skribble office", caption: "A full room at the Skribble office" },
+      { src: "/images/events/getting-started-with-ai/03-thomas-demo.jpg", alt: "Guest speaker Thomas Au explaining an image workflow on screen", caption: "Thomas Au on AI content creation", ratio: 3 / 4 },
+      { src: "/images/events/getting-started-with-ai/04-thomas-workflow.jpg", alt: "Thomas Au walking the room through a node-based image workflow", caption: "Walking through a node-based image workflow" },
+      { src: "/images/events/getting-started-with-ai/05-chan-leong.jpg", alt: "Chan Leong presenting in front of the screen", caption: "Chan Leong on running a business with AI", ratio: 3 / 4 },
+      { src: "/images/events/getting-started-with-ai/06-room-chan-leong.jpg", alt: "View from the back of the room during Chan Leong's segment", caption: "Real use cases from Skribble and SAMA" },
+      { src: "/images/events/getting-started-with-ai/07-platforms.jpg", alt: "Chan Leong pointing at a slide while attendees watch", caption: "Two platforms, one vision", ratio: 3 / 4 },
+      { src: "/images/events/getting-started-with-ai/08-question.jpg", alt: "An attendee asking a question from her seat", caption: "Questions from the floor", ratio: 3 / 4 },
+      { src: "/images/events/getting-started-with-ai/09-audience.jpg", alt: "Attendees listening closely", caption: "Business owners, team leads and professionals" },
+      { src: "/images/events/getting-started-with-ai/10-after.jpg", alt: "Chan Leong talking with an attendee after the session", caption: "Following up after the session", ratio: 3 / 4 },
+      { src: "/images/events/getting-started-with-ai/11-networking.jpg", alt: "Attendees chatting in small groups after the session", caption: "Staying back to talk" },
+      { src: "/images/events/getting-started-with-ai/01-class-photo.jpg", alt: "Group photo of the session attendees at the Skribble office", caption: "The 29 October class" },
     ],
   },
 
