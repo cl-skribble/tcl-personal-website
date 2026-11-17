@@ -20,7 +20,7 @@
   --color-carbon:        #0b192c;
   --color-cream:         #f3f5fa;
 
-  --font-sans:    var(--font-barlow), Barlow, system-ui, sans-serif;
+  --font-sans:    var(--font-barlow), Barlow, system-ui, "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Microsoft YaHei", sans-serif;
   --font-display: var(--font-barlow-condensed), 'Barlow Condensed', system-ui, sans-serif;
 }
 

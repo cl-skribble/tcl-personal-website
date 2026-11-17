@@ -21,6 +21,16 @@ Without `RSVP_WEBHOOK_URL`, production returns "RSVP temporarily unavailable" (i
 
 For events with `rsvp.listAttendees: true` the page lists confirmed guests (name + company only) who ticked the guest-list notice. The page reads it from the Apps Script's `doGet` (`?action=attendees&slug=...`), which returns only name and company, no secret needed. **After changing `google-apps-script.gs`, paste it into the Apps Script editor and redeploy (Deploy > Manage deployments > edit > New version)**, otherwise the form still saves but the list stays hidden. Change a row's Status to anything but `Confirmed` to take a guest off the list.
 
+## Testimonials (past events)
+
+Send attendees the per-event link `https://tengchanleong.com/events/<slug>/feedback` (e.g. `/events/getting-started-with-ai/feedback`). The form takes a one-line feedback (English, Bahasa Melayu or Chinese, up to 160 characters), name, job title and company, plus a consent tick. It only accepts submissions after the event has ended.
+
+Submissions land in the **`_Testimonials`** tab of the same sheet with Status `Pending`. Change Status to **`Approved`** to publish a line under "What guests said" on the event page (the page refreshes within about 5 minutes). Leave it as anything else to keep it hidden. Edit the Feedback cell if you need to fix a typo. One entry per name per event.
+
+Needs the updated `google-apps-script.gs` pasted in and redeployed as a new version (same as above).
+
+Preview locally with sample quotes: `TESTIMONIALS_DEMO=1 npm run dev` (ignored in production).
+
 ## Adding an event
 
 Add an entry to `lib/events.ts`. Set `rsvp: { required: true, capacity?: number, deadline?: ISO }`. Events move from Upcoming to Past automatically after their end time.

@@ -14,6 +14,17 @@ export type EventRsvp = {
   listAttendees?: boolean;
 };
 
+export type GalleryPhoto = {
+  /** Path in /public. */
+  src: string;
+  /** Describes the photo for screen readers. */
+  alt: string;
+  /** Short line shown under the photo in the full-size view. */
+  caption?: string;
+  /** Width / height. Default 4:3. */
+  ratio?: number;
+};
+
 export type SiteEvent = {
   slug: string;
   title: string;
@@ -48,6 +59,12 @@ export type SiteEvent = {
   posterRatio?: number;
   /** Replaces the "start – end" clock text when the exact range isn't known. */
   timeLabel?: string;
+  /** Replaces the single date on the detail page, for multi-day events, e.g. "9 – 12 November 2026". */
+  dateLabel?: string;
+  /** Past events show "What guests said" and a feedback link. Set false for events with no attendees to ask (e.g. a delegation trip). */
+  testimonials?: boolean;
+  /** Event photos, shown as a gallery on the detail page. Keep files in /public/images/events/<slug>/. */
+  gallery?: GalleryPhoto[];
   /** Past events: optional recap link (LinkedIn post, album, slides). */
   recapUrl?: string;
   /** Dummy entries, delete when real events replace them. */
@@ -192,6 +209,50 @@ export const events: SiteEvent[] = [
   },
 
   /* Past events */
+  {
+    slug: "seoul-business-mission-nov-2026",
+    title: "Seoul Business Mission 2026",
+    tagline:
+      "Four days in Seoul with the Skribble team, meeting Korean trade bodies, investors and partners on moving brands between Korea and Southeast Asia.",
+    description: [
+      "In November 2026 Chan Leong led a six-person Skribble delegation to Seoul, at the invitation of SnE Company, the Korean agri-tech firm Skribble supports on its entry into Malaysia.",
+      "Over four days the team met trade associations, investors, consultants and Malaysia's trade office in Korea, all around one question: how to help brands move in both directions, Korean brands into Southeast Asia and Malaysian brands into Korea. Chan Leong also introduced SAMA, the Strategic Asia Marketing Alliance, as a regional partner for Korean companies looking south.",
+      "**Who we met**",
+      "- **SnE Company**, our hosts, at their Seoul office",
+      "- **MATRADE Seoul**, the Malaysia Trade & Investment Centre at the Embassy of Malaysia, on government support for cross-border brands",
+      "- **KOIMA**, the Korea Importers Association, organisers of the Korea Import Expo (KIE 2027 at COEX, 30 June to 2 July 2027)",
+      "- **KAR**, introduced through MATRADE Seoul",
+      "- **HBT Consulting**, who bring Korean F&B and retail brands to Malaysia",
+      "- **Artyz**, which runs Korea and Japan business programmes",
+      "- **Bigbang Angels** and **Pancras Partners**, on supporting startups entering Southeast Asia and Korea",
+      "- **Bgood**, our Korean partner, who opened several of these doors",
+      "**What comes next**",
+      "Follow-ups are under way with MATRADE Seoul, KOIMA and KAR, and Malaysian companies interested in exhibiting at KIE 2027 can reach out to Skribble.",
+    ],
+    start: "2026-11-09T06:30:00+09:00",
+    end: "2026-11-12T11:00:00+09:00",
+    dateLabel: "9 – 12 November 2026",
+    timeLabel: "Four days",
+    venueName: "Seoul, South Korea",
+    venueAddress: "Gangnam and Jongno",
+    audience: "Skribble delegation",
+    rsvp: { required: false },
+    testimonials: false,
+    poster: "/images/events/korea-2026/01-matrade-seoul.jpg",
+    posterRatio: 4 / 3,
+    gallery: [
+      { src: "/images/events/korea-2026/01-matrade-seoul.jpg", alt: "The Skribble delegation with the MATRADE Seoul team at the Embassy of Malaysia", caption: "With MATRADE Seoul at the Embassy of Malaysia" },
+      { src: "/images/events/korea-2026/02-sne-office.jpg", alt: "The Skribble team with SnE Company staff holding SNE signs in their office", caption: "At the SnE Company office" },
+      { src: "/images/events/korea-2026/03-global-startup-center.jpg", alt: "The group in front of a curved screen reading Welcome to Global Startup Center", caption: "Global Startup Center, Seoul" },
+      { src: "/images/events/korea-2026/04-k-startup-wall.jpg", alt: "The group pointing at Southeast Asian flags on the K-Startup Grand Challenge world map", caption: "Pointing south at the K-Startup Grand Challenge wall" },
+      { src: "/images/events/korea-2026/05-handshake.jpg", alt: "Two men shaking hands in front of the K-Startup Grand Challenge map", caption: "Shaking on it" },
+      { src: "/images/events/korea-2026/06-gift-exchange.jpg", alt: "Two men exchanging gift bags in a meeting room", caption: "Exchanging gifts with our hosts", ratio: 3 / 4 },
+      { src: "/images/events/korea-2026/07-working-session.jpg", alt: "Around a meeting table with laptops and coffee", caption: "Working session in Seoul" },
+      { src: "/images/events/korea-2026/08-team-photo.jpg", alt: "Nine people standing in a row outside a meeting room", caption: "After the session" },
+      { src: "/images/events/korea-2026/09-gwanghwamun.jpg", alt: "Team selfie in front of Gwanghwamun gate", caption: "Gwanghwamun, between meetings", ratio: 3 / 4 },
+    ],
+  },
+
   {
     slug: "sme-ceo-forum-2026",
     title: "SME CEO Forum 2026",

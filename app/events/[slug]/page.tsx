@@ -4,7 +4,10 @@ import { notFound } from "next/navigation";
 import PageShell from "@/components/events/PageShell";
 import RsvpForm from "@/components/events/RsvpForm";
 import PromoCode from "@/components/events/PromoCode";
+import Testimonials from "@/components/events/Testimonials";
+import Gallery from "@/components/events/Gallery";
 import { getAttendees } from "@/lib/attendees";
+import { getTestimonials } from "@/lib/testimonials";
 import {
   calendarUrl, events, fmtDate, fmtTime, getEvent, isPast, rsvpOpen,
 } from "@/lib/events";
@@ -45,7 +48,7 @@ function renderDescription(lines: string[]) {
     if (!items.length) return;
     out.push(
       <ul key={`ul-${out.length}`} className="list-disc pl-6 space-y-2 marker:text-blueprint-cyan">
-        {items.map((t, i) => <li key={i}>{t}</li>)}
+        {items.map((t, i) => <li key={i}>{inlineBold(t)}</li>)}
       </ul>,
     );
     items = [];
@@ -79,6 +82,8 @@ export default async function EventPage({ params }: { params: Promise<{ slug: st
   const past = isPast(e);
   const open = rsvpOpen(e);
   const guests = e.rsvp.listAttendees ? await getAttendees(e.slug) : null;
+  const showTestimonials = past && e.testimonials !== false;
+  const testimonials = showTestimonials ? await getTestimonials(e.slug) : [];
 
   return (
     <PageShell eyebrow={past ? "Past event" : "Upcoming event"} title={e.title}>
@@ -88,7 +93,8 @@ export default async function EventPage({ params }: { params: Promise<{ slug: st
             <div className="space-y-5 text-white/75 text-[17px] leading-relaxed">
               {renderDescription(e.description)}
             </div>
-            {e.poster && (
+            {/* Skip the poster when it is also the gallery's lead photo */}
+            {e.poster && !e.gallery?.some((g) => g.src === e.poster) && (
               <a href={e.poster} target="_blank" rel="noopener noreferrer"
                 style={{ aspectRatio: e.posterRatio ?? 0.8 }}
                 className="group relative block mt-10 w-full max-w-[420px] overflow-hidden rounded-2xl border border-white/10"
@@ -134,7 +140,7 @@ export default async function EventPage({ params }: { params: Promise<{ slug: st
 
           <aside className="space-y-6">
             <dl className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 space-y-5">
-              <Fact k="Date">{fmtDate(e.start)}</Fact>
+              <Fact k="Date">{e.dateLabel ?? fmtDate(e.start)}</Fact>
               <Fact k="Time">{e.timeLabel ?? (e.timeTbc ? "To be announced" : `${fmtTime(e.start)} – ${fmtTime(e.end)} (MYT)`)}</Fact>
               <Fact k="Venue">
                 {e.venueUrl ? (
@@ -179,6 +185,20 @@ export default async function EventPage({ params }: { params: Promise<{ slug: st
           </aside>
         </div>
       </section>
+      {e.gallery && e.gallery.length > 0 && (
+        <section className="bg-catalyst-navy pb-16" aria-labelledby="gallery-heading">
+          <div className="max-w-5xl mx-auto px-6 lg:px-8">
+            <div className="border-t border-white/10 pt-14">
+              <div className="flex items-baseline justify-between gap-4 mb-8">
+                <h2 id="gallery-heading" className="font-display font-extrabold uppercase text-3xl sm:text-4xl text-white">Photos</h2>
+                <p className="text-sm text-white/50">{e.gallery.length} {e.gallery.length === 1 ? "photo" : "photos"}</p>
+              </div>
+              <Gallery photos={e.gallery} title={e.title} />
+            </div>
+          </div>
+        </section>
+      )}
+      {showTestimonials && <Testimonials items={testimonials} feedbackHref={`/events/${e.slug}/feedback`} />}
     </PageShell>
   );
 }
