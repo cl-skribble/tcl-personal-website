@@ -162,6 +162,10 @@ export const events: SiteEvent[] = [
     promoCode: "BF26SAMA15",
     promoNote: "15% off your pass",
     poster: "/images/events/beyondfest-2026-poster.jpg",
+    gallery: [
+      { src: "/images/events/beyondfest-2026/01-group-photo.jpg", alt: "BeyondFest 2026 group photo on stage at Greybox GMBB", caption: "BeyondFest 2026 at Greybox GMBB", ratio: 1600 / 967 },
+      { src: "/images/events/beyondfest-2026/02-speakers.jpg", alt: "Speakers and organisers in front of the BeyondFest banners", caption: "Speakers and organisers" },
+    ],
   },
 
   {
