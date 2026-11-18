@@ -8,7 +8,7 @@ import { SITE_URL, jsonLdString } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Insights: Regional Business, Marketing, Leadership, Digital & AI | Teng Chan Leong",
   description:
-    "Articles by Teng Chan Leong, CEO of Skribble Group and founder of SAMA, on regional business in Southeast Asia, marketing, leadership, digital transformation and AI.",
+    "Articles by Teng Chan Leong, CEO of Skribble Group and founder of SAMA, on regional business in Southeast Asia, marketing, leadership, digital transformation, AI, and a daily digest of mental models for leaders.",
   alternates: {
     canonical: "/insights",
     types: { "application/rss+xml": [{ url: "/insights/feed.xml", title: "Teng Chan Leong: Insights" }] },

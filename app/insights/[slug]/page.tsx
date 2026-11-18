@@ -3,6 +3,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import PageShell from "@/components/events/PageShell";
 import ArticleCard from "@/components/insights/ArticleCard";
+import Carousel from "@/components/insights/Carousel";
 import { Blocks, Inline, slugify } from "@/components/insights/Rich";
 import {
   articles, fmtArticleDate, getArticle, plain, readingMinutes, related, topics, wordCount,
@@ -19,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const a = getArticle(slug);
   if (!a) return {};
-  const image = a.image?.src ?? "/images/profile.jpg";
+  const image = a.image?.src ?? a.carousel?.[0]?.src ?? "/images/profile.jpg";
   return {
     title: `${a.seoTitle ?? a.title} | Teng Chan Leong`,
     description: a.description,
@@ -70,7 +71,9 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
         datePublished: a.published,
         dateModified: a.updated ?? a.published,
         inLanguage: "en",
-        image: `${SITE_URL}${a.image?.src ?? "/images/profile.jpg"}`,
+        image: [a.image?.src, ...(a.carousel ?? []).map((c) => c.src)].filter(Boolean).length
+          ? [a.image?.src, ...(a.carousel ?? []).map((c) => c.src)].filter(Boolean).map((src) => `${SITE_URL}${src}`)
+          : `${SITE_URL}/images/profile.jpg`,
         author: {
           "@type": "Person",
           "@id": `${SITE_URL}/#person`,
@@ -133,6 +136,9 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
               <p className="text-white/40 mt-0.5">
                 <time dateTime={a.published}>{fmtArticleDate(a.published)}</time> · {readingMinutes(a)} min read
               </p>
+              {a.digestDate && (
+                <p className="text-blueprint-cyan/80 mt-0.5">From the daily digest of {fmtArticleDate(a.digestDate)}</p>
+              )}
             </div>
           </div>
         </div>
@@ -161,6 +167,13 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
               ))}
             </ul>
           </section>
+
+          {a.carousel && a.carousel.length > 0 && (
+            <div>
+              <SectionLabel>The carousel · swipe through</SectionLabel>
+              <Carousel slides={a.carousel} title={a.title} />
+            </div>
+          )}
 
           {toc.length > 2 && (
             <nav aria-label="In this article" className="border-y border-white/10 py-6">

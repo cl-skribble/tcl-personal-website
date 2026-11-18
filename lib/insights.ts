@@ -11,7 +11,9 @@
  * - `sources` lists the public pages or events the article draws on. Never cite private notes.
  */
 
-export type Topic = "regional-business" | "marketing" | "leadership" | "digital" | "ai";
+import { digestArticles } from "./digest";
+
+export type Topic = "regional-business" | "marketing" | "leadership" | "digital" | "ai" | "mental-models";
 
 export const topics: Record<Topic, { label: string; title: string; intro: string; keywords: string[] }> = {
   "regional-business": {
@@ -42,6 +44,13 @@ export const topics: Record<Topic, { label: string; title: string; intro: string
       "Practical digital transformation for SMEs and personal brands: automating the work nobody enjoys, building dashboards people actually use, and being findable by search engines and AI assistants.",
     keywords: ["digital transformation", "SME digitalisation", "automation", "SEO", "generative engine optimisation"],
   },
+  "mental-models": {
+    label: "Daily Digest",
+    title: "Daily Digest: Mental Models for Leaders",
+    intro:
+      "One thinking tool at a time, from Chan Leong's daily digest of business, strategy and personal development concepts: where each idea comes from, how it shows up in agencies and marketing teams, and one thing to try this week. Each comes with the carousel cards he shares on LinkedIn.",
+    keywords: ["mental models", "mental models for leaders", "decision making", "thinking tools", "leadership"],
+  },
   ai: {
     label: "AI",
     title: "AI for Business",
@@ -51,7 +60,7 @@ export const topics: Record<Topic, { label: string; title: string; intro: string
   },
 };
 
-export const topicOrder: Topic[] = ["regional-business", "marketing", "leadership", "digital", "ai"];
+export const topicOrder: Topic[] = ["regional-business", "marketing", "leadership", "digital", "ai", "mental-models"];
 
 export type Block =
   | { type: "p"; text: string }
@@ -87,9 +96,13 @@ export type Article = {
   image?: { src: string; alt: string };
   /** Related event slug on /events. */
   event?: string;
+  /** Carousel cards (4:5 slides in /public). Shown as a swipeable deck near the top. */
+  carousel?: { src: string; alt: string }[];
+  /** Daily digest date, for mental-model pieces. */
+  digestDate?: string;
 };
 
-export const articles: Article[] = [
+const coreArticles: Article[] = [
   /* ───────────────────────── Regional business ───────────────────────── */
   {
     slug: "independent-agencies-collaborate-to-go-regional",
@@ -726,6 +739,8 @@ export const articles: Article[] = [
     keywords: ["AI ROI", "measure AI value", "AI in business", "Hypergrowth Summit Singapore", "Dennis Yu AI", "AI adoption"],
   },
 ];
+
+export const articles: Article[] = [...coreArticles, ...digestArticles];
 
 /* ───────────────────────── Helpers ───────────────────────── */
 
