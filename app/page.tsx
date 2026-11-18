@@ -5,6 +5,7 @@ import Ventures from "@/components/sections/Ventures";
 import Awards from "@/components/sections/Awards";
 import Speaking from "@/components/sections/Speaking";
 import Press from "@/components/sections/Press";
+import Insights from "@/components/sections/Insights";
 import Contact from "@/components/sections/Contact";
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
         <Awards />
         <Speaking />
         <Press />
+        <Insights />
         <Contact />
       </main>
       {/* ── Footer — KL skyline illustration ── */}
@@ -88,6 +90,7 @@ export default function Home() {
                   { label: "About",    href: "#about"    },
                   { label: "Speaking", href: "/speaking" },
                   { label: "Events",   href: "/events"   },
+                  { label: "Insights", href: "/insights" },
                   { label: "Awards",   href: "#awards"   },
                   { label: "Press",    href: "#press"    },
                   { label: "SAMA",     href: "#ventures" },

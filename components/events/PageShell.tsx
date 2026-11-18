@@ -3,8 +3,8 @@ import Navbar from "@/components/Navbar";
 
 /** Shared chrome for inner pages: navbar, blueprint header, slim footer. */
 export default function PageShell({
-  eyebrow, title, children,
-}: { eyebrow: string; title: React.ReactNode; children: React.ReactNode }) {
+  eyebrow, title, children, compact = false,
+}: { eyebrow: string; title: React.ReactNode; children: React.ReactNode; compact?: boolean }) {
   return (
     <>
       <Navbar />
@@ -13,7 +13,9 @@ export default function PageShell({
           <div aria-hidden="true" className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-catalyst-blue glow-pulse blur-3xl" />
           <div className="relative max-w-5xl mx-auto px-6 lg:px-8">
             <p className="text-blueprint-cyan text-xs font-semibold uppercase tracking-[0.25em] mb-4">{eyebrow}</p>
-            <h1 className="font-display font-extrabold uppercase tracking-tight leading-[0.95] text-5xl sm:text-7xl text-white">
+            <h1 className={`font-display font-extrabold uppercase tracking-tight leading-[0.95] text-white ${
+              compact ? "text-4xl sm:text-5xl lg:text-6xl max-w-4xl" : "text-5xl sm:text-7xl"
+            }`}>
               {title}
             </h1>
           </div>

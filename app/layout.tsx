@@ -20,7 +20,10 @@ const barlowCondensed = Barlow_Condensed({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  alternates: { canonical: "/" },
+  alternates: {
+    canonical: "/",
+    types: { "application/rss+xml": [{ url: "/insights/feed.xml", title: "Teng Chan Leong: Insights" }] },
+  },
   title: "Teng Chan Leong | CEO · Speaker · Builder",
   description:
     "CEO of Skribble Group and Founder of SAMA — the Strategic Asia Marketing Alliance. Keynote speaker on digital transformation, marketing, and regional business growth across Southeast Asia.",
@@ -70,7 +73,8 @@ const jsonLd = {
             "Chief Executive Officer of Skribble Group and Founder of the Strategic Asia Marketing Alliance (SAMA). Speaker on digital transformation, marketing and Southeast Asia growth.",
           worksFor: { "@id": "https://skribble.me/#organization" },
           founder: { "@id": "https://samaalliance.com/#organization" },
-          knowsAbout: ["Digital transformation", "Marketing", "Brand strategy", "Regional agency collaboration", "AI in creative work"],
+          knowsAbout: ["Regional business in Southeast Asia", "Digital transformation", "Marketing", "Brand strategy", "Leadership", "Regional agency collaboration", "AI for business", "AI in creative work", "Retail media", "Generative engine optimisation"],
+          homeLocation: { "@type": "Place", name: "Kuala Lumpur, Malaysia" },
           sameAs: [
             "https://linkedin.com/in/tengchanleong",
             "https://skribble.me",
