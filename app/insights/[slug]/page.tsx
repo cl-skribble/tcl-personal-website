@@ -124,7 +124,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
           </nav>
           <p className="text-white/80 text-xl leading-relaxed">{a.description}</p>
           <div className="flex items-center gap-4 mt-8 pb-8 border-b border-white/10">
-            <Image src="/images/profile.jpg" alt="Teng Chan Leong" width={52} height={52} className="rounded-full object-cover w-13 h-13" />
+            <Image src="/images/profile-avatar.jpg" alt="Teng Chan Leong" width={52} height={52} className="rounded-full object-cover w-13 h-13" />
             <div className="text-sm">
               <p className="text-white font-semibold">
                 <a href="/#about" rel="author" className="hover:text-blueprint-cyan">Teng Chan Leong</a>
@@ -215,7 +215,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
           {/* Author */}
           <section aria-label="About the author" className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 sm:p-8">
             <div className="flex flex-col sm:flex-row gap-6">
-              <Image src="/images/profile.jpg" alt="Teng Chan Leong" width={96} height={96} className="rounded-full object-cover w-24 h-24 shrink-0" />
+              <Image src="/images/profile-avatar.jpg" alt="Teng Chan Leong" width={96} height={96} className="rounded-full object-cover w-24 h-24 shrink-0" />
               <div>
                 <SectionLabel>About the author</SectionLabel>
                 <p className="text-white font-semibold text-lg">Teng Chan Leong</p>
