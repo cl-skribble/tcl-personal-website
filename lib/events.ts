@@ -112,6 +112,43 @@ export const events: SiteEvent[] = [
   },
 
   {
+    slug: "conclave-cmo-fireside-nov-2026",
+    title: "Conclave: Fireside Dinner with a Regional CMO",
+    tagline:
+      "An evening of candid leadership lessons from a CMO who has spent well over a decade building one business.",
+    description: [
+      "Conclave brings leaders from marketing, consulting, finance, healthcare, tech and startups to one table for an honest conversation with a guest.",
+      "This edition's guest was a regional CMO who joined as the very first marketing hire and grew with the business for well over a decade. The session ran under Chatham House rules, so here are the lessons rather than the quotes.",
+      "**Nine lessons I took home:**",
+      "- Will matters more than skill. Skill can be taught. Will can't.",
+      "- Marketing is the art of building the business. Know the P&L, or you're just running campaigns.",
+      "- Don't chase awards. Celebrate results, but when the team wins one, let them enjoy it.",
+      "- Operate at your level. The more senior you get, the less your job is the campaign.",
+      "- Write down what your role needs, then ask honestly whether you're still the right person for it.",
+      "- You can't force growth on people. Help them see it for themselves, and help them hire better.",
+      "- For some founders, the company is a calling. Respect it, and watch for burnout in yourself and your team.",
+      "- There's a difference between objecting and standing in front of the bus.",
+      "- Even at the top, the honest sentiment is: we could have done better.",
+      "The conversation also went into AI and the future of large operational teams, brand crises on social media, and blending culture after an acquisition.",
+      "Thank you to Akram for organising Conclave, and to our guest for the candour.",
+    ],
+    start: "2026-11-18T18:15:00+08:00",
+    end: "2026-11-18T23:00:00+08:00",
+    venueName: "Private dinner venue",
+    audience: "Invite only",
+    rsvp: { required: false },
+    testimonials: false,
+    gallery: [
+      { src: "/images/events/conclave-cmo-fireside-nov-2026/01-guest-speaking.jpg", alt: "The guest CMO answering a question with a microphone at the dinner table", caption: "Our guest in conversation", ratio: 3 / 4, focus: "55% 45%" },
+      { src: "/images/events/conclave-cmo-fireside-nov-2026/02-guest-listening.jpg", alt: "The guest smiling while seated with other attendees along the table", caption: "Around the table", ratio: 3 / 4 },
+      { src: "/images/events/conclave-cmo-fireside-nov-2026/03-floor-question.jpg", alt: "An attendee standing with a microphone asking a question", caption: "Questions from the floor", ratio: 3 / 4 },
+      { src: "/images/events/conclave-cmo-fireside-nov-2026/04-attendee-sharing.jpg", alt: "An attendee in a batik shirt sharing a view into the microphone", caption: "Everyone had a view to share", ratio: 3 / 4 },
+      { src: "/images/events/conclave-cmo-fireside-nov-2026/05-round-table.jpg", alt: "An attendee speaking while two others listen at the long table", caption: "Leaders from across industries", ratio: 3 / 4 },
+      { src: "/images/events/conclave-cmo-fireside-nov-2026/06-after-the-session.jpg", alt: "Two attendees smiling for a selfie in front of the Conclave screen", caption: "Catching up after the session" },
+    ],
+  },
+
+  {
     slug: "getting-started-with-ai",
     title: "Getting Started with AI: Real Use Cases for Real Businesses",
     tagline:
