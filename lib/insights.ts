@@ -12,6 +12,7 @@
  */
 
 import { digestArticles } from "./digest";
+import type { GalleryPhoto } from "./events";
 
 export type Topic = "regional-business" | "marketing" | "leadership" | "digital" | "ai" | "mental-models";
 
@@ -98,11 +99,106 @@ export type Article = {
   event?: string;
   /** Carousel cards (4:5 slides in /public). Shown as a swipeable deck near the top. */
   carousel?: { src: string; alt: string }[];
+  /** Event-style photo gallery, shown after the body. Same shape as event galleries. */
+  gallery?: GalleryPhoto[];
   /** Daily digest date, for mental-model pieces. */
   digestDate?: string;
 };
 
 const coreArticles: Article[] = [
+  /* ───────────────────────── Leadership ───────────────────────── */
+  {
+    slug: "will-beats-skill-leadership-lessons-from-a-cmo",
+    title: "Will Beats Skill: 9 Leadership Lessons From a CMO's Fireside Dinner",
+    seoTitle: "Will Beats Skill: 9 Leadership Lessons From a CMO",
+    description:
+      "Nine leadership lessons from a Conclave fireside dinner with a regional CMO: will over skill, operating at your level, and when to stand in front of the bus.",
+    topics: ["leadership", "marketing"],
+    published: "2026-11-19",
+    summary:
+      "The strongest leaders hire for will before skill, treat marketing as the work of building the business, and keep asking whether they are still the right person for their own role. Those were the threads of a Conclave fireside dinner with a regional CMO in November 2026, held under Chatham House rules. Here are the nine lessons I took home.",
+    takeaways: [
+      "Will matters more than skill. Skill can be taught; will can't.",
+      "Marketing is the art of building the business. Know the P&L, or you're only running campaigns.",
+      "Operate at your level, and write down what your role needs, then ask honestly whether you still fit it.",
+      "There is a difference between objecting and standing in front of the bus. Know which one the moment needs.",
+    ],
+    body: [
+      { type: "p", text: "Some evenings you leave with a page of notes. This was one of them." },
+      { type: "p", text: "Conclave brings leaders from marketing, consulting, finance, healthcare, tech and startups to one long table for an honest conversation with a guest. This edition's guest was a regional CMO who joined a fast-growing company as its very first marketing hire and grew with it for well over a decade. Their remit now reaches well beyond marketing." },
+      { type: "p", text: "The session ran under Chatham House rules, so this piece shares the ideas, not the quotes or the names. The lessons below are mine to carry; any mistakes in them are mine too." },
+
+      { type: "h2", text: "Why does will matter more than skill?" },
+      { type: "p", text: "Because in a company that is growing faster than its people, nobody arrives with the skills for what comes next. The ones who make it are the ones who keep turning up, keep learning, and keep taking the hard assignment." },
+      { type: "p", text: "Skill can be taught. Will can't. If you are hiring for a business that is still finding its shape, hire for will first and train the rest." },
+
+      { type: "h2", text: "What does it mean for marketing to build the business?" },
+      { type: "p", text: "It means marketers should own and understand the business numbers, including the P&L, rather than waiting for a brief. If you can't explain how your work moves revenue or margin, you are running campaigns, not marketing." },
+      { type: "p", text: "It also means having the confidence to push back on requests from other teams when they don't serve the customer, and having an independent read of what customers actually think." },
+      { type: "p", text: "The same logic applies to awards. **Don't chase them.** Celebrating work that didn't move the business sends the wrong signal to the team. But when good work does win, let the team enjoy it. Recognition matters to the people who did the work." },
+
+      { type: "h2", text: "What does operating at your level look like?" },
+      { type: "p", text: "The more senior you are, the less your job is the campaign. A senior marketer should be thinking about the questions nobody else is asking yet: what AI does to jobs in the organisation, how search is changing as people ask AI assistants instead of search engines, where the business needs to be in three years." },
+      { type: "p", text: "The guest described the job at the top as almost entirely management: set the strategy, secure the resources, clear the path, and build a bench of people who could step up." },
+
+      { type: "h2", text: "How often should a leader ask whether they're still right for the role?" },
+      { type: "p", text: "Regularly. The suggestion at the table was every six months. Write down what your role actually needs from the person in it. Then read it back and ask, honestly, whether that person is still you." },
+      { type: "p", text: "The surprising part is what writing it down does. Describing the ideal person for your own job turns into a self-review, and it makes you better at the job even if the answer is that you should stay." },
+
+      { type: "h2", text: "How do you help someone grow when they can't see the gap?" },
+      { type: "p", text: "You can't force it. People need awareness that something has to change, the ability to change it, and the will to do it. Without the first, the other two don't matter." },
+      { type: "ul", items: [
+        "Help them see it for themselves. A simple capability grid for their managers often does more than feedback.",
+        "Check whether they have the team to succeed. A leader who keeps jumping into problems is sometimes a leader without a ready team underneath.",
+        "Help them hire better. Often the fix is not the person, it is the people around them.",
+        "If resistance stays, make the hard call early so the pain isn't prolonged.",
+      ] },
+
+      { type: "h2", text: "What happens when the company is someone's life calling?" },
+      { type: "p", text: "For some founders, the company is not a job. It is what they believe they were put here to do. That conviction is a large part of why great companies get built." },
+      { type: "p", text: "Respect it, and work with it. But watch for what it can do to people: overwork in yourself and in your team. Work-life balance was described as never really in balance. It comes in seasons, so be open with your peers about which season you're in." },
+
+      { type: "h2", text: "When should you object, and when should you stand in front of the bus?" },
+      { type: "p", text: "This was the line that stayed with me longest. There is a difference between objecting and standing in front of the bus." },
+      { type: "p", text: "Objecting is saying your piece, getting it on record, and stepping aside. Standing in front of the bus means you are willing to pay a price to stop a decision you believe is wrong." },
+      { type: "p", text: "Most of us object. Most of the time, that is the right call. But there are a few decisions a leader will look back on, and those are the ones where objecting was not enough." },
+      { type: "callout", title: "A question to sit with", text: "The last time a decision really mattered, did you object, or did you stand in front of the bus?" },
+
+      { type: "h2", text: "Why do even successful companies say they could have done better?" },
+      { type: "p", text: "Because the honest ones keep score against what was possible, not against competitors. Even at the top of a market, the sentiment in the room was simple: we could have done better." },
+      { type: "p", text: "I find that reassuring. If leaders at that scale still hold themselves to that standard, the rest of us have no excuse for complacency." },
+
+      { type: "h2", text: "What questions did the room leave open?" },
+      { type: "ul", items: [
+        "**AI and large operational teams.** What should leaders do for the hundreds or thousands of people in contact centres and middle management whose work AI will change? Views ranged from retraining and soft landings to backing people as micro-entrepreneurs. Most agreed that companies have a civic duty to help with the transition.",
+        "**Judgement in fresh graduates.** If AI gives everyone the same first answer, judgement and ownership become the difference. How do young people build judgement when organisations tolerate so few mistakes?",
+        "**Brand attacks on social media.** Start with a good product and service, then build listening and a crisis response. Nobody claimed to have the full answer.",
+      ] },
+      { type: "p", text: "Thank you to Akram for organising Conclave and bringing the right people to the same table, and to our guest for the candour." },
+    ],
+    faq: [
+      { q: "What does 'will beats skill' mean in hiring?", a: "It means hiring for drive, persistence and willingness to learn ahead of current skills, especially in a fast-growing business where nobody yet has the skills for what comes next. Skill can be taught; will can't." },
+      { q: "What does 'operating at your level' mean?", a: "Doing the work only your level can do. For a senior leader that means strategy, resources, clearing the path and building successors, plus thinking ahead about issues like AI's effect on jobs, rather than running day-to-day campaigns." },
+      { q: "What is the difference between objecting and standing in front of the bus?", a: "Objecting is voicing disagreement and stepping aside. Standing in front of the bus is being willing to pay a personal price to stop a decision you believe is wrong. Leaders need to know which one a moment calls for." },
+      { q: "Should marketers chase awards?", a: "Not as a goal. Celebrating work that didn't move the business sends the wrong signal. When good work does win, though, the team should enjoy the recognition." },
+      { q: "What is Conclave?", a: "Conclave is a community dinner series where leaders from different industries meet a guest for a candid conversation, held under Chatham House rules." },
+    ],
+    sources: [
+      { label: "Conclave fireside dinner, 18 November 2026: event page and photos", href: "/events/conclave-cmo-fireside-nov-2026" },
+    ],
+    keywords: ["leadership lessons", "CMO", "will over skill", "operating at your level", "marketing leadership", "Conclave"],
+    image: { src: "/images/insights/cmo-fireside-hero.jpg", alt: "The guest CMO answering a question with a microphone at the Conclave dinner table" },
+    event: "conclave-cmo-fireside-nov-2026",
+    gallery: [
+      { src: "/images/events/conclave-cmo-fireside-nov-2026/01-guest-speaking.jpg", alt: "The guest CMO answering a question with a microphone at the dinner table", caption: "Our guest in conversation", ratio: 3 / 4, focus: "55% 45%" },
+      { src: "/images/events/conclave-cmo-fireside-nov-2026/02-guest-listening.jpg", alt: "The guest smiling while seated with other attendees along the table", caption: "Around the table", ratio: 3 / 4 },
+      { src: "/images/events/conclave-cmo-fireside-nov-2026/03-floor-question.jpg", alt: "An attendee standing with a microphone asking a question", caption: "Questions from the floor", ratio: 3 / 4 },
+      { src: "/images/events/conclave-cmo-fireside-nov-2026/04-attendee-sharing.jpg", alt: "An attendee in a batik shirt sharing a view into the microphone", caption: "Everyone had a view to share", ratio: 3 / 4 },
+      { src: "/images/events/conclave-cmo-fireside-nov-2026/05-round-table.jpg", alt: "An attendee speaking while two others listen at the long table", caption: "Leaders from across industries", ratio: 3 / 4 },
+      { src: "/images/events/conclave-cmo-fireside-nov-2026/06-after-the-session.jpg", alt: "Two attendees smiling for a selfie in front of the Conclave screen", caption: "Catching up after the session" },
+    ],
+  },
+
   /* ───────────────────────── Regional business ───────────────────────── */
   {
     slug: "independent-agencies-collaborate-to-go-regional",

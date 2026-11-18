@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import PageShell from "@/components/events/PageShell";
 import ArticleCard from "@/components/insights/ArticleCard";
 import Carousel from "@/components/insights/Carousel";
+import Gallery from "@/components/events/Gallery";
 import { Blocks, Inline, slugify } from "@/components/insights/Rich";
 import {
   articles, fmtArticleDate, getArticle, plain, readingMinutes, related, topics, wordCount,
@@ -192,6 +193,16 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
           <div className="space-y-5 text-white/80 text-[17px] leading-[1.75]">
             <Blocks blocks={a.body} />
           </div>
+
+          {a.gallery && a.gallery.length > 0 && (
+            <section aria-labelledby="photos">
+              <div className="flex items-baseline justify-between mb-5">
+                <h2 id="photos" className="font-display font-extrabold uppercase tracking-tight text-2xl sm:text-3xl text-white">Photos</h2>
+                <p className="text-sm text-white/50">{a.gallery.length} {a.gallery.length === 1 ? "photo" : "photos"}</p>
+              </div>
+              <Gallery photos={a.gallery} title={a.title} />
+            </section>
+          )}
 
           {/* FAQ */}
           <section aria-labelledby="faq" className="pt-4">
