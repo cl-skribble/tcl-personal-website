@@ -268,6 +268,14 @@ export const digestArticles: Article[] = [
       "Avoiding big mistakes compounds over time.",
       "Try it on one client: what would make them leave in six months?",
     ],
+    carousel: cards("inversion-mental-model", [
+      "Card 1 of 6. Mental models for leaders: Inversion. Charlie Munger's favourite thinking tool: solve the problem backwards.",
+      "Card 2 of 6. The idea: flip the question. The usual question: how do I succeed? Flip it: what would guarantee failure? Then avoid those things first.",
+      "Card 3 of 6. Where it comes from: in the 1800s, mathematician Carl Jacobi solved hard problems by working them backwards. Charlie Munger made invert, always invert a tool for business and life. 1986, the misery speech: asked to tell graduates how to be happy, Munger listed the surest ways to be miserable instead, like envy, resentment and unreliability.",
+      "Card 4 of 6. Why it works: avoiding beats chasing. Failure is concrete: a list of ways to fail is easier to write than a plan to win. Mistakes compound: skipping one big error is worth more than one clever move. Blind spots surface: optimistic plans hide risks, and inversion drags them out.",
+      "Card 5 of 6. Try it this week: keep your best client. One, ask what would make them leave in six months. Two, list the top three answers, and be honest. Three, find the one you're closest to doing already. Four, fix that one this week.",
+      "Card 6 of 6. Remember: invert, always invert. Carl Jacobi, as quoted by Charlie Munger. What would guarantee failure for your biggest goal this year? Chan Leong, CEO, Speaker, Builder.",
+    ]),
     body: [
       { type: "p", text: "Most planning asks one question: how do we succeed?" },
       { type: "p", text: "Inversion asks the opposite: what would guarantee that we fail? Then it tells you to avoid those things first." },
@@ -294,7 +302,25 @@ export const digestArticles: Article[] = [
         "Find the one you are closest to doing already.",
         "Fix that one this week.",
       ] },
+      { type: "h2", text: "What does inversion look like in marketing and agency work?" },
+      { type: "p", text: "The same flip works on almost any goal a marketing team or agency sets:" },
+      { type: "ul", items: [
+        "**Launching a campaign.** Instead of \"how do we make this go viral?\", ask \"what would make this campaign flop?\" Unclear message, wrong audience, no budget left for the second week. Fix those before polishing the idea.",
+        "**Winning a pitch.** Ask \"what would make the client pick someone else?\" A deck about us instead of them, no clear answer on cost, nobody senior in the room. Each answer is a to-do.",
+        "**Hiring.** Ask \"what would make a great hire quit in their first 90 days?\" A messy onboarding, a role that changes every week, nobody checking in. Most of these are cheap to prevent.",
+      ] },
       { type: "p", text: "Inversion pairs naturally with [second-order thinking](/insights/second-order-thinking): inversion finds the mistakes to avoid; second-order thinking checks what your fix will cause next. It is also the spirit of the scenario stress tests in [strategy is not planning](/insights/strategy-vs-planning-building-a-resilient-business)." },
+
+      { type: "h2", text: "How is inversion different from a pre-mortem?" },
+      { type: "p", text: "They are close cousins. A pre-mortem, a technique described by psychologist Gary Klein, asks a team to imagine that a project has already failed and to write down why. Inversion is the broader habit behind it: you can apply it to a single decision, a career or a whole business, not only to a project that is about to start." },
+      { type: "p", text: "Both work for the same reason. Imagining a failure that has already happened gives people permission to say the uncomfortable things they would otherwise keep quiet in a planning meeting." },
+
+      { type: "h2", text: "What are the common mistakes when using inversion?" },
+      { type: "ul", items: [
+        "**Stopping at the list.** Writing the ways you could fail feels productive. The value only comes when you change one of them this week.",
+        "**Listing other people's failures.** \"The client will be difficult\" is not useful. \"We reply to the client slowly\" is something you can fix.",
+        "**Confusing it with pessimism.** Inversion is not about expecting to fail. It is about clearing the obvious traps so your good ideas get a fair chance.",
+      ] },
 
       { type: "h2", text: "What would guarantee failure for your biggest goal this year?" },
       { type: "p", text: "Write the list. Then make sure you are not already doing the first thing on it." },
@@ -303,10 +329,12 @@ export const digestArticles: Article[] = [
       { q: "What is the inversion mental model?", a: "Inversion is approaching a problem backwards: instead of asking how to succeed, you ask what would guarantee failure and then avoid those things." },
       { q: "Who said \"invert, always invert\"?", a: "The phrase is credited to the 19th-century German mathematician Carl Jacobi. Charlie Munger popularised it as a thinking tool for business and life." },
       { q: "How do you apply inversion in business?", a: "Choose a goal, list what would make it fail (for example, what would make a key client leave in six months), then fix the failure cause you are closest to already." },
+      { q: "Is inversion the same as a pre-mortem?", a: "They are related. A pre-mortem, described by psychologist Gary Klein, imagines a project has already failed and asks why. Inversion is the broader habit of asking what would cause failure, for any decision or goal." },
     ],
     sources: [
       { label: "Charlie Munger, commencement speech at the Harvard School, Los Angeles, 1986" },
       { label: "Berkshire Hathaway 1989 shareholder letter, on avoiding rather than solving hard problems" },
+      { label: "Gary Klein, \"Performing a Project Premortem\", Harvard Business Review, September 2007" },
     ],
     keywords: ["inversion mental model", "Charlie Munger inversion", "invert always invert", "mental models", "decision making", "pre-mortem"],
   },
