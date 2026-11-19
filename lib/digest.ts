@@ -13,6 +13,88 @@ const cards = (slug: string, alts: string[]) =>
   alts.map((alt, i) => ({ src: `/digest/${slug}/${slug}-${String(i + 1).padStart(2, "0")}.jpg`, alt }));
 
 export const digestArticles: Article[] = [
+  /* ───────────────────────── Circle of competence ───────────────────────── */
+  {
+    slug: "circle-of-competence",
+    title: "Circle of Competence: Know Where Your Expertise Ends",
+    seoTitle: "Circle of Competence for Leaders: Know Your Edges",
+    description:
+      "The circle of competence, Warren Buffett's idea that knowing the edge of your expertise matters more than its size. What it means and how agency leaders can use it.",
+    topics: ["mental-models", "leadership"],
+    published: "2026-11-19",
+    digestDate: "2026-11-19",
+    summary:
+      "Your circle of competence is the set of things you understand deeply enough to judge well. Warren Buffett's point is that the size of the circle matters far less than knowing exactly where it ends. Inside it, you can spot quality and problems early. Just outside it is where confident people make their most expensive mistakes.",
+    takeaways: [
+      "Your circle of competence is what you understand deeply enough to judge well.",
+      "Warren Buffett described it in his 1996 letter to Berkshire Hathaway shareholders.",
+      "Knowing the boundary matters more than the size of the circle.",
+      "The costliest mistakes happen just outside the circle, where confidence runs ahead of knowledge.",
+      "For every new brief, choose: decline, partner with a specialist, or invest to grow the circle.",
+    ],
+    carousel: cards("circle-of-competence", [
+      "Card 1 of 6. Mental models for leaders: Circle of competence. The edge of what you know matters more than its size.",
+      "Card 2 of 6. The idea: know where your circle ends. Inside the circle: what you understand deeply, so play here. The edge: where you think you know more than you do. Outside: say no, learn first, or bring in someone who knows.",
+      "Card 3 of 6. Where it comes from: in 1996, Warren Buffett, in his letter to Berkshire Hathaway shareholders. You don't have to be an expert on every company, he wrote. You only need to judge the ones inside your circle of competence. Small circle, clear edges: the size of the circle matters far less than knowing exactly where it ends.",
+      "Card 4 of 6. In agencies: tempting briefs. A brief in a new industry: win it, and you learn on the client's money. We can do that too: extra services stretch a team past what it does well. The partner route: bring in a specialist, and be honest about it.",
+      "Card 5 of 6. Try it this week: draw your circle. One, list what your team does better than almost anyone. Two, list what you say yes to but do only adequately. Three, for the next brief, check which list it falls on. Four, decide: decline, partner, or grow the circle.",
+      "Card 6 of 6. Remember: the size of that circle is not very important; knowing its boundaries, however, is vital. Warren Buffett, 1996 letter to shareholders. Which brief should you have said no to? Chan Leong, CEO, Speaker, Builder.",
+    ]),
+    body: [
+      { type: "p", text: "Nobody is good at everything. The problem is that most of us are not very precise about where \"good\" stops." },
+      { type: "p", text: "The circle of competence is a simple way to draw that line, and to notice when you are about to step over it." },
+
+      { type: "h2", text: "What is the circle of competence?" },
+      { type: "p", text: "Your circle of competence is the set of subjects, markets and skills you understand deeply enough to judge well. Inside it, you can tell good work from average work, spot problems before they grow, and price risk sensibly." },
+      { type: "p", text: "Outside it, you are guessing, even if it does not feel like guessing. The idea is not to make the circle as big as possible. It is to know exactly where its edge is, and to act differently on each side of it." },
+
+      { type: "h2", text: "Where does the circle of competence come from?" },
+      { type: "p", text: "Warren Buffett described it in his 1996 letter to Berkshire Hathaway shareholders. An investor, he wrote, does not need to be an expert on every company, or even many. They only need to be able to evaluate the companies within their circle of competence." },
+      { type: "p", text: "Then came the line most people remember: \"The size of that circle is not very important; knowing its boundaries, however, is vital.\" His partner Charlie Munger applied the same thinking well beyond investing, to careers and to life." },
+
+      { type: "h2", text: "Why does knowing your circle of competence work?" },
+      { type: "ul", items: [
+        "**You judge better where you know more.** Deep knowledge lets you see quality, risk and opportunity that others miss.",
+        "**The danger zone is the edge.** Expensive mistakes rarely happen deep inside your expertise or far outside it. They happen just beyond the edge, where confidence runs ahead of knowledge.",
+        "**It makes saying no easier.** A clear boundary turns a vague feeling of doubt into a simple test: is this inside the circle or not?",
+      ] },
+
+      { type: "h2", text: "How does the circle of competence apply in agencies and marketing?" },
+      { type: "p", text: "Agencies are constantly invited to step outside their circle. Three situations come up again and again:" },
+      { type: "ul", items: [
+        "**A big brief in a new industry.** It is flattering and the budget is attractive. But if you win it, you are learning the category on the client's money, and they will feel it.",
+        "**\"We can do that too.\"** Adding a service to keep a client happy, such as building an app when you are a creative shop, can stretch a team well past what it does well.",
+        "**The partner route.** Bringing in a specialist for the part outside your circle, and being upfront about it, protects the client and your reputation. It is also the thinking behind [collaborating to go regional](/insights/independent-agencies-collaborate-to-go-regional): local partners know their market better than any outsider can.",
+      ] },
+      { type: "p", text: "None of this means never trying anything new. It means knowing when you are trying something new, and pricing, staffing and promising accordingly." },
+
+      { type: "h2", text: "How do you find and use your circle of competence?" },
+      { type: "ol", items: [
+        "List what your team does better than almost anyone you compete with.",
+        "List what you say yes to but only do adequately. Be honest; this list is usually longer.",
+        "When the next brief arrives, check which list it falls on.",
+        "Decide deliberately: decline it, partner with a specialist, or treat it as an investment in growing the circle, with the time and budget that learning really needs.",
+      ] },
+      { type: "p", text: "Pair it with [inversion](/insights/inversion-mental-model): ask what would guarantee failure on a project outside your circle, and you will usually find the answer is \"we didn't know what we didn't know\"." },
+
+      { type: "h2", text: "Can you expand your circle of competence?" },
+      { type: "p", text: "Yes, but slowly and on purpose. A circle grows through study, practice and small, low-risk projects, not by saying yes to a big brief and hoping. The honest test is whether you could explain the work, its risks and its economics to an expert without bluffing." },
+      { type: "p", text: "It is also worth remembering that the circle can shrink. Markets, platforms and tools change. Something you were expert in five years ago may now sit at the edge." },
+
+      { type: "h2", text: "Which brief should you have said no to?" },
+      { type: "p", text: "Look back at the projects that hurt most last year. Many of them will turn out to have sat just outside the circle. Draw the line now, before the next one arrives." },
+    ],
+    faq: [
+      { q: "What is a circle of competence?", a: "It is the set of subjects, markets and skills you understand deeply enough to judge well. The idea is to know its boundaries and act differently inside and outside it." },
+      { q: "Who came up with the circle of competence?", a: "Warren Buffett described it in his 1996 letter to Berkshire Hathaway shareholders, and Charlie Munger applied it more widely to careers and life." },
+      { q: "What does \"knowing its boundaries is vital\" mean?", a: "Buffett's point is that the size of your expertise matters less than being honest about where it ends, because the costliest mistakes happen just outside that edge." },
+      { q: "How can a business apply the circle of competence?", a: "List what you do exceptionally and what you do only adequately, then for each new opportunity decide whether to decline it, partner with a specialist, or invest deliberately to grow your expertise." },
+    ],
+    sources: [
+      { label: "Warren Buffett, Berkshire Hathaway 1996 letter to shareholders" },
+    ],
+    keywords: ["circle of competence", "Warren Buffett circle of competence", "mental models", "know your limits", "decision making", "agency strategy"],
+  },
   /* ───────────────────────── Second-order thinking ───────────────────────── */
   {
     slug: "second-order-thinking",
