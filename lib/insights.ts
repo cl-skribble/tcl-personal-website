@@ -191,9 +191,12 @@ const coreArticles: Article[] = [
     event: "conclave-cmo-fireside-nov-2026",
     gallery: [
       { src: "/images/events/conclave-cmo-fireside-nov-2026/01-guest-speaking.jpg", alt: "The guest CMO answering a question with a microphone at the dinner table", caption: "Our guest in conversation", ratio: 3 / 4, focus: "55% 45%" },
+      { src: "/images/events/conclave-cmo-fireside-nov-2026/00-community.jpg", alt: "Group photo of the Conclave attendees and the guest in front of the Conclave screen", caption: "The Conclave table, 18 November" },
       { src: "/images/events/conclave-cmo-fireside-nov-2026/02-guest-listening.jpg", alt: "The guest smiling while seated with other attendees along the table", caption: "Around the table", ratio: 3 / 4 },
+      { src: "/images/events/conclave-cmo-fireside-nov-2026/07-chan-leong-sharing.jpg", alt: "Chan Leong speaking into a microphone at the dinner table", caption: "Chan Leong adding a view", ratio: 3 / 4 },
       { src: "/images/events/conclave-cmo-fireside-nov-2026/03-floor-question.jpg", alt: "An attendee standing with a microphone asking a question", caption: "Questions from the floor", ratio: 3 / 4 },
       { src: "/images/events/conclave-cmo-fireside-nov-2026/04-attendee-sharing.jpg", alt: "An attendee in a batik shirt sharing a view into the microphone", caption: "Everyone had a view to share", ratio: 3 / 4 },
+      { src: "/images/events/conclave-cmo-fireside-nov-2026/09-table-conversation.jpg", alt: "Chan Leong in conversation with a microphone while attendees beside him listen", caption: "The conversation goes round the table", ratio: 3 / 4 },
       { src: "/images/events/conclave-cmo-fireside-nov-2026/05-round-table.jpg", alt: "An attendee speaking while two others listen at the long table", caption: "Leaders from across industries", ratio: 3 / 4 },
       { src: "/images/events/conclave-cmo-fireside-nov-2026/06-after-the-session.jpg", alt: "Two attendees smiling for a selfie in front of the Conclave screen", caption: "Catching up after the session" },
     ],
