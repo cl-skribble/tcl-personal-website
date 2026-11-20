@@ -13,6 +13,92 @@ const cards = (slug: string, alts: string[]) =>
   alts.map((alt, i) => ({ src: `/digest/${slug}/${slug}-${String(i + 1).padStart(2, "0")}.jpg`, alt }));
 
 export const digestArticles: Article[] = [
+  /* ───────────────────────── Pareto principle ───────────────────────── */
+  {
+    slug: "pareto-principle",
+    title: "The Pareto Principle: Find the Vital Few That Drive Your Results",
+    seoTitle: "Pareto Principle (80/20 Rule) for Business Leaders",
+    description:
+      "The Pareto principle, or 80/20 rule: a few causes usually drive most results. Where it comes from, how agencies can use it, and the mistakes to avoid.",
+    topics: ["mental-models", "leadership"],
+    published: "2026-11-20",
+    digestDate: "2026-11-20",
+    summary:
+      "The Pareto principle, also called the 80/20 rule, says that a small share of causes usually drives most of the results. It is a rule of thumb, not a law: the split might be 70/30 or 90/10. The useful habit is to rank your clients, channels, tasks or problems by impact, then give the vital few more attention and handle the rest more efficiently.",
+    takeaways: [
+      "A small share of causes usually drives most of the results; 80/20 is shorthand, not an exact law.",
+      "Vilfredo Pareto noticed the pattern in land ownership in Italy in the 1890s.",
+      "Quality pioneer Joseph Juran generalised it and called it \"the vital few and the trivial many\".",
+      "Rank by results, not effort, to find your vital few.",
+      "Don't ignore the rest: Juran later called them \"the useful many\".",
+    ],
+    carousel: cards("pareto-principle", [
+      "Card 1 of 6. Photo of Chan Leong presenting. Mental models for leaders: The Pareto principle. Why a few things drive most of your results.",
+      "Card 2 of 6. The idea: a few things do most of the work. A chart shows 20% of effort producing 80% of results. The vital few: a small share of causes drives most of the results. 80/20 is a rule of thumb, not a law. The split might be 70/30 or 90/10.",
+      "Card 3 of 6. Where it comes from: in the 1890s, economist Vilfredo Pareto noticed about 20% of people owned about 80% of Italy's land. From land to factories: decades later, quality expert Joseph Juran saw the same pattern in manufacturing defects, and named the idea after Pareto.",
+      "Card 4 of 6. In agencies: find your vital few. Clients: a few accounts often bring most of the profit, others take most of the time. Channels: one or two usually drive most of a campaign's results. Revisions: most rounds trace back to a few causes, like an unclear brief.",
+      "Card 5 of 6. Try it this week: rank, then focus. One, pick one list: clients, channels, tasks or problems. Two, rank it by results: profit, leads or pain caused. Three, circle the top 20% and spot what they share. Four, give them more time, and cut, delegate or fix the rest.",
+      "Card 6 of 6. Remember: the vital few and the trivial many. Joseph Juran's phrase for the Pareto principle. What's your vital few this month? Chan Leong, CEO, Speaker, Builder.",
+    ]),
+    body: [
+      { type: "p", text: "Most businesses spread their time evenly. Results almost never arrive evenly." },
+      { type: "p", text: "The Pareto principle is a simple reminder of that gap, and a practical way to close it." },
+
+      { type: "h2", text: "What is the Pareto principle?" },
+      { type: "p", text: "The Pareto principle, often called the 80/20 rule, says that a small share of causes usually produces most of the effects. Roughly 20% of customers bring 80% of revenue; 20% of bugs cause 80% of crashes; 20% of tasks deliver 80% of the value." },
+      { type: "p", text: "The numbers are shorthand. The real split might be 70/30, 90/10 or 95/5, and the two numbers don't have to add up to 100. What matters is the shape: results are lopsided, so effort should be too." },
+
+      { type: "h2", text: "Where does the Pareto principle come from?" },
+      { type: "p", text: "In the 1890s, the Italian economist Vilfredo Pareto observed in his work on political economy that roughly 80% of the land in Italy was owned by about 20% of the population, and found similar patterns elsewhere." },
+      { type: "p", text: "Decades later, the quality pioneer Joseph M. Juran came across Pareto's work and saw the same pattern in manufacturing: a few causes produced most of the defects. He generalised the idea, named it after Pareto, and coined the phrase \"the vital few and the trivial many\". The Pareto chart, which ranks causes from biggest to smallest, became a standard quality tool." },
+
+      { type: "h2", text: "Why does the Pareto principle matter for leaders?" },
+      { type: "ul", items: [
+        "**Even effort is mostly wasted effort.** If a few things drive most results, spreading time evenly means most of it goes where it matters least.",
+        "**It tells you what to drop.** Ranking by impact makes it obvious which tasks, clients or channels to cut, delegate or automate.",
+        "**It works on problems too.** A handful of root causes usually create most of the complaints, delays and rework. Fix those first.",
+      ] },
+
+      { type: "h2", text: "How does the Pareto principle apply in agencies and marketing?" },
+      { type: "ul", items: [
+        "**Clients.** A few accounts often bring most of the profit, while others take most of the team's time. Knowing which is which changes how you staff, price and renew.",
+        "**Channels.** In most campaigns, one or two channels drive the bulk of results. Moving budget toward them usually beats spreading it thinly everywhere.",
+        "**Revisions.** Most revision rounds trace back to a few causes: an unclear brief, a missing decision-maker, or feedback that arrives too late. Fixing the brief template can remove more rework than any amount of overtime.",
+      ] },
+      { type: "p", text: "It pairs well with [Parkinson's law](/insights/parkinsons-law): once you know the vital few tasks, give them tight, focused time instead of letting the trivial many expand to fill the week. And it helps define your [circle of competence](/insights/circle-of-competence): the work in your top 20% is often the work you are best at." },
+
+      { type: "h2", text: "How do you run a quick Pareto analysis?" },
+      { type: "ol", items: [
+        "Pick one list: clients, channels, tasks, products or problems.",
+        "Choose the result that matters: profit, leads, hours saved, or pain caused.",
+        "Rank the list from biggest to smallest contributor, using real numbers where you have them.",
+        "Circle the top group that drives most of the result, and look at what those items have in common.",
+        "Give them more time, budget and attention. Cut, delegate, automate or fix the rest.",
+      ] },
+
+      { type: "h2", text: "What are the common mistakes with the 80/20 rule?" },
+      { type: "ul", items: [
+        "**Treating 80/20 as exact.** It is a pattern, not a formula. Use your own data to find your real split.",
+        "**Ranking by effort instead of results.** The tasks that feel biggest are not always the ones that move the numbers.",
+        "**Ignoring everything else.** Juran himself later preferred \"the useful many\" to \"the trivial many\": the rest still matters, it just needs a cheaper, simpler way of being handled.",
+        "**Doing it once.** Your vital few change as clients, markets and channels change. Re-rank every quarter.",
+      ] },
+
+      { type: "h2", text: "What's your vital few this month?" },
+      { type: "p", text: "Pick one list today and rank it. The answer is usually obvious within ten minutes, and it is rarely where most of your time is going." },
+    ],
+    faq: [
+      { q: "What is the Pareto principle?", a: "It is the observation that a small share of causes usually drives most of the results, often summarised as the 80/20 rule. The exact split varies." },
+      { q: "Who came up with the 80/20 rule?", a: "It is named after the economist Vilfredo Pareto, who noticed in the 1890s that about 20% of people owned about 80% of the land in Italy. Joseph Juran later generalised it as \"the vital few and the trivial many\"." },
+      { q: "Is the 80/20 rule always 80 and 20?", a: "No. It is a rule of thumb. The real split might be 70/30 or 90/10, and the two numbers don't need to add up to 100." },
+      { q: "How can an agency use the Pareto principle?", a: "Rank clients by profit, channels by results and revision rounds by cause, then focus time and budget on the top few and simplify, delegate or fix the rest." },
+    ],
+    sources: [
+      { label: "Vilfredo Pareto, Cours d'économie politique, 1896" },
+      { label: "Joseph M. Juran, Quality Control Handbook, 1951" },
+    ],
+    keywords: ["Pareto principle", "80/20 rule", "vital few", "Joseph Juran", "mental models", "prioritisation", "agency productivity"],
+  },
   /* ───────────────────────── Circle of competence ───────────────────────── */
   {
     slug: "circle-of-competence",
