@@ -13,6 +13,90 @@ const cards = (slug: string, alts: string[]) =>
   alts.map((alt, i) => ({ src: `/digest/${slug}/${slug}-${String(i + 1).padStart(2, "0")}.jpg`, alt }));
 
 export const digestArticles: Article[] = [
+  /* ───────────────────────── Sunk cost fallacy ───────────────────────── */
+  {
+    slug: "sunk-cost-fallacy",
+    title: "The Sunk Cost Fallacy: Why Leaders Keep Funding What Isn't Working",
+    seoTitle: "Sunk Cost Fallacy: A Guide for Business Leaders",
+    description:
+      "The sunk cost fallacy: continuing something because of what you've already spent. The 1985 research behind it, agency examples and the fresh-start question.",
+    topics: ["mental-models", "leadership"],
+    published: "2026-11-20",
+    digestDate: "2026-11-20",
+    summary:
+      "The sunk cost fallacy is the habit of continuing a project, plan or relationship because of the time, money or effort already put in, rather than because of what lies ahead. Those past costs are gone whatever you decide. Better decisions compare only future costs and benefits, which is why the simplest test is: if we were starting today, would we choose this?",
+    takeaways: [
+      "A sunk cost is time, money or effort already spent that you can't get back.",
+      "The fallacy is letting that past spend push you to keep going.",
+      "Arkes and Blumer's 1985 theatre-ticket study showed people who paid more used their tickets more.",
+      "It is also called the Concorde fallacy, after the supersonic jet that kept being funded.",
+      "Ask the fresh-start question: if we were starting today, would we choose this?",
+    ],
+    carousel: cards("sunk-cost-fallacy", [
+      "Card 1 of 6. Photo of Chan Leong. Mental models for leaders: The sunk cost fallacy. Why we keep going just because we've already paid.",
+      "Card 2 of 6. The idea: what's spent is spent. The trap: we've already put so much in, we can't stop now. Why it's a trap: that money and time are gone whatever you decide next. The fix: decide on what's ahead, not what's behind.",
+      "Card 3 of 6. The research: in 1985, psychologists Hal Arkes and Catherine Blumer sold theatre season tickets at three prices. People who paid full price went to more plays than those who got a discount. Same shows; only the money already spent was different. The Concorde fallacy: it's also named after the supersonic jet, which kept getting funded long after it was clear it wouldn't pay off.",
+      "Card 4 of 6. In agencies: hard to walk away. A losing pitch: weeks of work in, but the fit was never right. A tired campaign: it's not working, but we paid for the shoot. A wrong hire: months of training already invested.",
+      "Card 5 of 6. Try it this week: the fresh-start question. One, pick one project, client or tool you're quietly doubting. Two, ask: if we were starting today, would we choose this? Three, ignore what's spent and compare only what's still to come. Four, if the answer is no, stop, shrink or change it.",
+      "Card 6 of 6. Remember: past costs are gone. Decide on what's ahead. What are you keeping only because you've paid for it? Chan Leong, CEO, Speaker, Builder.",
+    ]),
+    body: [
+      { type: "p", text: "\"We've come too far to stop now.\" It sounds like grit. Often, it's a trap." },
+      { type: "p", text: "The sunk cost fallacy explains why smart teams keep pouring time and money into things that stopped making sense a while ago." },
+
+      { type: "h2", text: "What is the sunk cost fallacy?" },
+      { type: "p", text: "A sunk cost is anything you have already spent and cannot get back: money, time, effort or reputation. The fallacy is letting that past spend drive your next decision." },
+      { type: "p", text: "Rationally, sunk costs are gone whatever you choose next, so they shouldn't count. The only question that matters is whether the future benefits of continuing beat the future costs. In practice, the more we have put in, the harder it feels to walk away." },
+
+      { type: "h2", text: "What does the research on sunk costs show?" },
+      { type: "p", text: "In a well-known 1985 study, psychologists Hal Arkes and Catherine Blumer arranged for theatre season tickets at Ohio University to be sold at three different prices: full price and two discounts. Over the following months, people who had paid full price attended more plays than those who had paid less." },
+      { type: "p", text: "The plays were the same and so were the seats. The only difference was how much each person had already spent, and that alone changed their behaviour." },
+      { type: "p", text: "The same pattern is sometimes called the Concorde fallacy, a term used by biologists Richard Dawkins and Tamsin Carlisle in 1976. It refers to the supersonic airliner, which kept being funded long after it was clear it would not pay off, partly because so much had already been invested." },
+
+      { type: "h2", text: "Why is the sunk cost fallacy so hard to resist?" },
+      { type: "ul", items: [
+        "**Stopping feels like admitting a mistake.** Continuing protects our pride, at least for a while.",
+        "**Losses hurt more than gains please.** Walking away makes the loss feel real and final.",
+        "**We don't want to look wasteful.** Abandoning something we paid for feels irresponsible, even when continuing wastes more.",
+      ] },
+
+      { type: "h2", text: "Where does the sunk cost fallacy show up in agencies?" },
+      { type: "ul", items: [
+        "**A losing pitch.** Weeks of strategy and creative have gone in, but it's clear the client wants something you don't do well. The work done is not a reason to keep chasing it.",
+        "**A tired campaign.** The results are flat, but \"we paid for the shoot\" keeps it running. The production budget is spent either way; the media budget isn't.",
+        "**A wrong hire or partner.** Months of onboarding make it tempting to give it \"one more quarter\", long after the signals are clear.",
+        "**A tool or system.** A platform that never fit gets kept because of the licence fees and setup time already paid.",
+      ] },
+      { type: "p", text: "It is the mirror image of [the Pareto principle](/insights/pareto-principle): instead of freeing time for the vital few, sunk costs lock time into things that no longer earn it. And [second-order thinking](/insights/second-order-thinking) helps here too: ask what keeping the project going will cost next quarter, not what it cost last quarter." },
+
+      { type: "h2", text: "How do you avoid the sunk cost fallacy?" },
+      { type: "ol", items: [
+        "Pick one project, client, campaign or tool you are quietly doubting.",
+        "Ask the fresh-start question: if we were starting today, knowing what we know now, would we choose this?",
+        "Compare only what is still to come: the remaining cost, effort and likely benefit.",
+        "If the answer is no, stop it, shrink it or change it, and say so openly so the team learns it is safe to call time.",
+      ] },
+      { type: "p", text: "It also helps to set stop rules at the start: \"if this campaign isn't hitting X by week four, we pause and rethink.\" Deciding the exit before you are invested is much easier than deciding it after." },
+
+      { type: "h2", text: "Is it always wrong to keep going?" },
+      { type: "p", text: "No. Persistence is often exactly right. The difference is the reason. Keep going because the future looks worth it, not because the past was expensive. If the honest answer to the fresh-start question is yes, carry on with confidence." },
+
+      { type: "h2", text: "What are you keeping only because you've paid for it?" },
+      { type: "p", text: "Most teams have at least one. Name it this week, and decide on what's ahead." },
+    ],
+    faq: [
+      { q: "What is the sunk cost fallacy?", a: "It is continuing a project or decision because of the time, money or effort already spent, instead of judging it on future costs and benefits." },
+      { q: "What is an example of the sunk cost fallacy?", a: "In a 1985 study by Hal Arkes and Catherine Blumer, people who paid full price for theatre season tickets went to more plays than those who got discounts, even though the plays were the same." },
+      { q: "Why is it called the Concorde fallacy?", a: "The supersonic Concorde kept receiving funding long after it was clear it would not pay off, partly because so much had already been invested. Biologists Dawkins and Carlisle used the term in 1976." },
+      { q: "How can leaders avoid the sunk cost fallacy?", a: "Ask whether you would start the project today knowing what you know now, compare only future costs and benefits, and set stop rules before you are heavily invested." },
+    ],
+    sources: [
+      { label: "Hal R. Arkes and Catherine Blumer, \"The Psychology of Sunk Cost\", Organizational Behavior and Human Decision Processes, 1985" },
+      { label: "Richard Dawkins and Tamsin R. Carlisle, \"Parental investment, mate desertion and a fallacy\", Nature, 1976" },
+      { label: "Hal R. Arkes and Peter Ayton, \"The Sunk Cost and Concorde Effects: Are Humans Less Rational Than Lower Animals?\", Psychological Bulletin, 1999" },
+    ],
+    keywords: ["sunk cost fallacy", "sunk cost", "Concorde fallacy", "escalation of commitment", "mental models", "decision making", "agency leadership"],
+  },
   /* ───────────────────────── Pareto principle ───────────────────────── */
   {
     slug: "pareto-principle",
