@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const a = getArticle(slug);
   if (!a) return {};
-  const image = a.image?.src ?? a.carousel?.[0]?.src ?? "/images/profile.jpg";
+  const image = a.image?.src ?? a.carousel?.[0]?.src ?? a.video?.poster ?? "/images/profile.jpg";
   return {
     title: `${a.seoTitle ?? a.title} | Teng Chan Leong`,
     description: a.description,
@@ -92,7 +92,24 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
         abstract: plain(a.summary),
         citation: a.sources.filter((s) => s.href).map((s) => abs(s.href!)),
         speakable: { "@type": "SpeakableSpecification", cssSelector: [".article-summary", ".article-takeaways"] },
+        ...(a.video ? { video: { "@id": `${url}#video` } } : {}),
       },
+      ...(a.video
+        ? [
+            {
+              "@type": "VideoObject",
+              "@id": `${url}#video`,
+              name: a.video.title,
+              description: a.description,
+              thumbnailUrl: `${SITE_URL}${a.video.poster}`,
+              contentUrl: `${SITE_URL}${a.video.src}`,
+              uploadDate: a.video.uploadDate ?? a.published,
+              duration: a.video.duration,
+              inLanguage: "en",
+              author: { "@id": `${SITE_URL}/#person` },
+            },
+          ]
+        : []),
       {
         "@type": "FAQPage",
         "@id": `${url}#faq`,
@@ -168,6 +185,21 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
               ))}
             </ul>
           </section>
+
+          {a.video && (
+            <div>
+              <SectionLabel>{a.video.label ?? "Watch the video"}</SectionLabel>
+              <video
+                className="mx-auto block w-full max-w-sm aspect-[9/16] rounded-2xl border border-white/10 bg-black object-cover"
+                src={a.video.src}
+                poster={a.video.poster}
+                controls
+                playsInline
+                preload="metadata"
+                aria-label={a.video.title}
+              />
+            </div>
+          )}
 
           {a.carousel && a.carousel.length > 0 && (
             <div>

@@ -103,10 +103,83 @@ export type Article = {
   gallery?: GalleryPhoto[];
   /** Daily digest date, for mental-model pieces. */
   digestDate?: string;
+  /** Vertical (9:16) video shown near the top, with VideoObject JSON-LD. `duration` is ISO 8601, e.g. "PT1M7S". */
+  video?: { src: string; poster: string; title: string; duration: string; label?: string; uploadDate?: string };
 };
 
 const coreArticles: Article[] = [
   /* ───────────────────────── Leadership ───────────────────────── */
+  {
+    slug: "leadership-is-a-verb",
+    title: "Leadership Is a Verb, Not a Noun",
+    seoTitle: "Leadership Is a Verb, Not a Noun",
+    description:
+      "What makes a good leader? One who gets the job done, switching between dictator, situational and servant leadership as the moment demands. Leadership is a verb.",
+    topics: ["leadership"],
+    published: "2026-11-21",
+    summary:
+      "A good leader is one who gets the job done, properly. That means being a different leader in different situations: sometimes a dictator, sometimes situational, and by default, for me, a servant leader. No textbook gives you the one right answer, because leadership isn't a title or a theory. It's a verb. If you're not doing it, there's no leadership.",
+    takeaways: [
+      "A good leader is measured by whether the job gets done, properly.",
+      "You'll need more than one style: dictator, situational and servant leader each have their moment.",
+      "My default is servant leadership: take care of the vessel and the people, so you can hand it off to the next leader.",
+      "Hard calls have no one right answer. That is why leadership can't stay theoretical.",
+      "Leadership is a verb. Execute it day to day.",
+    ],
+    video: {
+      src: "/videos/insights/leadership-is-a-verb.mp4",
+      poster: "/images/insights/leadership-is-a-verb-cover.jpg",
+      title: "Leadership is a verb: Teng Chan Leong on what makes a good leader",
+      duration: "PT1M7S",
+      label: "Watch · 1 minute",
+    },
+    body: [
+      { type: "p", text: "Someone once told me leadership is a noun." },
+      { type: "p", text: "It's not. **It's a verb.**" },
+      { type: "p", text: "I was asked recently what makes a good leader. The question came with a familiar frame: business schools often teach two types of leadership, the dictator and the situational leader. Real life asks for more than two, and you'll need all of them." },
+
+      { type: "h2", text: "What makes a good leader?" },
+      { type: "p", text: "A good leader is one who is able to get the job done, properly. Not the one with the best title, the best theory or the best story. The test is the outcome, and how you got there." },
+
+      { type: "h2", text: "Do you need different leadership styles for different situations?" },
+      { type: "p", text: "Yes. You need to be a different leader in different situations, and at different points in time." },
+      { type: "ul", items: [
+        "**Sometimes you need to be a dictator.** When the moment needs a clear call, fast, someone has to make it.",
+        "**Sometimes you need to be a situational leader.** You adapt to the people and the problem in front of you.",
+        "**Sometimes you need to be a servant leader.** You put the team and the organisation ahead of yourself.",
+      ] },
+
+      { type: "h2", text: "What is servant leadership, in practice?" },
+      { type: "p", text: "In general, my core has always been servant leadership. I believe my role is taking care of the vessel and the people, so that I can hand it off to a different leader at a future time, in good shape." },
+      { type: "p", text: "That is my default. But sometimes you do have to step up and make very different calls." },
+
+      { type: "h2", text: "What happens when there is no right answer?" },
+      { type: "p", text: "Part of my training included stories of CEOs of large companies dealing with very complicated situations. For example: your entire ship and crew are being held hostage by pirates, and they're demanding a ransom. Do you pay? Do you not pay?" },
+      { type: "p", text: "What happens if there's a death in the operations? Who shows up at the family's house? How do you do it with heart and kindness, while managing your board and shareholders?" },
+      { type: "p", text: "Across situations like these, you need different types of leadership. **There is no one right answer.** I think people should be judged on their intention and their result." },
+      { type: "callout", title: "The point", text: "No module, framework or case study hands you the answer in the moment. You have to make the call." },
+
+      { type: "h2", text: "Can you learn leadership from an MBA?" },
+      { type: "p", text: "To be honest, an MBA is probably not a good way to learn about leadership. It can give you the vocabulary. It can't do the leading for you." },
+
+      { type: "h2", text: "Why is leadership a verb, not a noun?" },
+      { type: "p", text: "Because you cannot do leadership if you're not doing it. Leadership is a job. It's a task. If you don't do it, there's no leadership." },
+      { type: "p", text: "Leadership is not theoretical. It's not just a mindset. It's not the theory, the reference or the story." },
+      { type: "quote", text: "Leadership is a verb. You have to execute it on a day-to-day basis.", cite: "Teng Chan Leong" },
+      { type: "p", text: "So, what kind of leader are you by default? And when did you last have to be a different one?" },
+    ],
+    faq: [
+      { q: "What makes a good leader?", a: "A leader who gets the job done, properly, and who can switch between leadership styles as the situation demands." },
+      { q: "What are the main leadership styles?", a: "Business schools often contrast the dictator and the situational leader. In practice, leaders also need servant leadership, and most use all three at different times." },
+      { q: "What does 'leadership is a verb' mean?", a: "Leadership is something you do, not a title you hold. If you're not actively leading, day to day, there is no leadership." },
+      { q: "Is an MBA a good way to learn leadership?", a: "It teaches the language and frameworks, but leadership is learned by doing it, especially in situations with no right answer." },
+    ],
+    sources: [
+      { label: "Interview with Teng Chan Leong, November 2026 (video above)" },
+      { label: "LinkedIn post: Leadership is a verb", href: "https://www.linkedin.com/feed/update/urn:li:ugcPost:7529579679456993281/" },
+    ],
+    keywords: ["leadership is a verb", "what makes a good leader", "servant leadership", "situational leadership", "leadership styles", "MBA leadership", "CEO leadership"],
+  },
   {
     slug: "will-beats-skill-leadership-lessons-from-a-cmo",
     title: "Will Beats Skill: 9 Leadership Lessons From a CMO's Fireside Dinner",
