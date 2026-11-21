@@ -13,6 +13,89 @@ const cards = (slug: string, alts: string[]) =>
   alts.map((alt, i) => ({ src: `/digest/${slug}/${slug}-${String(i + 1).padStart(2, "0")}.jpg`, alt }));
 
 export const digestArticles: Article[] = [
+  /* ───────────────────────── Chesterton's fence ───────────────────────── */
+  {
+    slug: "chestertons-fence",
+    title: "Chesterton's Fence: Find Out Why a Rule Exists Before You Remove It",
+    seoTitle: "Chesterton's Fence: A Mental Model for Leaders",
+    description:
+      "Chesterton's fence: don't remove a rule or process until you know why it was put there. Where the idea comes from, agency examples and how to apply it.",
+    topics: ["mental-models", "leadership"],
+    published: "2026-11-21",
+    digestDate: "2026-11-21",
+    summary:
+      "Chesterton's fence is the principle that you shouldn't remove a rule, process or tradition until you understand why it was put there. The idea comes from G.K. Chesterton's 1929 book The Thing, where a reformer wants to clear away a fence he sees no use for. Finding the original reason first lets you remove what's truly obsolete and keep, or improve, what still protects you.",
+    takeaways: [
+      "Chesterton's fence: understand why something exists before you remove it.",
+      "It comes from G.K. Chesterton's 1929 book The Thing.",
+      "Rules and processes often hide reasons nobody remembers, like a past mistake or a legal risk.",
+      "The point isn't to keep everything. It's to change things knowingly.",
+      "Before you scrap a rule, ask who set it up and what problem it solved.",
+    ],
+    carousel: cards("chestertons-fence", [
+      "Card 1 of 6. Photo of Chan Leong. Mental models for leaders: Chesterton's fence. Before you remove a rule, find out why it's there.",
+      "Card 2 of 6. The idea: know why before you remove. The trap: this rule makes no sense, let's scrap it. The fix: find out why it was put up, then decide.",
+      "Card 3 of 6. The origin: 1929. In The Thing, G.K. Chesterton imagines a reformer who finds a fence across a road and wants it gone. His reply: if you can't see what it's for, you're not ready to clear it away.",
+      "Card 4 of 6. In agencies: old rules, hidden reasons. A slow approval step: it may be what stopped a costly mistake. An odd brand rule: it may come from a legal or market issue. A pointless report: someone upstream may rely on it.",
+      "Card 5 of 6. Try it this week: ask before you scrap. One, pick one rule or process you want to cut. Two, ask who set it up and what problem it solved. Three, if the reason is gone, remove it; if it's still valid, improve it.",
+      "Card 6 of 6. Remember: \"Go away and think.\" G.K. Chesterton, The Thing, 1929. Which rule at work would you scrap, and do you know why it exists? Chan Leong, CEO, Speaker, Builder.",
+    ]),
+    body: [
+      { type: "p", text: "Every team has a rule that makes no sense. A sign-off nobody reads. A form nobody likes. The urge is to scrap it." },
+      { type: "p", text: "Chesterton's fence says: not yet. First, find out why it's there." },
+
+      { type: "h2", text: "What is Chesterton's fence?" },
+      { type: "p", text: "Chesterton's fence is the principle that you shouldn't remove a rule, process or tradition until you understand the reason it was put in place. If you can explain why it exists, you can judge whether that reason still applies. If you can't, you don't yet know what you'd be breaking." },
+      { type: "p", text: "It isn't an argument for keeping everything. It's an argument for **changing things knowingly**." },
+
+      { type: "h2", text: "Where does Chesterton's fence come from?" },
+      { type: "p", text: "The idea comes from the English writer G.K. Chesterton, in his 1929 book The Thing, in the chapter \"The Drift from Domesticity\". He asks us to picture \"a fence or gate erected across a road\". A modern reformer walks up, sees no use for it and wants it cleared away." },
+      { type: "p", text: "Chesterton's answer, given by \"the more intelligent type of reformer\", is the heart of the model: \"If you don't see the use of it, I certainly won't let you clear it away. Go away and think. Then, when you can come back and tell me that you do see the use of it, I may allow you to destroy it.\"" },
+      { type: "p", text: "His point is that fences don't build themselves. Someone put it there for a reason. That reason may be out of date, but you can only know that once you've found it." },
+
+      { type: "h2", text: "Why does it work?" },
+      { type: "p", text: "Rules are often the scar tissue of past problems. Over time, people forget the problem but keep the rule. To a newcomer, the rule looks like friction with no purpose." },
+      { type: "p", text: "Removing it can quietly bring the old problem back, sometimes months later, when nobody links the two. Asking \"why is this here?\" is a cheap way to avoid that. It's closely related to [second-order thinking](/insights/second-order-thinking): considering what happens next, not just the immediate win of removing friction." },
+
+      { type: "h2", text: "How does Chesterton's fence apply in marketing and agencies?" },
+      { type: "p", text: "Agencies inherit a lot of fences, from past leaders, past clients and past mistakes. A few common ones:" },
+      { type: "ul", items: [
+        "**A slow approval step.** An extra sign-off on artwork can feel like bureaucracy. It may exist because a wrong price or logo once went to print.",
+        "**An odd brand rule.** A client insists a word never appears in their ads. It may come from a legal issue or a market where that word means something else.",
+        "**A \"pointless\" report.** A weekly sheet nobody on the team reads may be feeding someone's finance forecast upstream.",
+        "**A strange client habit.** A client who wants every email copied to a second person may have been burned by a missed decision before.",
+      ] },
+      { type: "p", text: "In each case, the reason might be gone. But a two-minute question to the right person usually tells you, and saves you from rediscovering the problem the hard way." },
+
+      { type: "h2", text: "How do you practise Chesterton's fence?" },
+      { type: "ol", items: [
+        "Pick one rule, process or habit you want to cut.",
+        "Ask who set it up and what problem it was meant to solve. Check old notes, tickets or the longest-serving person on the team.",
+        "If the reason no longer applies, remove it with confidence and tell people why.",
+        "If the reason still applies, keep the protection but improve how it works: faster, simpler, automated.",
+        "Write the reason down, so the next person doesn't have to go fence-hunting.",
+      ] },
+      { type: "p", text: "That last step matters. Many fences become mysteries simply because nobody recorded why they went up." },
+
+      { type: "h2", text: "What are the common mistakes?" },
+      { type: "p", text: "The first mistake is treating the model as a veto on change. Chesterton's reformer is allowed to remove the fence. He just has to understand it first. Some fences really are useless, and finding that out is a good result." },
+      { type: "p", text: "The second is endless investigation. For small, easily reversed changes, a quick question is enough. Save deeper digging for changes that are costly or hard to undo. [Inversion](/insights/inversion-mental-model) helps here: ask what could go wrong if this rule disappeared tomorrow." },
+
+      { type: "h2", text: "Which rule would you scrap, and do you know why it exists?" },
+      { type: "p", text: "Pick one this week. Find its reason. Then decide whether it stays, goes or gets better." },
+    ],
+    faq: [
+      { q: "What is Chesterton's fence?", a: "It is the principle that you shouldn't remove a rule, process or tradition until you understand why it was put there in the first place." },
+      { q: "Where does Chesterton's fence come from?", a: "From G.K. Chesterton's 1929 book The Thing, in the chapter \"The Drift from Domesticity\", where a reformer wants to clear away a fence across a road without knowing its purpose." },
+      { q: "Does Chesterton's fence mean you should never change rules?", a: "No. It means you should find out why a rule exists before changing it. If the reason no longer applies, removing it is the right call." },
+      { q: "How can leaders use Chesterton's fence?", a: "Before cutting a process, ask who set it up and what problem it solved, then remove it, keep it or improve it, and record the reason for the next person." },
+    ],
+    sources: [
+      { label: "G.K. Chesterton, The Thing (1929), chapter \"The Drift from Domesticity\"" },
+      { label: "The Society of G.K. Chesterton, \"Taking a Fence Down\"", href: "https://www.chesterton.org/taking-a-fence-down/" },
+    ],
+    keywords: ["Chesterton's fence", "Chesterton fence", "G.K. Chesterton", "second-order thinking", "mental models", "decision making", "change management", "agency leadership"],
+  },
   /* ───────────────────────── Sunk cost fallacy ───────────────────────── */
   {
     slug: "sunk-cost-fallacy",
