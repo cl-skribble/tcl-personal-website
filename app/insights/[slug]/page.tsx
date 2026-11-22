@@ -190,7 +190,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
             <div>
               <SectionLabel>{a.video.label ?? "Watch the video"}</SectionLabel>
               <video
-                className="mx-auto block w-full max-w-sm aspect-[9/16] rounded-2xl border border-white/10 bg-black object-cover"
+                className="mx-auto block w-full max-w-sm aspect-[9/16] rounded-2xl border border-white/10 bg-black object-cover [&:fullscreen]:object-contain [&:-webkit-full-screen]:object-contain [&:fullscreen]:rounded-none [&:fullscreen]:border-0"
                 src={a.video.src}
                 poster={a.video.poster}
                 controls
