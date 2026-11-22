@@ -142,6 +142,7 @@ export const events: SiteEvent[] = [
     testimonials: false,
     gallery: [
       { src: "/images/events/rehda-youth-takun-retreat-nov-2026/00-group-photo.jpg", alt: "Group photo of REHDA Youth members and guests in white sports attire on the lawn at Takun Retreat Club, with the REHDA Youth banner and limestone hills behind", caption: "The REHDA Youth crowd at Takun Retreat Club", ratio: 3 / 2 },
+      { src: "/images/events/rehda-youth-takun-retreat-nov-2026/00b-chan-leong-selfie.jpg", alt: "Chan Leong takes a smiling selfie with six fellow players in white sports attire by the terracotta wall at the pickleball courts", caption: "A courtside selfie between games", ratio: 4 / 3 },
       { src: "/images/events/rehda-youth-takun-retreat-nov-2026/01-chan-leong-courtside.jpg", alt: "Chan Leong with three other guests by the grass tennis court, drinks in hand", caption: "Courtside with friends", ratio: 3 / 2 },
       { src: "/images/events/rehda-youth-takun-retreat-nov-2026/02-welcome-remarks.jpg", alt: "A speaker holding a microphone gives remarks at the registration area", caption: "Welcome remarks to open the evening", ratio: 3 / 2 },
       { src: "/images/events/rehda-youth-takun-retreat-nov-2026/03-pickleball-rally.jpg", alt: "A guest leaps to return a high ball during a pickleball game on a terracotta court", caption: "Pickleball social play", ratio: 3 / 2 },
