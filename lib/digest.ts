@@ -13,6 +13,87 @@ const cards = (slug: string, alts: string[]) =>
   alts.map((alt, i) => ({ src: `/digest/${slug}/${slug}-${String(i + 1).padStart(2, "0")}.jpg`, alt }));
 
 export const digestArticles: Article[] = [
+  /* ───────────────────────── Hanlon's razor ───────────────────────── */
+  {
+    slug: "hanlons-razor",
+    title: "Hanlon's Razor: Assume a Mistake Before You Assume Malice",
+    seoTitle: "Hanlon's Razor: A Mental Model for Leaders",
+    description:
+      "Hanlon's razor: never attribute to malice what a mistake explains. Where the saying comes from, agency examples, and how leaders can use it day to day.",
+    topics: ["mental-models", "leadership"],
+    published: "2026-11-22",
+    digestDate: "2026-11-22",
+    summary:
+      "Hanlon's razor is the rule of thumb \"Never attribute to malice that which is adequately explained by stupidity.\" It was printed under that name in Murphy's Law Book Two (1980). For leaders, it means looking for the simplest honest explanation, usually a mistake, a gap or a rush, before assuming someone acted against you.",
+    takeaways: [
+      "Hanlon's razor: don't assume bad intent when a mistake explains what happened.",
+      "The saying was printed as \"Hanlon's razor\" in Murphy's Law Book Two (1980).",
+      "Assuming malice starts a fight; assuming a mistake lets you fix the system.",
+      "Most late replies, missed briefs and curt emails come from overload or unclear ownership.",
+      "It's a starting assumption, not blind trust: check the facts before you react.",
+    ],
+    carousel: cards("hanlons-razor", [
+      "Card 1 of 6. Photo of Chan Leong. Mental models for leaders: Hanlon's razor. Mistake or malice? Bet on the mistake first.",
+      "Card 2 of 6. The idea: mistake before malice. The trap: they're ignoring us on purpose. The fix: look for the simplest honest explanation first.",
+      "Card 3 of 6. The origin: 1980. Murphy's Law Book Two printed a reader's line, credited as Hanlon's razor: \"Never attribute to malice that which is adequately explained by stupidity.\"",
+      "Card 4 of 6. In agencies: looks like malice, usually isn't. A late reply: their inbox may simply be full. A missed brief: often nobody clearly owned it. A rude email: likely written in a rush.",
+      "Card 5 of 6. Try it this week: check before you react. One, notice when you assume bad intent. Two, ask what's the simplest honest explanation. Three, check the facts, then fix the system together.",
+      "Card 6 of 6. Remember: mistake before malice. After Hanlon's razor, 1980. When did a malicious move turn out to be a simple mistake? Chan Leong, CEO, Speaker, Builder.",
+    ]),
+    body: [
+      { type: "p", text: "A client goes quiet for a week. A colleague skips your update in the meeting. A reply lands in your inbox with no greeting and one line of text." },
+      { type: "p", text: "It's tempting to read intent into all of it. Hanlon's razor suggests a better first guess." },
+
+      { type: "h2", text: "What is Hanlon's razor?" },
+      { type: "p", text: "Hanlon's razor is a rule of thumb: **\"Never attribute to malice that which is adequately explained by stupidity.\"** In gentler words, when something goes wrong, assume a mistake, an oversight or a rush before you assume someone meant to hurt you." },
+      { type: "p", text: "Like Occam's razor, it \"shaves away\" the less likely explanation. Deliberate bad intent takes planning and motive. Mistakes just need a busy day." },
+
+      { type: "h2", text: "Where does Hanlon's razor come from?" },
+      { type: "p", text: "The line was printed under the title \"Hanlon's razor\" in Arthur Bloch's 1980 collection Murphy's Law Book Two: More Reasons Why Things Go Wrong!, a book of reader-submitted laws in the spirit of Murphy's law. It is usually credited to Robert J. Hanlon of Scranton, Pennsylvania, although the book itself didn't say who Hanlon was." },
+      { type: "p", text: "Similar ideas are much older. Writers have long noted that confusion and neglect cause more trouble in the world than cunning does. Hanlon's version stuck because it is short and easy to remember." },
+
+      { type: "h2", text: "Why does it work?" },
+      { type: "p", text: "Most of what goes wrong at work is ordinary: overloaded inboxes, unclear ownership, handovers that drop a detail, messages typed between meetings. Bad intent exists, but it is rarer than these everyday causes." },
+      { type: "p", text: "Our minds tend to do the opposite. When something affects us, we explain it by the other person's character rather than their situation. Hanlon's razor is a deliberate correction to that habit." },
+      { type: "p", text: "It also changes what you do next. **Assume malice, and you start a fight. Assume a mistake, and you fix the system.** The first leaves you defending yourself; the second gets you asking how the miss happened and how to stop it repeating." },
+
+      { type: "h2", text: "How does Hanlon's razor apply in marketing and agencies?" },
+      { type: "p", text: "Agency life is full of moments that look personal and usually aren't:" },
+      { type: "ul", items: [
+        "**The late client reply.** It can feel like you've been dropped. More often, their inbox is full, or the decision is waiting on someone above them.",
+        "**The missed brief.** It looks like carelessness or a snub. Often nobody clearly owned the handover between account and creative teams.",
+        "**The curt email.** It reads as rude. It was probably written on a phone, in a rush, between two other meetings.",
+        "**The changed feedback.** A client reverses an approved direction. It can feel like bad faith, but it is often a new stakeholder seeing the work for the first time.",
+      ] },
+      { type: "p", text: "In each case, the razor buys you a calmer first move: a friendly check-in, a clearer owner, a quick call instead of an angry reply." },
+
+      { type: "h2", text: "How do you practise Hanlon's razor?" },
+      { type: "ol", items: [
+        "Notice the moment you assume someone did it on purpose.",
+        "Ask: what's the simplest honest explanation? List two or three ordinary causes.",
+        "Check before you react. A short, neutral question usually tells you which explanation is true.",
+        "Fix the system, not the person: clarify ownership, deadlines or the handover that failed.",
+      ] },
+
+      { type: "h2", text: "What are the common mistakes?" },
+      { type: "p", text: "The razor is a starting assumption, not blind trust. If the same \"mistake\" keeps happening after you've fixed the system, the pattern is information too. Patterns deserve a direct conversation." },
+      { type: "p", text: "It also isn't a way to excuse your own errors. Use it generously on others, and hold yourself to the fix. It pairs well with [Chesterton's fence](/insights/chestertons-fence): before you assume a rule or a person is being difficult, find out what's really going on." },
+
+      { type: "h2", text: "When did a \"malicious\" move turn out to be a simple mistake?" },
+      { type: "p", text: "Think of the last time you were sure someone did it on purpose. Was it a mistake after all? This week, try the simplest honest explanation first." },
+    ],
+    faq: [
+      { q: "What is Hanlon's razor?", a: "It is the rule of thumb \"Never attribute to malice that which is adequately explained by stupidity\": assume a mistake before you assume bad intent." },
+      { q: "Who came up with Hanlon's razor?", a: "It was printed as \"Hanlon's razor\" in Arthur Bloch's Murphy's Law Book Two (1980) and is usually credited to Robert J. Hanlon of Scranton, Pennsylvania." },
+      { q: "Does Hanlon's razor mean people are never malicious?", a: "No. It's a starting assumption. If the same problem keeps happening after you've fixed the system, address the pattern directly." },
+      { q: "How can leaders use Hanlon's razor?", a: "Before reacting, ask what the simplest honest explanation is, check the facts with a neutral question, then fix the process that allowed the mistake." },
+    ],
+    sources: [
+      { label: "Arthur Bloch, Murphy's Law Book Two: More Reasons Why Things Go Wrong! (1980)" },
+      { label: "Quote Investigator, \"Never Attribute to Malice That Which Is Adequately Explained by Stupidity\"", href: "https://quoteinvestigator.com/2016/12/30/not-malice/" },
+    ],
+    keywords: ["Hanlon's razor", "never attribute to malice", "Robert J. Hanlon", "Murphy's Law Book Two", "mental models", "leadership", "agency leadership", "assume positive intent"],
+  },
   /* ───────────────────────── Chesterton's fence ───────────────────────── */
   {
     slug: "chestertons-fence",
