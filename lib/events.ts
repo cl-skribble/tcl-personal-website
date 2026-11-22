@@ -112,6 +112,48 @@ export const events: SiteEvent[] = [
   },
 
   {
+    slug: "rehda-youth-takun-retreat-nov-2026",
+    title: "REHDA Youth Year-End Social Retreat 2026",
+    tagline:
+      "Tennis, pickleball and good conversation with Malaysia's next generation of property developers at Takun Retreat Club.",
+    description: [
+      "Some of the best conversations in an industry don't happen in a boardroom. They happen courtside, in all-white sports attire, between rallies.",
+      "REHDA Youth brought young property developers and people from across the property industry together at Takun Retreat Club in Rawang for its year-end social retreat. No fixed teams, no formal matches: play, cheer from the sidelines, or simply eat and catch up.",
+      "**How the evening ran:**",
+      "- 3.30 pm: arrival and registration",
+      "- 4.15 pm: welcome remarks by Mr. Choy Kin Mann, Chairman of REHDA Youth",
+      "- 4.30 pm: pickleball and tennis social play",
+      "- 6.30 pm: buffet dinner",
+      "- 8.00 pm: wrap-up and the group photo",
+      "**What I took home:**",
+      "- A shared game lowers the guard faster than any name card.",
+      "- The next generation of developers is building relationships early, and building them across companies, not only within them.",
+      "- Showing up for the community matters as much as showing up for the deal.",
+      "Thank you to Kin Mann, Vinny and the REHDA Youth Committee for having us. It was a fun, easy evening with great company.",
+      "Photos by ImpactFrames.",
+    ],
+    start: "2026-11-21T16:00:00+08:00",
+    end: "2026-11-21T21:00:00+08:00",
+    venueName: "Pepe @ Takun Retreat Club",
+    venueAddress: "KM-20, Jalan Ipoh-Rawang, Taman Rekreasi Templer, 48000 Rawang, Selangor",
+    venueUrl: "https://www.google.com/maps/search/?api=1&query=Takun+Retreat+Club+Rawang",
+    audience: "REHDA Youth members & industry guests",
+    rsvp: { required: false },
+    testimonials: false,
+    gallery: [
+      { src: "/images/events/rehda-youth-takun-retreat-nov-2026/00-group-photo.jpg", alt: "Group photo of REHDA Youth members and guests in white sports attire on the lawn at Takun Retreat Club, with the REHDA Youth banner and limestone hills behind", caption: "The REHDA Youth crowd at Takun Retreat Club", ratio: 3 / 2 },
+      { src: "/images/events/rehda-youth-takun-retreat-nov-2026/01-chan-leong-courtside.jpg", alt: "Chan Leong with three other guests by the grass tennis court, drinks in hand", caption: "Courtside with friends", ratio: 3 / 2 },
+      { src: "/images/events/rehda-youth-takun-retreat-nov-2026/02-welcome-remarks.jpg", alt: "A speaker holding a microphone gives remarks at the registration area", caption: "Welcome remarks to open the evening", ratio: 3 / 2 },
+      { src: "/images/events/rehda-youth-takun-retreat-nov-2026/03-pickleball-rally.jpg", alt: "A guest leaps to return a high ball during a pickleball game on a terracotta court", caption: "Pickleball social play", ratio: 3 / 2 },
+      { src: "/images/events/rehda-youth-takun-retreat-nov-2026/04-tennis-on-grass.jpg", alt: "Players on the grass tennis court framed by tall trees", caption: "Tennis on the grass court", ratio: 3 / 2 },
+      { src: "/images/events/rehda-youth-takun-retreat-nov-2026/05-pickleball-crew.jpg", alt: "A group of players posing and cheering beside the pickleball net", caption: "No fixed teams, just good games", ratio: 3 / 2 },
+      { src: "/images/events/rehda-youth-takun-retreat-nov-2026/06-chan-leong-dinner.jpg", alt: "Chan Leong smiling at the long dinner table with other guests", caption: "Dinner and conversation", ratio: 3 / 2 },
+      { src: "/images/events/rehda-youth-takun-retreat-nov-2026/07-dinner-table.jpg", alt: "Guests leaning in and smiling around the dinner table", caption: "Catching up over the buffet", ratio: 3 / 2 },
+      { src: "/images/events/rehda-youth-takun-retreat-nov-2026/08-rehda-youth.jpg", alt: "REHDA Youth roll-up banner on the lawn", caption: "Thank you, REHDA Youth", ratio: 2 / 3 },
+    ],
+  },
+
+  {
     slug: "conclave-cmo-fireside-nov-2026",
     title: "Conclave: Fireside Dinner with a Regional CMO",
     tagline:
