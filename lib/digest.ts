@@ -85,7 +85,7 @@ export const digestArticles: Article[] = [
       { q: "How can marketers avoid survivorship bias?", a: "Before copying a successful campaign, look for similar attempts that failed, compare what differed, and keep records of your own failed tests." },
     ],
     sources: [
-      { label: "Bill Casselman, \"The Legend of Abraham Wald\", American Mathematical Society Feature Column (2016)", href: "https://www.ams.org/publicoutreach/feature-column/fc-2016-06" },
+      { label: "Bill Casselman, \"The Legend of Abraham Wald\", American Mathematical Society Feature Column (2016)", href: "https://www.ams.org/samplings/feature-column/fc-2016-06" },
       { label: "Abraham Wald, A Method of Estimating Plane Vulnerability Based on Damage of Survivors (Statistical Research Group memoranda, 1943; reprinted by the Center for Naval Analyses, 1980)" },
     ],
     keywords: ["survivorship bias", "Abraham Wald", "bomber bullet holes", "selection bias", "mental models", "marketing case studies", "leadership", "decision making"],
