@@ -13,6 +13,83 @@ const cards = (slug: string, alts: string[]) =>
   alts.map((alt, i) => ({ src: `/digest/${slug}/${slug}-${String(i + 1).padStart(2, "0")}.jpg`, alt }));
 
 export const digestArticles: Article[] = [
+  /* ───────────────────────── Survivorship bias ───────────────────────── */
+  {
+    slug: "survivorship-bias",
+    title: "Survivorship Bias: Why Copying Winners So Often Fails",
+    seoTitle: "Survivorship Bias: A Mental Model for Leaders",
+    description:
+      "Survivorship bias: judging by the winners you can see and missing the failures you can't. Abraham Wald's bombers, marketing examples and how to avoid it.",
+    topics: ["mental-models", "leadership"],
+    published: "2026-11-24",
+    digestDate: "2026-11-24",
+    summary:
+      "Survivorship bias is the mistake of drawing conclusions only from the cases that survived, while the failures that dropped out stay invisible. The classic illustration is statistician Abraham Wald's work on damaged bombers in World War II. In marketing, it shows up whenever we copy viral campaigns or famous founders without asking how many people tried the same thing and failed.",
+    takeaways: [
+      "Survivorship bias: you only see the survivors, so the evidence is skewed.",
+      "The classic example is Abraham Wald's analysis of bombers that made it home in World War II.",
+      "The missing data, the failures, often holds the real lesson.",
+      "In marketing it shows up as copying viral campaigns, famous founders and one-off hit ads.",
+      "Before copying a success, ask what didn't make it, and why.",
+    ],
+    carousel: cards("survivorship-bias", [
+      "Card 1 of 6. Photo of Chan Leong. Mental models for leaders: survivorship bias. Why copying winners so often fails.",
+      "Card 2 of 6. The idea: you only see the survivors. The trap: it worked for them, let's copy it. The fix: ask what didn't make it, and why.",
+      "Card 3 of 6. The origin: World War II. Statistician Abraham Wald studied damage on bombers that made it home. The lesson: the planes hit in other places never came back. Armour where the survivors weren't hit.",
+      "Card 4 of 6. In agencies: loud winners, quiet failures. The viral case study: you don't see the ones that flopped. The dropout founder: you don't hear from the ones who failed. The one ad that worked: same format, many quiet misses.",
+      "Card 5 of 6. Try it this week: study what didn't make it. One, pick one success you want to copy. Two, find attempts that tried the same and failed. Three, copy what differs, not just what's visible.",
+      "Card 6 of 6. Remember: study the failures too. After Abraham Wald, World War II. Which winning formula did you copy that didn't work? Chan Leong, CEO, Speaker, Builder.",
+    ]),
+    body: [
+      { type: "p", text: "A campaign goes viral. Within a week, everyone is copying its format, its hook and its music. Most of the copies go nowhere." },
+      { type: "p", text: "The problem isn't the copying. It's that we only studied the one that won." },
+
+      { type: "h2", text: "What is survivorship bias?" },
+      { type: "p", text: "Survivorship bias is the error of drawing conclusions from the cases that \"survived\" a selection process, while ignoring the ones that didn't. Because the failures disappear from view, the evidence we're left with makes success look more common, more repeatable and more about the visible traits than it really is." },
+
+      { type: "h2", text: "Where does the idea come from?" },
+      { type: "p", text: "The best-known illustration comes from World War II. The mathematician **Abraham Wald**, working with the Statistical Research Group at Columbia University, studied how to protect bombers given that armour adds weight. The data came from planes that made it back, marked with damage in some areas and not others." },
+      { type: "p", text: "The obvious answer was to armour where the holes were. Wald's insight was the reverse: those planes survived despite being hit there. The planes hit in other places, such as the engines, were the ones that never came back, and they were missing from the data." },
+      { type: "p", text: "Historians note that the popular version of the story is simplified. Wald did write technical memos on estimating aircraft vulnerability from the damage on surviving planes, but some dramatic details are hard to confirm. The lesson holds either way: **the missing data matters.**" },
+
+      { type: "h2", text: "Why does it catch us out?" },
+      { type: "p", text: "Survivors are visible by definition. They write books, give talks and get featured in case studies. Failures rarely do. So our sample of \"what works\" is filtered before we ever see it, and we mistake common traits of the winners for causes of their success." },
+      { type: "p", text: "It's a cousin of [second-order thinking](/insights/second-order-thinking): both ask you to look past what's in front of you to what's happening out of view." },
+
+      { type: "h2", text: "How does survivorship bias show up in marketing and agencies?" },
+      { type: "ul", items: [
+        "**The viral case study.** Award entries and LinkedIn posts show the campaigns that worked. The many that used the same format and flopped don't get written up.",
+        "**The dropout founder.** A few famous founders left school and won. Many more did the same and their stories are never told.",
+        "**The one ad that worked.** A brand's best-performing creative gets cloned, but the same idea may have failed in other tests that nobody looked at.",
+        "**\"Best practice\" from top performers.** Tactics shared by the biggest accounts may be common to failures too; you just never see those accounts.",
+      ] },
+
+      { type: "h2", text: "How do you avoid survivorship bias?" },
+      { type: "ol", items: [
+        "Pick one success you're tempted to copy.",
+        "Ask: how many people tried the same thing? Look for the attempts that failed, in your own data, in past tests or by asking around.",
+        "Compare winners and losers. Copy what actually differs between them, not just what the winner happened to do.",
+        "Keep a record of your own failed tests, so your team learns from the full picture.",
+      ] },
+
+      { type: "h2", text: "What are the common mistakes?" },
+      { type: "p", text: "One mistake is to dismiss every success story. Winners still have lessons; the point is to check them against the failures. Another is to treat the missing data as unknowable. Often you can find it: archived campaigns, rejected concepts, A/B tests that lost. Like [inversion](/insights/inversion-mental-model), the habit is to look deliberately at the side of the picture you'd naturally ignore." },
+
+      { type: "h2", text: "Which \"winning formula\" did you copy that didn't work?" },
+      { type: "p", text: "Think of the last success you tried to repeat. What did the attempts that failed have in common? That's often where the real lesson is." },
+    ],
+    faq: [
+      { q: "What is survivorship bias?", a: "It's the error of judging from the cases that survived a selection process, such as successful companies or campaigns, while ignoring the failures that dropped out of view." },
+      { q: "What is the Abraham Wald bomber story?", a: "In World War II, statistician Abraham Wald studied damage on bombers that returned. His point was that the areas without holes on survivors, like the engines, were where hits brought planes down, so those areas needed protection." },
+      { q: "Is the bomber story true?", a: "Wald did work on aircraft vulnerability using damage on surviving planes, but the popular retelling is simplified and some details are debated. The lesson about missing data stands." },
+      { q: "How can marketers avoid survivorship bias?", a: "Before copying a successful campaign, look for similar attempts that failed, compare what differed, and keep records of your own failed tests." },
+    ],
+    sources: [
+      { label: "Bill Casselman, \"The Legend of Abraham Wald\", American Mathematical Society Feature Column (2016)", href: "https://www.ams.org/publicoutreach/feature-column/fc-2016-06" },
+      { label: "Abraham Wald, A Method of Estimating Plane Vulnerability Based on Damage of Survivors (Statistical Research Group memoranda, 1943; reprinted by the Center for Naval Analyses, 1980)" },
+    ],
+    keywords: ["survivorship bias", "Abraham Wald", "bomber bullet holes", "selection bias", "mental models", "marketing case studies", "leadership", "decision making"],
+  },
   /* ───────────────────────── Hanlon's razor ───────────────────────── */
   {
     slug: "hanlons-razor",
